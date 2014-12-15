@@ -1,4 +1,4 @@
 <?php
-echo "Konee";
+echo "konee";
 
 ?>
