@@ -1,5 +1,5 @@
 <?php
 
 function getDbCredentias() {
-    return (include_once '../../configs/database.php');
+    return (include_once '../configs/database.php');
 }
