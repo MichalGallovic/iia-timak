@@ -5,8 +5,12 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="style/pridat_predmet/pridat_predmet.css">
+
     <script type="text/javascript" src="js/libs/jquery.min.js"></script>
+    <script type="text/javascript" src="js/libs/underscore.js"></script>
     <script type="text/javascript" src="js/pridat_predmet/pridat_predmet.js"></script>
+
   </head>
   <body>
     <div class="nav navbar navbar-default">
@@ -19,6 +23,7 @@
         <button type="submit" class="btn btn-primary">Odhlas</button>
       </form>
     </div>
+    <form action="insert_subject.php" method="get">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -28,7 +33,7 @@
       <div class="row">
         <div class="col-md-4">
           <h3>Vyber semestra:</h3>
-          <select id="select_term" class="form-control">
+          <select name="select_term" id="select_term" class="form-control">
             <option value="skovaj">vyber typ</option>
             <option value="zimny">zimny</option>
             <option value="letny">letny</option>
@@ -37,13 +42,13 @@
         <div class="col-md-4">
           <div id="druhy_select_admin" hidden>
             <h3>Predmet:</h3>
-            <select id="select_subject" class="form-control"></select>
+            <select name="select_subject" id="select_subject" class="form-control"></select>
           </div>
         </div>
         <div class="col-md-4">
           <div id="treti_select_admin" hidden>
             <h3>pocet cviceni:</h3>
-            <select id="select_exc_count" class="form-control">
+            <select name="select_exc_count" id="select_exc_count" class="form-control">
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -73,54 +78,54 @@
         <div id="prednaska_admin" hidden class="col-md-4">
           <h2>Prednaska</h2>
           <h3>Prednasajuci:</h3>
-          <select id="select_prednasajuciP_admin" class="form-control">
+          <select name="select_lecturer" id="select_prednasajuciP_admin" class="form-control">
             <option value="jozo">jozo</option>
             <option value="kone">kone</option>
           </select>
           <h3>den:</h3>
-          <select id="select_denP_admin" class="form-control">
-            <option value="pon">pon</option>
-            <option value="ut">out</option>
+          <select name="select_day" id="select_denP_admin" class="form-control">
+            <option value="pondelok">pondelok</option>
+            <option value="utorok">utorok</option>
+            <option value="streda">streda</option>
+            <option value="stvrtok">stvrtok</option>
+            <option value="piatok">piatok</option>
           </select>
           <h3>cas:</h3>
-          <select id="select_casP_admin" class="form-control">
+          <select name="select_time" id="select_casP_admin" class="form-control">
+            <option value="0600">06:00</option>
+            <option value="0700">07:00</option>
             <option value="0800">08:00</option>
             <option value="0900">09:00</option>
+            <option value="1000">10:00</option>
+            <option value="1100">11:00</option>
+            <option value="1200">12:00</option>
+            <option value="1300">13:00</option>
+            <option value="1400">14:00</option>
+            <option value="1500">15:00</option>
+            <option value="1600">16:00</option>
+            <option value="1700">17:00</option>
+            <option value="1800">18:00</option>
+            <option value="1900">19:00</option>
+            <option value="2000">20:00</option>
           </select>
           <h3>miestnost:</h3>
-          <select id="select_miestnostP_admin" class="form-control">
+          <select name="select_place" id="select_miestnostP_admin" class="form-control">
             <option value="ab301">ab301</option>
             <option value="bc301">bc301</option>
           </select>
         </div>
         <div class="col-md-4"></div>
         <div id="cvicenie_admin" hidden class="col-md-4">
-          <h2>cviceni</h2>
-          <h3>cviciaci:</h3>
-          <select id="select_cviciaciC_admin" class="form-control">
-            <option value="jozoc">jozoc</option>
-            <option value="konec">konec</option>
-          </select>
-          <h3>den:</h3>
-          <select id="select_denC_admin" class="form-control">
-            <option value="ponc">ponc</option>
-            <option value="utc">outc</option>
-          </select>
-          <h3>cas:</h3>
-          <select id="select_casC_admin" class="form-control">
-            <option value="0800c">08:00c</option>
-            <option value="0900c">09:00c</option>
-          </select>
-          <h3>miestnost:</h3>
-          <select id="select_miestnostC_admin" class="form-control">
-            <option value="ab301c">ab301c</option>
-            <option value="bc301c">bc301c</option>
-          </select>
+          <button id="doLava" class="btn btn-primary"><<</button>
+          <button id="doPrava" class="btn btn-primary">>></button>
+          <div id="cvicenie_admin_cont"></div>
+
         </div>
       </div>
       <div id="add_predmet_wrap" hidden class="row">
-        <button type="button" id="add_predmet" class="btn btn-primary">Pridaj Predmet</button>
+        <button type="submit" class="btn btn-primary">Pridaj Predmet</button>
       </div>
     </div>
+    </form>
   </body>
 </html>

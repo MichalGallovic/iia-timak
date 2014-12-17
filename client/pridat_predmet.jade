@@ -8,11 +8,16 @@ html(lang="en")
 		link(rel="stylesheet",type="text/css",href="style/bootstrap-select.min.css")
 
 		script(type="text/javascript", src="js/libs/jquery.min.js")
+		script(type="text/javascript", src="js/libs/underscore.js")
+
 		//- script(type="text/javascript", src="js/libs/bootstrap.js")
 		script(type="text/javascript", src="js/pridat_predmet/pridat_predmet.js")
 		//- script(type="text/javascript", src="js/libs/bootstrap-select.min.js")
 
-			
+	<?php
+		echo "a";
+
+	?>	
 
 	body
 		.nav.navbar.navbar-default
@@ -77,29 +82,31 @@ html(lang="en")
 
 				.col-md-4
 				#cvicenie_admin(hidden).col-md-4
-					h2 cviceni
-					h3 cviciaci:
-					select(id="select_cviciaciC_admin").form-control
-						option(value="jozoc") jozoc
-						option(value="konec") konec
+					//- h2 cviceni
+					//- h3 cviciaci:
+					//- select(id="select_cviciaciC_admin").form-control
+					//- 	option(value="jozoc") jozoc
+					//- 	option(value="konec") konec
 
-					h3 den:
-					select(id="select_denC_admin").form-control
-						option(value="ponc") ponc
-						option(value="utc") outc
+					//- h3 den:
+					//- select(id="select_denC_admin").form-control
+					//- 	option(value="ponc") ponc
+					//- 	option(value="utc") outc
 
-					h3 cas:
-					select(id="select_casC_admin").form-control
-						option(value="0800c") 08:00c
-						option(value="0900c") 09:00c
+					//- h3 cas:
+					//- select(id="select_casC_admin").form-control
+					//- 	option(value="0800c") 08:00c
+					//- 	option(value="0900c") 09:00c
 
-					h3 miestnost:
-					select(id="select_miestnostC_admin").form-control
-						option(value="ab301c") ab301c
-						option(value="bc301c") bc301c
+					//- h3 miestnost:
+					//- select(id="select_miestnostC_admin").form-control
+					//- 	option(value="ab301c") ab301c
+					//- 	option(value="bc301c") bc301c
 
 			.row(id='add_predmet_wrap',hidden)
 				button(type="button",id="add_predmet").btn.btn-primary Pridaj Predmet
+
+
 
 
 
