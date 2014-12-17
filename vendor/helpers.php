@@ -1,5 +1,10 @@
 <?php
 
 function getDbCredentias() {
-    return (include_once '../../configs/database.php');
+    return [
+        'host'      =>  'localhost',
+        'username'  =>  'root',
+        'password'  =>  'root',
+        'dbName'    =>  'iiaTimak'
+    ];
 }
