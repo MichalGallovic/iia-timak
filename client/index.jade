@@ -30,7 +30,7 @@ html(lang="en")
 			.row
 				.col-md-4
 					h3 Zobraz rozvrh pre:
-					select(id="select_type")
+					select(id="select_type").form-control
 						option(value="skovaj") vyber typ
 						option(value="oddelenie") oddelenie
 						option(value="predmet") predmet
@@ -41,4 +41,4 @@ html(lang="en")
 				.col-md-4
 					#druhy_select(hidden)
 						h3 Druhy Select:
-						select(id="select_detail")
+						select(id="select_detail").form-control
