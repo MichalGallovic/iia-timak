@@ -1,13 +1,13 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/iia_timak/vendor/Mysql/MysqliDb.php';
+require '../../vendor/autoload.php';
 
 class SubjectsRepository {
 
     protected $databaseConnector;
 
     public function __construct() {
-        $credentials = include $_SERVER['DOCUMENT_ROOT'] . 'iia_timak/configs/database.php';
+        $credentials = getDbCredentias();
         $this->databaseConnector = new MysqliDb($credentials['host'], $credentials['username'], $credentials['password'], $credentials['dbName']);
     }
 
