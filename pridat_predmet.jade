@@ -1,0 +1,105 @@
+doctype html
+html(lang="en")
+	head
+		title="IIA"
+		meta(charset="utf-8")
+		//- link(rel="stylesheet", type="text/css", href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet",type="text/css",href="style/bootstrap.min.css")
+		link(rel="stylesheet",type="text/css",href="style/bootstrap-select.min.css")
+
+		script(type="text/javascript", src="js/libs/jquery.min.js")
+		//- script(type="text/javascript", src="js/libs/bootstrap.js")
+		script(type="text/javascript", src="js/pridat_predmet/pridat_predmet.js")
+		//- script(type="text/javascript", src="js/libs/bootstrap-select.min.js")
+
+			
+
+	body
+		.nav.navbar.navbar-default
+			.navbar-header
+				span.navbar-brand FEI Timetable Master Overlord 10 001
+			ul.nav.navbar-nav
+				li.active
+					a(href="pridat_predmet.html") Pridat Predmet
+				li
+					a(href="kontrola.html") Kontrola
+
+			form(id="logout").navbar-form.navbar-right
+				button(type="submit").btn.btn-primary Odhlas
+
+		.container
+			.row
+				.col-md-12
+					h1 Pridat Predmet POZOR ORDER!!
+			.row
+				.col-md-4
+					h3 Vyber semestra:
+					select(id="select_term").form-control
+						option(value="skovaj") vyber typ
+						option(value="zimny") zimny
+						option(value="letny") letny
+						
+				.col-md-4
+					#druhy_select_admin(hidden)
+						h3 Predmet:
+						select(id="select_subject").form-control
+				.col-md-4
+					#treti_select_admin(hidden)
+						h3 pocet cviceni:
+						select(id="select_exc_count").form-control
+							- var n = 0
+								while n < 21
+									option(value=n)= n++
+			
+			.row
+				#prednaska_admin(hidden).col-md-4
+					h2 Prednaska
+					
+					h3 Prednasajuci:
+					select(id="select_prednasajuciP_admin").form-control
+						option(value="jozo") jozo
+						option(value="kone") kone
+
+					h3 den:
+					select(id="select_denP_admin").form-control
+						option(value="pon") pon
+						option(value="ut") out
+
+					h3 cas:
+					select(id="select_casP_admin").form-control
+						option(value="0800") 08:00
+						option(value="0900") 09:00
+
+					h3 miestnost:
+					select(id="select_miestnostP_admin").form-control
+						option(value="ab301") ab301
+						option(value="bc301") bc301
+
+				.col-md-4
+				#cvicenie_admin(hidden).col-md-4
+					h2 cviceni
+					h3 cviciaci:
+					select(id="select_cviciaciC_admin").form-control
+						option(value="jozoc") jozoc
+						option(value="konec") konec
+
+					h3 den:
+					select(id="select_denC_admin").form-control
+						option(value="ponc") ponc
+						option(value="utc") outc
+
+					h3 cas:
+					select(id="select_casC_admin").form-control
+						option(value="0800c") 08:00c
+						option(value="0900c") 09:00c
+
+					h3 miestnost:
+					select(id="select_miestnostC_admin").form-control
+						option(value="ab301c") ab301c
+						option(value="bc301c") bc301c
+
+			.row(id='add_predmet_wrap',hidden)
+				button(type="button",id="add_predmet").btn.btn-primary Pridaj Predmet
+
+
+
