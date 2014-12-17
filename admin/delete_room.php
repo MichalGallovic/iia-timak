@@ -7,20 +7,11 @@ $db = new MysqliDb ($credentials['host'], $credentials['username'],
     $credentials['password'], $credentials['dbName']);
 
     
-    $name = ; // get name from input field 
+    $id = ; //get id 
+    
+    $db->where('id', $id);
+    if($db->delete('rooms')) echo 'successfully deleted';
     
     
     
-    $data = Array(
-    'name' => $name
-);
-
-$id = $db->insert ('rooms', $data);
-
-if ($id)
-    echo 'Vytvorili ste novu miestnost ' . $name ;
-else
-    echo 'Pri vytvarani nastala chyba ' . $db->getLastError();
-
-
 ?>

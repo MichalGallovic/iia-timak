@@ -6,8 +6,9 @@ $credentials = include $_SERVER['DOCUMENT_ROOT'].'iia-timak/configs/database.php
 $db = new MysqliDb ($credentials['host'], $credentials['username'],
     $credentials['password'], $credentials['dbName']);
 
+
+    $rooms = $db->get('rooms');
     
-    var_dump($_POST);
-    
-    
-    ?>
+    var_dump($rooms);
+
+?>

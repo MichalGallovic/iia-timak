@@ -7,20 +7,20 @@ $db = new MysqliDb ($credentials['host'], $credentials['username'],
     $credentials['password'], $credentials['dbName']);
 
     
-    $name = ; // get name from input field 
+    var_dump($_POST);
     
     
+    /*
+    $data = Array ("subject_id" => "admin",
+               "start_time" => "John",
+               "end_time" => 'Doe',
+               "user_id" => "John",
+               "room_id" => "John"        
+    )
+
+    $id = $db->insert('subjects', $data);
+    if($id)
+        echo 'user was created. Id='.$id;
+    */
     
-    $data = Array(
-    'name' => $name
-);
-
-$id = $db->insert ('rooms', $data);
-
-if ($id)
-    echo 'Vytvorili ste novu miestnost ' . $name ;
-else
-    echo 'Pri vytvarani nastala chyba ' . $db->getLastError();
-
-
 ?>
