@@ -1,9 +1,11 @@
 <?php
+
 require_once 'API.class.php';
-require_once 'functions.php';
+require_once 'repositories/SubjectsRepository.php';
 
 class MyAPI extends API {
 
+    protected $subjectsRepository;
     protected $User;
 
     public function __construct($request, $origin) {
@@ -27,6 +29,8 @@ class MyAPI extends API {
           }
          */
         $this->User = $User;
+        
+        $this->subjectsRepository = new SubjectsRepository();
     }
 
     /**
@@ -43,7 +47,7 @@ class MyAPI extends API {
             if (isset($state)) {
                 //return $meniny->allRedLetterDays($state);
                 $retStr .= "ConstState: " . $state . " ";
-            } 
+            }
             $date = $this->request["date"];
             if (isset($date)) {
                 //return $meniny->allRedLetterDays($state);
@@ -51,6 +55,16 @@ class MyAPI extends API {
             }
         }
         return $retStr;
+    }
+
+    protected function subjects() {
+        if ($this->method == 'GET') {
+            $term = $this->request["term"];
+            if (isset($term)) {
+                return $this->subjectsRepository->getByTerm($term);
+            }
+            return $this->subjectsRepository->getAll();
+        }
     }
 
 }
