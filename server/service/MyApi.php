@@ -1,11 +1,18 @@
 <?php
 
-require_once 'API.class.php';
-require_once 'repositories/SubjectsRepository.php';
+require '../../vendor/autoload.php';
 
 class MyAPI extends API {
 
+    protected $consultationsRepository;
+    protected $exercisesRepository;
+    protected $groupsRepository;
+    protected $lecturesRepository;
+    protected $rolesRepository;
+    protected $roomsRepository;
     protected $subjectsRepository;
+    protected $usersRepository;
+    
     protected $User;
 
     public function __construct($request, $origin) {
@@ -30,7 +37,14 @@ class MyAPI extends API {
          */
         $this->User = $User;
         
+        $this->consultationsRepository = new ConsultationsRepository();
+        $this->exercisesRepository = new ExercisesRepository();
+        $this->groupsRepository = new GroupsRepository();
+        $this->lecturesRepository = new LecturesRepository();
+        $this->rolesRepository = new RolesRepository();
+        $this->roomsRepository = new RoomsRepository();
         $this->subjectsRepository = new SubjectsRepository();
+        $this->usersRepository = new UsersRepository();
     }
 
     /**
@@ -64,6 +78,12 @@ class MyAPI extends API {
                 return $this->subjectsRepository->getByTerm($term);
             }
             return $this->subjectsRepository->getAll();
+        }
+    }
+    
+    protected function users() {
+        if ($this->method == 'GET') {
+            return $this->usersRepository->getAll();
         }
     }
 
