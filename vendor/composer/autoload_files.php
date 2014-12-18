@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     $vendorDir . '/Mysql/MysqliDb.php',
-    $vendorDir . '/helpers.php',
 );

@@ -8,12 +8,14 @@
         }
     ],
     "require": {
-        "aura/session": "~1.0"
+        "slim/slim": "~2.5"
     },
     "autoload" : {
+        "psr-4" : {
+            "IIA\\" : "app"
+        },
         "files" : [
-            "vendor/Mysql/MysqliDb.php",
-            "vendor/helpers.php"
+            "vendor/Mysql/MysqliDb.php"
         ]
     }
 }

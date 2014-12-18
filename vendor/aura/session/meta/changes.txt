@@ -1,5 +1,0 @@
-Hygiene release.
-
-- Fix #8 related to unit tests failing because of ini_set values. Thanks @mindplay-dk
-
-- Merge pull request #12 from harikt/v2config, adds v2 config files.
