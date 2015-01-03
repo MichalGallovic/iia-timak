@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+	head
+		title="IIA"
+		meta(charset="utf-8")
+		//- link(rel="stylesheet", type="text/css", href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+		link(rel="stylesheet",type="text/css",href="style/bootstrap.min.css")
+		script(type="text/javascript", src="js/libs/jquery.min.js")
+		script(type="text/javascript", src="js/index/index.js")
+		script(type="text/javascript", src="js/admin/admin.js")
+
+	body
+		.nav.navbar.navbar-default
+			.navbar-header
+				span.navbar-brand FEI Timetable Master Overlord 10 001
+			ul.nav.navbar-nav
+				li
+					a(href="pridat_predmet.html") Pridat Predmet
+				li
+					a(href="kontrola.html") Kontrola
+
+			form(id="logout").navbar-form.navbar-right
+				button(type="submit").btn.btn-primary Odhlas
+
+		.container
+			.row
+				.col-md-12
+					h1 Nadpis Admin
+			.row
+				.col-md-12
+					p text pre admina
+			//- 	.col-md-4
+			//- 		h3 Zobraz rozvrh pre:
+			//- 		select(id="select_type")
+			//- 			option(value="skovaj") vyber typ
+			//- 			option(value="oddelenie") oddelenie
+			//- 			option(value="predmet") predmet
+			//- 			option(value="ucitel") ucitel
+			//- 			option(value="skupina_ucitelov") skupina ucitelov
+			//- 			option(value="miestnost") miestnost
+			//- 			option(value="den") den
+			//- 	.col-md-4
+			//- 		#druhy_select(hidden)
+			//- 			h3 Druhy Select:
+			//- 			select(id="select_detail")

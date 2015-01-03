@@ -1,0 +1,22 @@
+{
+    "name": "mightycoders/feitimetablemasteroverlord9",
+    "description": "later",
+    "authors": [
+        {
+            "name": "Michal Gallovic",
+            "email": "gallovicm@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "~2.5"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "IIA\\" : "app"
+        },
+        "files" : [
+            "vendor/Mysql/MysqliDb.php",
+            "vendor/helpers.php"
+        ]
+    }
+}

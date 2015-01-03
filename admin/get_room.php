@@ -6,21 +6,17 @@ $credentials = include $_SERVER['DOCUMENT_ROOT'].'iia-timak/configs/database.php
 $db = new MysqliDb ($credentials['host'], $credentials['username'],
     $credentials['password'], $credentials['dbName']);
 
-    
-    $name = ; // get name from input field 
-    
-    
-    
-    $data = Array(
-    'name' => $name
-);
+//var_dump($db->get('rooms'));
 
-$id = $db->insert ('rooms', $data);
+    $id = ; // get id
+    
+    $db->where ("id", $id);
 
-if ($id)
-    echo 'Vytvorili ste novu miestnost ' . $name ;
-else
-    echo 'Pri vytvarani nastala chyba ' . $db->getLastError();
+    $user = $db->getOne ("rooms");
+    echo $user['id'];
+    
+    $stats = $db->getOne ("rooms", "sum(id), count(*) as cnt");
+     echo "total ".$stats['cnt']. "rooms found";
 
 
 ?>

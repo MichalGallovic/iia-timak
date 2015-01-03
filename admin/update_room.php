@@ -6,7 +6,7 @@ $credentials = include $_SERVER['DOCUMENT_ROOT'].'iia-timak/configs/database.php
 $db = new MysqliDb ($credentials['host'], $credentials['username'],
     $credentials['password'], $credentials['dbName']);
 
-    
+    $id = ; //get id from db - co prave vidime
     $name = ; // get name from input field 
     
     
@@ -15,12 +15,11 @@ $db = new MysqliDb ($credentials['host'], $credentials['username'],
     'name' => $name
 );
 
-$id = $db->insert ('rooms', $data);
+$db->where ('id', $id);
 
-if ($id)
-    echo 'Vytvorili ste novu miestnost ' . $name ;
+if ($db->update ('rooms', $data))
+    echo $db->count . ' miestnosti bolo zmenenych';
 else
-    echo 'Pri vytvarani nastala chyba ' . $db->getLastError();
-
+    echo 'update failed: ' . $db->getLastError();
 
 ?>
