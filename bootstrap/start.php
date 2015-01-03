@@ -12,7 +12,8 @@ $config['app'] = array(
 //    'log.writer' => new \Slim\LogWriter(array(
 //        'path' => dirname(__FILE__) . '/../share/logs'
 //    )),
-    'mode' => (!empty($_ENV['environment'])) ? $_ENV['SLIM_MODE']: 'production'
+    'mode' => (!empty($_ENV['environment'])) ? $_ENV['SLIM_MODE']: 'production',
+    'templates.path'    =>  '../app/templates'
 );
 
 // nacitanie vlastneho configu suboru - db

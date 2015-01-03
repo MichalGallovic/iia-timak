@@ -15,7 +15,8 @@
             "IIA\\" : "app"
         },
         "files" : [
-            "vendor/Mysql/MysqliDb.php"
+            "vendor/Mysql/MysqliDb.php",
+            "vendor/helpers.php"
         ]
     }
 }
