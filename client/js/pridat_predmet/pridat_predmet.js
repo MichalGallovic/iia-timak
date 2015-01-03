@@ -85,8 +85,8 @@ $(document).ready(function() {
 
 	
 	function show_select_detail(select_term){
-		var zimny = ['z1','z2'];
-		var letny = ['l1','l2'];
+		var zimny = [{meno:'z1',id:'1'},{meno:'z2',id:'2'}];
+		var letny = [{meno:'l1',id:'1'},{meno:'l2',id:'2'}];
 		
 		var pole;
 		
@@ -118,7 +118,7 @@ $(document).ready(function() {
 	function napln_select(select,pole){
 		select.html('<option value="skovaj">vyber Predmet</option>');
 		for (var i = 0; i < pole.length; i++) {
-			select.append('<option value='+pole[i]+'>'+pole[i]+'</option>');
+			select.append('<option value='+pole[i].id+'>'+pole[i].meno+'</option>');
 		};
 	}
 

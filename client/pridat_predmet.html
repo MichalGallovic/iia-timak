@@ -4,7 +4,6 @@
     <title>IIA</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="style/pridat_predmet/pridat_predmet.css">
 
     <script type="text/javascript" src="js/libs/jquery.min.js"></script>
@@ -17,13 +16,13 @@
       <div class="navbar-header"><span class="navbar-brand">FEI Timetable Master Overlord 10 001</span></div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="pridat_predmet.html">Pridat Predmet</a></li>
-        <li><a href="kontrola.html">Kontrola</a></li>
+        <li><a href="kontrola_predmetu.html">Kontrola Predmetov</a></li>
       </ul>
       <form id="logout" class="navbar-form navbar-right">
         <button type="submit" class="btn btn-primary">Odhlas</button>
       </form>
     </div>
-    <form action="insert_subject.php" method="get">
+    <form action="insert_subject.php" method="post">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -35,8 +34,8 @@
           <h3>Vyber semestra:</h3>
           <select name="select_term" id="select_term" class="form-control">
             <option value="skovaj">vyber typ</option>
-            <option value="zimny">zimny</option>
-            <option value="letny">letny</option>
+            <option value="w">Zimny</option>
+            <option value="s">Letny</option>
           </select>
         </div>
         <div class="col-md-4">
