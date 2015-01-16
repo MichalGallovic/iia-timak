@@ -32,7 +32,7 @@ $app->configureMode('production', function () use ($app) {
     $app->config(array(
         'log.enable' => true,
         'log.level' => Slim\Log::WARN,
-        'debug' => false
+        'debug' => true
     ));
 });
 
