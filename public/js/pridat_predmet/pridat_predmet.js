@@ -74,7 +74,7 @@ var jazyk = "svk";
 	$.when( 
 		$.ajax({
 		  type: "GET",
-		  url: "http://iia.dev/service/users",
+		  url: "/service/users",
 		  success: function(resp){
 		  	var pole = resp;
 		  	prednasajuci=resp;
@@ -87,7 +87,7 @@ var jazyk = "svk";
 		}),
 		$.ajax({
 		  type: "GET",
-		  url: "http://iia.dev/service/rooms",
+		  url: "/service/rooms",
 		  success: function(resp){
 		  	var pole = [{"name":"abe3500","id":9},{"name":"cde300","id":10}];
 		  	miestnosti = [{"name":"abe3500","id":9},{"name":"cde300","id":10}];
@@ -189,7 +189,7 @@ var jazyk = "svk";
 			case 'W':
 					$.ajax({
 					type: "GET",
-					url: "http://iia.dev/service/subjects",
+					url: "/service/subjects",
 					data: "term=W",
 					success: function(resp){
 							var pole=[{"name":"hovnoZimne","id":1}];	
@@ -202,7 +202,7 @@ var jazyk = "svk";
 			case 'S':
 					$.ajax({
 					type: "GET",
-					url: "http://iia.dev/service/subjects",
+					url: "/service/subjects",
 					data: "term=S",
 					success: function(resp){
 							var pole=[{"name":"hovnoLetne","id":2}];	
