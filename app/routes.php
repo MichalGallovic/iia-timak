@@ -1,5 +1,7 @@
 <?php
+use IIA\Auth\Auth as Auth;
 // routes
+$auth = new Auth($app);
 
 $app->group('/admin', function() use ($app) {
 	$app->get('/', function() use ($app) {
@@ -18,6 +20,18 @@ $app->group('/admin', function() use ($app) {
         });
     });
 });
+
+$app->get('/login', function() use ($app) {
+    $app->render('login.php', ['app' => $app]);
+})->name('login');
+
+$app->post('/login', function() use ($app) {
+    $app->render('authenticate.php', ['app' => $app]);
+})->name('auth');
+
+$app->get('/logout', function() use ($app) {
+   $app->render('logout.php', ['app' => $app]);
+})->name('logout');
 
 
 // #### FORNYHO SERVICE ####

@@ -1,7 +1,7 @@
 <?php
 // nacitanie prostredia development/production
 $_ENV['SLIM_MODE'] = getenv('environment');
-
+session_start();
 // nacitanie configu pre slim framework
 $config = array();
 // Basic config for Slim Application
