@@ -16,38 +16,46 @@
 <div class="nav navbar navbar-default">
     <div class="navbar-header"><span class="navbar-brand">FEI Timetable Master Overlord 10 001</span></div>
     <ul class="nav navbar-nav">
-        <li class="active"><a href="pridat_predmet.html">Pridat Predmet</a></li>
-        <li><a href="kontrola.html">Kontrola</a></li>
+        <li class="active"><a href="pridat_predmet.html"><span id='nav-0'>Pridať Predmet</span></a></li>
+        <li><a href="kontrola.html"><span id='nav-1'>Kontrola</span></a></li>
     </ul>
     <form id="logout" class="navbar-form navbar-right">
-        <button type="submit" class="btn btn-primary">Odhlas</button>
+        <button id='logButt' type="submit" class="btn btn-primary">Odhlás</button>
     </form>
 </div>
 <form action="insert_subject.php" method="get">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Pridat Predmet POZOR ORDER!!</h1>
+                <!-- <div class="btn-group" role="group">
+                  <button id="eng" type="button" class="btn btn-primary">Eng</button>
+                  <button id="svk" type="button" class="btn btn-primary">Svk</button>
+                </div> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="hn" >Pridať Predmet</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h3>Vyber semestra:</h3>
+                <h3 id="pt">Výber semestra:</h3>
                 <select name="select_term" id="select_term" class="form-control">
-                    <option value="skovaj">vyber typ</option>
-                    <option value="zimny">zimny</option>
-                    <option value="letny">letny</option>
+                    <option value="skovaj">typ</option>
+                    <option value="W">Zimný</option>
+                    <option value="S">Letný</option>
                 </select>
             </div>
             <div class="col-md-4">
                 <div id="druhy_select_admin" hidden>
-                    <h3>Predmet:</h3>
+                    <h3 id="prd">Predmet:</h3>
                     <select name="select_subject" id="select_subject" class="form-control"></select>
                 </div>
             </div>
             <div class="col-md-4">
                 <div id="treti_select_admin" hidden>
-                    <h3>pocet cviceni:</h3>
+                    <h3>Počet cvičení:</h3>
                     <select name="select_exc_count" id="select_exc_count" class="form-control">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -76,13 +84,11 @@
         </div>
         <div class="row">
             <div id="prednaska_admin" hidden class="col-md-4">
-                <h2>Prednaska</h2>
-                <h3>Prednasajuci:</h3>
+                <h2>Prednáška</h2>
+                <h3>Pradnášajúci:</h3>
                 <select name="select_lecturer" id="select_prednasajuciP_admin" class="form-control">
-                    <option value="jozo">jozo</option>
-                    <option value="kone">kone</option>
                 </select>
-                <h3>den:</h3>
+                <h3>Deň:</h3>
                 <select name="select_day" id="select_denP_admin" class="form-control">
                     <option value="pondelok">pondelok</option>
                     <option value="utorok">utorok</option>
@@ -90,7 +96,7 @@
                     <option value="stvrtok">stvrtok</option>
                     <option value="piatok">piatok</option>
                 </select>
-                <h3>cas:</h3>
+                <h3>Čas:</h3>
                 <select name="select_time" id="select_casP_admin" class="form-control">
                     <option value="0600">06:00</option>
                     <option value="0700">07:00</option>
@@ -108,16 +114,14 @@
                     <option value="1900">19:00</option>
                     <option value="2000">20:00</option>
                 </select>
-                <h3>miestnost:</h3>
+                <h3>Miestnosť:</h3>
                 <select name="select_place" id="select_miestnostP_admin" class="form-control">
-                    <option value="ab301">ab301</option>
-                    <option value="bc301">bc301</option>
                 </select>
             </div>
             <div class="col-md-4"></div>
             <div id="cvicenie_admin" hidden class="col-md-4">
-                <button id="doLava" class="btn btn-primary"><<</button>
-                <button id="doPrava" class="btn btn-primary">>></button>
+                <button id="doLava" class="btn btn-primary">&lt</button>
+                <button id="doPrava" class="btn btn-primary">&gt</button>
                 <div id="cvicenie_admin_cont"></div>
 
             </div>
