@@ -6,8 +6,8 @@
 # http://code.google.com/p/sequel-pro/
 #
 # Host: 127.0.0.1 (MySQL 5.5.40-0ubuntu0.12.04.1)
-# Database: iia-timak
-# Generation Time: 2014-12-16 20:47:35 +0000
+# Database: iiaTimak
+# Generation Time: 2015-01-16 16:03:09 +0000
 # ************************************************************
 
 
@@ -51,8 +51,8 @@ CREATE TABLE `exercises` (
   KEY `fk_exercises_users` (`user_id`),
   KEY `fk_exercises_rooms` (`room_id`),
   KEY `fk_exercises_subjects` (`subject_id`),
-  CONSTRAINT `fk_exercises_subjects` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_exercises_rooms` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_exercises_subjects` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_exercises_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -68,7 +68,7 @@ CREATE TABLE `groups` (
   `code` varchar(20) NOT NULL DEFAULT '',
   `name` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `groups` WRITE;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
@@ -100,9 +100,9 @@ CREATE TABLE `lectures` (
   KEY `fk_lectures_rooms` (`room_id`),
   KEY `fk_lectures_subjects` (`subject_id`),
   KEY `fk_lectures_users` (`user_id`),
-  CONSTRAINT `fk_lectures_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_lectures_rooms` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_lectures_subjects` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `fk_lectures_subjects` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_lectures_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -122,6 +122,16 @@ CREATE TABLE `roles` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+
+INSERT INTO `roles` (`id`, `name`, `create`, `read`, `update`, `delete`)
+VALUES
+	(1,'admin',1,1,1,1),
+	(2,'teacher',1,1,1,1);
+
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table rooms
@@ -133,7 +143,7 @@ CREATE TABLE `rooms` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `rooms` WRITE;
 /*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
@@ -166,7 +176,7 @@ CREATE TABLE `subjects` (
   `color` varchar(7) NOT NULL DEFAULT '',
   `term` varchar(1) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `subjects` WRITE;
 /*!40000 ALTER TABLE `subjects` DISABLE KEYS */;
@@ -197,13 +207,14 @@ CREATE TABLE `users` (
   `surname` varchar(255) DEFAULT NULL,
   `title1` varchar(255) DEFAULT NULL,
   `title2` varchar(255) DEFAULT NULL,
-  `group_id` int(11) unsigned NOT NULL,
+  `group_id` int(11) unsigned DEFAULT NULL,
   `ldap` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `fk_users_roles` (`role_id`),
   KEY `fk_users_groups` (`group_id`),
-  CONSTRAINT `fk_users_groups` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_users_groups` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
@@ -215,7 +226,8 @@ VALUES
 	(39,NULL,NULL,'Danica','Rosinová','Doc. Ing.','PhD.',2,'rosinova'),
 	(40,NULL,NULL,'Pavol','Bisták','Ing.','PhD.',4,'bistak'),
 	(41,NULL,NULL,'Alena','Kozáková','Doc. Ing.','PhD.',2,'kozakova'),
-	(42,NULL,NULL,'Peter','Ťapák','Ing.','PhD.',4,'tapak');
+	(42,NULL,NULL,'Peter','Ťapák','Ing.','PhD.',4,'tapak'),
+	(49,1,NULL,'Michal','Gallovič','Bc.',NULL,NULL,'xgallovicm');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
