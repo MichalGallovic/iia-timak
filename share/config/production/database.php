@@ -3,6 +3,6 @@
 return [
     'host'      =>  'localhost',
     'username'  =>  'root',
-    'password'  =>  'root',
+    'password'  =>  'lostebif',
     'dbName'    =>  'iiaTimak'
 ];
