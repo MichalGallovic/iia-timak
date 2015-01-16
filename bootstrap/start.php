@@ -5,23 +5,25 @@ session_start();
 // nacitanie configu pre slim framework
 $config = array();
 // Basic config for Slim Application
+
+// nacitanie vlastneho configu suboru - db
+$configFile = dirname(__FILE__) . '/../share/config/' . $_ENV['SLIM_MODE'] . '/database.php';
+
+if (is_readable($configFile)) {
+    $configFile = require_once $configFile;
+}
+
 $config['app'] = array(
-    'name' => 'My Awesome Webapp',
+    'name' => 'FEI Stuba Rozvrhy',
     'log.enabled' => true,
     'log.level' => Slim\Log::INFO,
 //    'log.writer' => new \Slim\LogWriter(array(
 //        'path' => dirname(__FILE__) . '/../share/logs'
 //    )),
     'mode' => (!empty($_ENV['environment'])) ? $_ENV['SLIM_MODE']: 'production',
-    'templates.path'    =>  '../app/templates'
+    'templates.path'    =>  '../app/templates',
+    'db'    =>  $configFile
 );
-
-// nacitanie vlastneho configu suboru - db
-$configFile = dirname(__FILE__) . '/../share/config/' . $_ENV['SLIM_MODE'] . '/database.php';
-
-if (is_readable($configFile)) {
-     $configFile = require_once $configFile;
-}
 
 // vytvorenie instancie slim frameworku
 $app = new Slim\Slim($config['app']);
@@ -41,8 +43,7 @@ $app->configureMode('development', function () use ($app, $configFile) {
     $app->config(array(
         'log.enable' => true,
         'log.level' => Slim\Log::DEBUG,
-        'debug' => true,
-        'db'    => $configFile
+        'debug' => true
     ));
 });
 
