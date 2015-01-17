@@ -16,9 +16,8 @@ class SubjectsRepository implements DbRepositoryInterface{
     }
 
     public function getById($id) {
-        $this->databaseConnector->orderBy("name","asc");
         $this->databaseConnector->where('id', $id);
-        return $this->databaseConnector->get('subjects');
+        return $this->databaseConnector->getOne('subjects');
     }
     
     public function getByCode($code) {

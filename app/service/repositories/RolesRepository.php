@@ -16,7 +16,7 @@ class RolesRepository implements DbRepositoryInterface{
     
     public function getById($id) {
         $this->databaseConnector->where('id', $id);
-        return $this->databaseConnector->get('roles');
+        return $this->databaseConnector->getOne('roles');
     }
 
     public function getByName($name) {

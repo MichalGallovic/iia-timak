@@ -16,7 +16,7 @@ class GroupsRepository implements DbRepositoryInterface{
 
     public function getById($id) {
         $this->databaseConnector->where('id', $id);
-        return $this->databaseConnector->get('groups');
+        return $this->databaseConnector->getOne('groups');
     }
     
     public function getByCode($code) {
