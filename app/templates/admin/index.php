@@ -13,7 +13,7 @@
     <form id="login" class="navbar-form navbar-right">
         <input type="text" placeholder="Meno" required class="form-control">
         <input type="password" placeholder="Heslo" required class="form-control">
-        <button type="submit" class="btn btn-primary">Prihlas</button>
+        <button type="submit" class="btn btn-primary">Prihlás</button>
     </form>
 </div>
 <div class="container">
@@ -26,13 +26,12 @@
         <div class="col-md-4">
             <h3>Zobraz rozvrh pre:</h3>
             <select id="select_type" class="form-control">
-                <option value="skovaj">vyber typ</option>
-                <option value="oddelenie">oddelenie</option>
+                <option value="skovaj">typ</option>
                 <option value="predmet">predmet</option>
-                <option value="ucitel">ucitel</option>
-                <option value="skupina_ucitelov">skupina ucitelov</option>
-                <option value="miestnost">miestnost</option>
-                <option value="den">den</option>
+                <option value="ucitel">učiteľ</option>
+                <option value="skupina_ucitelov">skupina učiteľov</option>
+                <option value="miestnost">miestnosť</option>
+                <option value="den">deň</option>
             </select>
         </div>
         <div class="col-md-4">
