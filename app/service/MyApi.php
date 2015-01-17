@@ -82,7 +82,7 @@ class MyAPI extends API {
 
     protected function subjects() {
         if ($this->method == 'GET') {
-            if ( isset($this->request["term"]) ) {
+            if (isset($this->request["term"])) {
                 $term = $this->request["term"];
                 return $this->subjectsRepository->getByTerm($term);
             }
