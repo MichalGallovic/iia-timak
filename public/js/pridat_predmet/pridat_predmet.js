@@ -81,7 +81,7 @@ var jazyk = "svk";
 		  	var select = $('#select_prednasajuciP_admin');
 		  	//select.html('<option value="-1">-</option>');
 		  	for (var i = 0; i < pole.length; i++) {
-		  		select.append('<option value='+pole[i].id+'>'+pole[i].firstname+' '+pole[i].surname+'</option>');
+		  		select.append('<option value='+pole[i].id+'>'+pole[i].title1+' '+pole[i].firstname+' '+pole[i].surname+' '+pole[i].title2+'</option>');
 		  	};
 		  	  }  
 		}),
@@ -173,7 +173,7 @@ var jazyk = "svk";
 
 			var temp='';
 			for(var i= 0;i<prednasajuci.length;i++){
-				temp+="<option value="+prednasajuci[i].id+">"+prednasajuci[i].firstname+" "+prednasajuci[i].surname+"</option>";
+				temp+="<option value="+prednasajuci[i].id+">"+prednasajuci[i].title1+' '+prednasajuci[i].firstname+" "+prednasajuci[i].surname+' '+prednasajuci[i].title2+"</option>";
 			}
 			$('.select_cviciaciC_adminClass').append(temp)
 

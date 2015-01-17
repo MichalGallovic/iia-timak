@@ -8,6 +8,12 @@ $app->group('/admin', function() use ($app) {
 		$app->render('admin/index.php', ['app'=>$app]);
 	})->name('admin.index');
 
+// //$app->group('/admin', function() use ($app) {
+//     $app->get('/', function() use ($app) {
+//         $app->render('admin/kontrola.php', ['app'=>$app]);
+//     })->name('admin.kontrola');
+
+
 	$app->group('/rooms', function() use ($app) {
 		
         $app->get('/', function() use ($app) {
@@ -49,6 +55,9 @@ $app->group('/admin', function() use ($app) {
 
         $app->get('/add', function() use ($app) {
            $app->render('admin/subjects/pridat_predmet.php');
+        });
+        $app->get('/kontrola', function() use ($app) {
+           $app->render('admin/subjects/kontrola.php');
         });
 
         $app->get('/create', function() use ($app) {

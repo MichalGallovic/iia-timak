@@ -40,7 +40,15 @@
                 <h3>Druhy Select:</h3>
                 <select id="select_detail" class="form-control"></select>
             </div>
+            <div id="druhy_select_ucitelia" hidden>
+                <h3>Druhy Select: kone</h3>
+            </div>
         </div>
+    </div>
+    <div class='row'>
+        <div class="col-md-12" id='bc' hidden>
+            <button id="getSch" class='btn btn-primary'>Zobraz</button>
+        </div>    
     </div>
 </div>
 </body>
