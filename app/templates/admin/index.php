@@ -32,6 +32,7 @@
                 <option value="skupina_ucitelov">skupina učiteľov</option>
                 <option value="miestnost">miestnosť</option>
                 <option value="den">deň</option>
+                <option value="oddelenie">oddelenie</option>
             </select>
         </div>
         <div class="col-md-4">
