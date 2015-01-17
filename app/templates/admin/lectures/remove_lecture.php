@@ -5,12 +5,10 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 
 			$id = $_POST['id'];
 	
-var_dump($_POST);
+// var_dump($_POST);
 
 
-	// $db->where ('id', $id);
-	// $db->update ('lectures', $data);
-
-
-
+	 $db->where('id', $id);
+	 $db->delete('lectures');
+   
 ?>
