@@ -16,9 +16,8 @@ class RoomsRepository implements DbRepositoryInterface{
     }
     
     public function getById($id) {
-        $this->databaseConnector->orderBy("name","asc");
         $this->databaseConnector->where('id', $id);
-        return $this->databaseConnector->get('rooms');
+        return $this->databaseConnector->getOne('rooms');
     }
 
     public function getByName($name) {

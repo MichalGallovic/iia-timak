@@ -17,7 +17,7 @@ class ConsultationsRepository implements DbRepositoryInterface{
 
     public function getById($id) {
         $this->databaseConnector->where('id', $id);
-        return $this->databaseConnector->get('consultations');
+        return $this->databaseConnector->getOne('consultations');
     }
 
     public function getByName($name) {

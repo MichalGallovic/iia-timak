@@ -16,7 +16,7 @@ class ExercisesRepository implements DbRepositoryInterface{
 
     public function getById($id) {
         $this->databaseConnector->where('id', $id);
-        return $this->databaseConnector->get('exercises');
+        return $this->databaseConnector->getOne('exercises');
     }
     
     public function getByDateTime($dateTime) {
