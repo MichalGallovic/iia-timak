@@ -11,15 +11,18 @@ class RoomsRepository implements DbRepositoryInterface{
     }
     
     public function getAll() {
+        $this->databaseConnector->orderBy("name","asc");
         return $this->databaseConnector->get('rooms');
     }
     
     public function getById($id) {
+        $this->databaseConnector->orderBy("name","asc");
         $this->databaseConnector->where('id', $id);
         return $this->databaseConnector->get('rooms');
     }
 
     public function getByName($name) {
+        $this->databaseConnector->orderBy("name","asc");
         $this->databaseConnector->where('name', $name);
         return $this->databaseConnector->get('rooms');
     }

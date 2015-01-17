@@ -1,4 +1,6 @@
-<?php namespace IIA\service;
+<?php
+
+namespace IIA\service;
 
 use IIA\service\API;
 use IIA\service\repositories\ConsultationsRepository;
@@ -20,7 +22,6 @@ class MyAPI extends API {
     protected $roomsRepository;
     protected $subjectsRepository;
     protected $usersRepository;
-    
     protected $User;
 
     public function __construct($request, $dbCredentials) {
@@ -55,45 +56,55 @@ class MyAPI extends API {
         $this->usersRepository = new UsersRepository($dbCredentials);
     }
 
-    /**
-     * Example of an Endpoint
-     */
-    protected function example() {
-        $retStr = "Method: " . $this->method . "; "
-                . "Endpoint: " . $this->endpoint . "; "
-                . "args count: " . count($this->args) . "; "
-                . "Arg 0: " . $this->args[0] . "; "
-                . "Request: " . $this->request . "; ";
+    protected function consultations() {
         if ($this->method == 'GET') {
-            $state = $this->request["state"];
-            if (isset($state)) {
-                //return $meniny->allRedLetterDays($state);
-                $retStr .= "ConstState: " . $state . " ";
-            }
-            $date = $this->request["date"];
-            if (isset($date)) {
-                //return $meniny->allRedLetterDays($state);
-                $retStr .= "ConstDate: " . $date . " ";
-            }
+            return $this->consultationsRepository->getAll();
         }
-        return $retStr;
+    }
+    
+    protected function exercises() {
+        if ($this->method == 'GET') {
+            return $this->exercisesRepository->getAll();
+        }
+    }
+    
+    protected function groups() {
+        if ($this->method == 'GET') {
+            return $this->groupsRepository->getAll();
+        }
+    }
+    
+    protected function lectures() {
+        if ($this->method == 'GET') {
+            return $this->lecturesRepository->getAll();
+        }
+    }
+    
+    protected function roles() {
+        if ($this->method == 'GET') {
+            return $this->rolesRepository->getAll();
+        }
     }
 
     protected function subjects() {
         if ($this->method == 'GET') {
-
             if (isset($this->request["term"])) {
                 $term = $this->request["term"];
                 return $this->subjectsRepository->getByTerm($term);
             }
-
             return $this->subjectsRepository->getAll();
         }
     }
-    
+
     protected function users() {
         if ($this->method == 'GET') {
             return $this->usersRepository->getAll();
+        }
+    }
+    
+    protected function rooms() {
+        if ($this->method == 'GET') {
+            return $this->roomsRepository->getAll();
         }
     }
 

@@ -8,11 +8,11 @@ $(document).ready(function() {
 
 	function show_select_detail(selected_type){
 		var oddelenie = ['oddelenie 1','oddelenie 2'];
-		var predmet = ['predmet 1','predmet 2'];
+		// var predmet = ['predmet 1','predmet 2'];
 		var ucitel = ['ucitel 1','ucitel 2'];
-		var skupina_ucitelov = ['skupina_ucitelov 1','skupina_ucitelov 2'];
+		var skupina_ucitelov = [{'id':1,'name':'skupina_ucitelov 1'},{'id':2,'name':'skupina_ucitelov 2'}];
 		var miestnost = ['miestnost 1','miestnost 2'];
-		var den = ['den 1','den 2'];
+		var den = [{'id':'pondelok','name':'pondelok'},{'id':'utorok','name':'utorok'},{'id':'streda','name':'streda'},{'id':'stvrtok','name':'stvrtok'},{'id':'piatok','name':'piatok'}];
 		var pole;
 		switch(selected_type){
 			case 'oddelenie':
@@ -21,14 +21,46 @@ $(document).ready(function() {
 					$('#druhy_select').fadeIn(1000);
 				break;
 			case 'predmet':
-					pole=predmet;
-					napln_select($('#select_detail'), pole);
-					$('#druhy_select').fadeIn(1000);
+					$.ajax({
+					  type: "GET",
+					  url: "/service/subjects",
+					  success: function(resp){
+					  	napln_select($('#select_detail'), resp);
+					  	$('#druhy_select').fadeIn(1000);
+					  	//console.log(resp);
+					  	// var pole = resp;
+					  	// prednasajuci=resp;
+					  	// var select = $('#select_prednasajuciP_admin');
+					  	// //select.html('<option value="-1">-</option>');
+					  	// for (var i = 0; i < pole.length; i++) {
+					  	// 	select.append('<option value='+pole[i].id+'>'+pole[i].firstname+' '+pole[i].surname+'</option>');
+					  	// };
+					  }  
+					})
+					//pole=predmet;
+					// napln_select($('#select_detail'), pole);
+					// $('#druhy_select').fadeIn(1000);
 				break;
 			case 'ucitel':
-					pole=ucitel;
-					napln_select($('#select_detail'), pole);
-					$('#druhy_select').fadeIn(1000);
+					$.ajax({
+					  type: "GET",
+					  url: "/service/users",
+					  success: function(resp){
+					  	napln_select_ucitelov($('#select_detail'), resp);
+					  	$('#druhy_select').fadeIn(1000);
+					  	//console.log(resp);
+					  	// var pole = resp;
+					  	// prednasajuci=resp;
+					  	// var select = $('#select_prednasajuciP_admin');
+					  	// //select.html('<option value="-1">-</option>');
+					  	// for (var i = 0; i < pole.length; i++) {
+					  	// 	select.append('<option value='+pole[i].id+'>'+pole[i].firstname+' '+pole[i].surname+'</option>');
+					  	// };
+					  }  
+					})
+					// pole=ucitel;
+					// napln_select($('#select_detail'), pole);
+					// $('#druhy_select').fadeIn(1000);
 				break;
 			case 'skupina_ucitelov':
 					pole=skupina_ucitelov;
@@ -36,9 +68,25 @@ $(document).ready(function() {
 					$('#druhy_select').fadeIn(1000);
 				break;
 			case 'miestnost':
-					pole=miestnost;
-					napln_select($('#select_detail'), pole);
-					$('#druhy_select').fadeIn(1000);
+					$.ajax({
+					  type: "GET",
+					  url: "/service/rooms",
+					  success: function(resp){
+					  	napln_select($('#select_detail'), resp);
+					  	$('#druhy_select').fadeIn(1000);
+					  	//console.log(resp);
+					  	// var pole = resp;
+					  	// prednasajuci=resp;
+					  	// var select = $('#select_prednasajuciP_admin');
+					  	// //select.html('<option value="-1">-</option>');
+					  	// for (var i = 0; i < pole.length; i++) {
+					  	// 	select.append('<option value='+pole[i].id+'>'+pole[i].firstname+' '+pole[i].surname+'</option>');
+					  	// };
+					  }  
+					})
+					// pole=miestnost;
+					// napln_select($('#select_detail'), pole);
+					// $('#druhy_select').fadeIn(1000);
 				break;
 			case 'den':
 					pole=den;
@@ -57,7 +105,13 @@ $(document).ready(function() {
 	function napln_select(select,pole){
 		select.html('');
 		for (var i = 0; i < pole.length; i++) {
-			select.append('<option value='+pole[i]+'>'+pole[i]+'</option>');
+			select.append('<option value='+pole[i].id+'>'+pole[i].name+'</option>');
+		};
+	}
+	function napln_select_ucitelov(select,pole){
+		select.html('');
+		for (var i = 0; i < pole.length; i++) {
+			select.append('<option value='+pole[i].id+'>'+pole[i].firstname+' '+pole[i].surname+'</option>');
 		};
 	}
 

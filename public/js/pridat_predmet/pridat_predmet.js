@@ -19,7 +19,7 @@ var jazyk = "svk";
 				"prd":"Predmet:",
 			}
 	}
-	var template = '<div id="<%= cvId %>" class="<%= prve %> cvTab" ><h2>Cvičenie <%= i %>/<%= max %> </h2><h3>Cvičiaci:</h3><select name="select_instructor_<%= cvId %>" id="select_cviciaciC_admin" class="form-control select_cviciaciC_adminClass"></select><h3>Deň:</h3><select name="select_exc_day_<%= cvId %>" id="select_denC_admin" class="form-control"><option value="defCvicden">def cvic den</option></select><h3>Čas:</h3><select name="select_exc_time_<%= cvId %>" id="select_casC_admin" class="form-control"><option value="0600">06:00</option><option value="0700">07:00</option><option value="0800">08:00</option><option value="0900">09:00</option><option value="1000">10:00</option><option value="1100">11:00</option><option value="1200">12:00</option><option value="1300">13:00</option><option value="1400">14:00</option><option value="1500">15:00</option><option value="1600">16:00</option><option value="1700">17:00</option><option value="1800">18:00</option><option value="1900">19:00</option><option value="2000">20:00</option></select><h3>Miestnosť:</h3><select name="select_exc_place_<%= cvId %>" id="select_miestnostC_admin" class="form-control select_miestnostC_adminClass"></select></div>';
+	var template = '<div id="<%= cvId %>" class="<%= prve %> cvTab" ><h2>Cvičenie <%= i %>/<%= max %> </h2><h3>Cvičiaci:</h3><select name="select_instructor_<%= cvId %>" id="select_cviciaciC_admin" class="form-control select_cviciaciC_adminClass"></select><h3>Deň:</h3><select name="select_exc_day_<%= cvId %>" id="select_denC_admin" class="form-control"><option value="pondelok">pondelok</option><option value="utorok">utorok</option><option value="streda">streda</option><option value="stvrtok">stvrtok</option><option value="piatok">piatok</option></select><h3>Čas:</h3><select name="select_exc_time_<%= cvId %>" id="select_casC_admin" class="form-control"><option value="0600">06:00</option><option value="0700">07:00</option><option value="0800">08:00</option><option value="0900">09:00</option><option value="1000">10:00</option><option value="1100">11:00</option><option value="1200">12:00</option><option value="1300">13:00</option><option value="1400">14:00</option><option value="1500">15:00</option><option value="1600">16:00</option><option value="1700">17:00</option><option value="1800">18:00</option><option value="1900">19:00</option><option value="2000">20:00</option></select><h3>Miestnosť:</h3><select name="select_exc_place_<%= cvId %>" id="select_miestnostC_admin" class="form-control select_miestnostC_adminClass"></select></div>';
 
 	var pocitadloCvicenie=0;
 	var maxTabCvic;
@@ -89,8 +89,8 @@ var jazyk = "svk";
 		  type: "GET",
 		  url: "/service/rooms",
 		  success: function(resp){
-		  	var pole = [{"name":"abe3500","id":9},{"name":"cde300","id":10}];
-		  	miestnosti = [{"name":"abe3500","id":9},{"name":"cde300","id":10}];
+		  	var pole = resp;//[{"name":"abe3500","id":9},{"name":"cde300","id":10}];
+		  	miestnosti = resp;//[{"name":"abe3500","id":9},{"name":"cde300","id":10}];
 		  	var select = $('#select_miestnostP_admin');
 		  	//select.html('<option value="-1">-</option>');
 		  	for (var i = 0; i < pole.length; i++) {
@@ -192,7 +192,7 @@ var jazyk = "svk";
 					url: "/service/subjects",
 					data: "term=W",
 					success: function(resp){
-							var pole=[{"name":"hovnoZimne","id":1}];	
+							var pole=resp;//[{"name":"hovnoZimne","id":1}];	
 							napln_select($('#select_subject'), pole);
 							$('#druhy_select_admin').fadeIn(1000);					
 						  } 
@@ -205,7 +205,7 @@ var jazyk = "svk";
 					url: "/service/subjects",
 					data: "term=S",
 					success: function(resp){
-							var pole=[{"name":"hovnoLetne","id":2}];	
+							var pole=resp;//[{"name":"hovnoLetne","id":2}];	
 							napln_select($('#select_subject'), pole);
 							$('#druhy_select_admin').fadeIn(1000);					
 						  } 
