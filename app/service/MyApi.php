@@ -1,4 +1,6 @@
-<?php namespace IIA\service;
+<?php
+
+namespace IIA\service;
 
 use IIA\service\API;
 use IIA\service\repositories\ConsultationsRepository;
@@ -20,7 +22,6 @@ class MyAPI extends API {
     protected $roomsRepository;
     protected $subjectsRepository;
     protected $usersRepository;
-    
     protected $User;
 
     public function __construct($request, $dbCredentials) {
@@ -81,18 +82,23 @@ class MyAPI extends API {
 
     protected function subjects() {
         if ($this->method == 'GET') {
-//            $term = $this->request["term"];
-//            if (isset($term)) {
-//                return $this->subjectsRepository->getByTerm($term);
-//            }
-
+            if ( isset($this->request["term"]) ) {
+                $term = $this->request["term"];
+                return $this->subjectsRepository->getByTerm($term);
+            }
             return $this->subjectsRepository->getAll();
         }
     }
-    
+
     protected function users() {
         if ($this->method == 'GET') {
             return $this->usersRepository->getAll();
+        }
+    }
+    
+    protected function rooms() {
+        if ($this->method == 'GET') {
+            return $this->roomsRepository->getAll();
         }
     }
 
