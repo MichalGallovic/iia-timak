@@ -51,12 +51,25 @@ class UsersRepository implements DbRepositoryInterface{
     
     public function getByLdap($ldap) {
         $this->databaseConnector->where('ldap', $ldap);
-        return $this->databaseConnector->get('users');
+        return $this->databaseConnector->getOne('users');
     }
     
     public function getByGoogle($google) {
         $this->databaseConnector->where('google', $google);
         return $this->databaseConnector->get('users');
+    }
+
+    public function getUserRoleById($id) {
+        $user = $this->getById($id);
+        if($user) {
+            $roleId = $user['role_id'];
+            $this->databaseConnector->where('id',$roleId);
+            $role = $this->databaseConnector->getOne('roles');
+            if($role) {
+                return $role['name'];
+            }
+        }
+        return 'guest';
     }
 }
 

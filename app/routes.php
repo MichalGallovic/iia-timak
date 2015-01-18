@@ -1,7 +1,37 @@
 <?php
 use IIA\Auth\Auth as Auth;
 // routes
-$auth = new Auth($app);
+$authenticateForRole = function($role = 'guest') use ($app) {
+    return function() use ($role,$app) {
+        $auth = new Auth($app);
+        $roles = ['admin','teacher'];
+        if($auth->check()) {
+//            if($auth->getUserRole() == $role) {
+//
+//            } else {
+//                $app->redirect($a)
+//            }
+        } else {
+            $app->redirect($app->urlFor('login'));
+        }
+    };
+};
+
+$isLoggedIn = function() use ($app) {
+    $auth = new Auth($app);
+    // if logged in redirect to your index (admin,teacher)
+    if($auth->check()) {
+        switch($auth->getUserRole()) {
+            case 'admin':
+                $app->redirect($app->urlFor('admin.index'));
+                break;
+            case 'teacher':
+                $app->redirect($app->urlFor('teacher.index'));
+                break;
+        }
+    }
+};
+
 // #### FORNYHO SERVICE ####
 $app->get('/service/:segments+', function($segments) use ($app) {
     $API = new \IIA\service\MyAPI($segments, $app->config('db'));
@@ -21,7 +51,7 @@ $app->get('/logout', function() use ($app) {
     $app->render('logout.php', ['app' => $app]);
 })->name('logout');
 
-$app->get('/login', function() use ($app) {
+$app->get('/login', $isLoggedIn, function() use ($app) {
     $app->render('login.php', ['app' => $app]);
 })->name('login');
 
@@ -30,7 +60,7 @@ $app->post('/login', function() use ($app) {
 })->name('auth');
 
 
-$app->group('/admin', function() use ($app,$auth) {
+$app->group('/admin', $authenticateForRole('admin') ,function() use ($app) {
 
     $app->get('/', function() use ($app) {
         $app->render('admin/index.php', ['app'=>$app]);
