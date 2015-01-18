@@ -45,12 +45,14 @@ class Auth {
             try {
                 // ldap does not work in localhost - so we emulate this behavior
                 $localhostNames = ['iia.dev','localhost:8888','192.168.88.88'];
-                $allowedPasswords = ['xgallovicm','xhoblikj','xpacko','xfornadelj'];
+                $allowedPasswords = ['xgallovicm','xhoblikj','xpacko','xfornadelj','zakova'];
                 if(!in_array($_SERVER['HTTP_HOST'],$localhostNames)) {
                     $ldapbind = ldap_bind($ldapconn, $username, $password);
                     if($ldapbind) {
                         // everything is fine
                         $_SESSION['user_id'] = $result['id'];
+                        $role = $this->users->getUserRoleById($result['id']);
+                        return $this->app->redirect($this->app->urlFor($role.'.index'));
 
                     } else {
                         $message = 'Zadali ste nespravne meno alebo heslo.';
@@ -58,7 +60,8 @@ class Auth {
                 } else {
                         if(in_array($password,$allowedPasswords)) {
                             $_SESSION['user_id'] = $result['id'];
-                            return;
+                            $role = $this->users->getUserRoleById($result['id']);
+                            return $this->app->redirect($this->app->urlFor($role.'.index'));
                         } else {
                             $message = 'Zadali ste nespravne meno alebo heslo.';
                         }

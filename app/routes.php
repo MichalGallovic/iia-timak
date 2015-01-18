@@ -1,25 +1,26 @@
 <?php
 use IIA\Auth\Auth as Auth;
 // routes
+// check login and set url according to role
 $authenticateForRole = function($role = 'guest') use ($app) {
     return function() use ($role,$app) {
         $auth = new Auth($app);
-        $roles = ['admin','teacher'];
+
         if($auth->check()) {
-//            if($auth->getUserRole() == $role) {
-//
-//            } else {
-//                $app->redirect($a)
-//            }
+            // check for role
+            $userRole = $auth->getUserRole();
+            if($userRole != $role) {
+                $app->redirect($app->urlFor($userRole.'.index'));
+            }
         } else {
             $app->redirect($app->urlFor('login'));
         }
     };
 };
 
+// if logged in redirect to your index (admin,teacher)
 $isLoggedIn = function() use ($app) {
     $auth = new Auth($app);
-    // if logged in redirect to your index (admin,teacher)
     if($auth->check()) {
         switch($auth->getUserRole()) {
             case 'admin':
@@ -55,7 +56,7 @@ $app->get('/login', $isLoggedIn, function() use ($app) {
     $app->render('login.php', ['app' => $app]);
 })->name('login');
 
-$app->post('/login', function() use ($app) {
+$app->post('/login',$isLoggedIn, function() use ($app) {
     $app->render('authenticate.php', ['app' => $app]);
 })->name('auth');
 
@@ -342,4 +343,10 @@ $app->group('/admin', $authenticateForRole('admin') ,function() use ($app) {
 
 });
 
+
+$app->group('/teacher', $authenticateForRole('teacher'), function() use ($app) {
+   $app->get('/', function() use ($app) {
+        echo 'teacher index';
+   })->name('teacher.index');
+});
 
