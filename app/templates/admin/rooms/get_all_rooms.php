@@ -10,13 +10,32 @@ $rooms = $db->get('rooms');
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+			<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+
 </head>
 <body>
-	<h1>Rooms</h1>
-	<ul>
-		<?php foreach($rooms as $room): ?>
-			<li><?php echo $room['name'] ?></li>
-		<?php endforeach; ?>
-	</ul>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<h1>Rooms</h1>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Miestnosť</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach($rooms as $room): ?>
+							<tr><td><?php echo $room['name'] ?></td></tr>
+						<?php endforeach; ?>
+						
+					</tbody>
+				</table>
+				
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>

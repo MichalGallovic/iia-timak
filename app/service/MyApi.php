@@ -57,62 +57,104 @@ class MyAPI extends API {
     }
 
     protected function consultations() {
-        if ($this->method == 'GET') {
-            return $this->consultationsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->consultationsRepository->getById($id);
+        }
+        return $this->consultationsRepository->getAll();
     }
 
     protected function exercises() {
-        if ($this->method == 'GET') {
-            return $this->exercisesRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->exercisesRepository->getById($id);
+        }
+        return $this->exercisesRepository->getAll();
     }
 
     protected function groups() {
-        if ($this->method == 'GET') {
-            return $this->groupsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->groupsRepository->getById($id);
+        }
+        return $this->groupsRepository->getAll();
     }
 
     protected function lectures() {
-        if ($this->method == 'GET') {
-            return $this->lecturesRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->lecturesRepository->getById($id);
+        }
+        return $this->lecturesRepository->getAll();
     }
 
     protected function roles() {
-        if ($this->method == 'GET') {
-            return $this->rolesRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->rolesRepository->getById($id);
+        }
+        return $this->rolesRepository->getAll();
     }
 
     protected function subjects() {
-        if ($this->method == 'GET') {
-            if (isset($this->request['term'])) {
-                $term = $this->request['term'];
-                return $this->subjectsRepository->getByTerm($term);
-            }
-            return $this->subjectsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->subjectsRepository->getById($id);
+        }
+        if (isset($this->request['term'])) {
+            $term = $this->request['term'];
+            return $this->subjectsRepository->getByTerm($term);
+        }
+        return $this->subjectsRepository->getAll();
     }
 
     protected function users() {
-        if ($this->method == 'GET') {
-            return $this->usersRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->usersRepository->getById($id);
+        }
+        return $this->usersRepository->getAll();
     }
 
     protected function rooms() {
-        if ($this->method == 'GET') {
-            return $this->roomsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->roomsRepository->getById($id);
+        }
+        return $this->roomsRepository->getAll();
     }
 
     protected function schedule() {
-        if ($this->method != 'GET')
+        if ($this->method != 'GET') {
             return array();
-        if (!isset($this->request['type']) || !isset($this->request['id']))
+        }
+        if (!isset($this->request['type']) || !isset($this->request['id'])) {
             return array();
+        }
 
         //  navratove pole
         $retArray = array();
@@ -172,7 +214,7 @@ class MyAPI extends API {
         }
     }
 
-    protected function getUserSchedule($retArray, $rowStructure, $userId) {
+    private function getUserSchedule($retArray, $rowStructure, $userId) {
         //  getni vseky prednasky
         $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'lectures');
 
@@ -185,19 +227,22 @@ class MyAPI extends API {
         return $retArray;
     }
 
-    protected function getUserPartSchedule($retArray, $rowStructure, $userId, $type) {
+    private function getUserPartSchedule($retArray, $rowStructure, $userId, $type) {
         switch ($type) {
             case 'lectures':
                 $type = 'lecture';
                 $samples = $this->lecturesRepository->getByUserId($userId);
+                $isConsultation = false;
                 break;
             case 'exercises':
-                $type = 'exercises';
+                $type = 'exercise';
                 $samples = $this->exercisesRepository->getByUserId($userId);
+                $isConsultation = false;
                 break;
             case 'consultations':
-                $type = 'consultations';
+                $type = 'consultation';
                 $samples = $this->consultationsRepository->getByUserId($userId);
+                $isConsultation = true;
                 break;
             default:
                 return array();
@@ -232,6 +277,12 @@ class MyAPI extends API {
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
 
+            //  natiahni si poznamku ku konzultaciam
+            $note = '';
+            if ($isConsultation == true) {
+                $note = $sample['note'];
+            }
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -241,6 +292,7 @@ class MyAPI extends API {
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
             $rowStructure['roomName'] = $roomName;
+            $rowStructure['note'] = $note;
 
             //  pridaj riadok do navratoveho pola
             array_push($retArray, $rowStructure);
@@ -249,7 +301,7 @@ class MyAPI extends API {
         return $retArray;
     }
 
-    protected function getSubjectSchedule($retArray, $rowStructure, $subjectId) {
+    private function getSubjectSchedule($retArray, $rowStructure, $subjectId) {
         //  getni vseky prednasky
         $retArray = $this->getSubjectPartSchedule($retArray, $rowStructure, $subjectId, 'lectures');
 
@@ -262,19 +314,22 @@ class MyAPI extends API {
         return $retArray;
     }
 
-    protected function getSubjectPartSchedule($retArray, $rowStructure, $subjectId, $type) {
+    private function getSubjectPartSchedule($retArray, $rowStructure, $subjectId, $type) {
         switch ($type) {
             case 'lectures':
                 $type = 'lecture';
                 $samples = $this->lecturesRepository->getBySubjectId($subjectId);
+                $isConsultation = false;
                 break;
             case 'exercises':
-                $type = 'exercises';
+                $type = 'exercise';
                 $samples = $this->exercisesRepository->getBySubjectId($subjectId);
+                $isConsultation = false;
                 break;
             case 'consultations':
-                $type = 'consultations';
+                $type = 'consultation';
                 $samples = $this->consultationsRepository->getBySubjectId($subjectId);
+                $isConsultation = true;
                 break;
             default:
                 return array();
@@ -307,6 +362,12 @@ class MyAPI extends API {
             $room = $this->roomsRepository->getById($roomId);
             $roomName = $room['name'];
 
+            //  natiahni si poznamku ku konzultaciam
+            $note = '';
+            if ($isConsultation == true) {
+                $note = $sample['note'];
+            }
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -316,6 +377,7 @@ class MyAPI extends API {
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
             $rowStructure['roomName'] = $roomName;
+            $rowStructure['note'] = $note;
 
             //  pridaj riadok do navratoveho pola
             array_push($retArray, $rowStructure);
@@ -324,32 +386,35 @@ class MyAPI extends API {
         return $retArray;
     }
 
-    protected function getRoomSchedule($retArray, $rowStructure, $roomId) {
+    private function getRoomSchedule($retArray, $rowStructure, $roomId) {
         //  getni vseky prednasky
-        $reArray = $this->getRoomPartSchedule($rowStructure, $roomId, 'lectures');
+        $retArray = $this->getRoomPartSchedule($retArray, $rowStructure, $roomId, 'lectures');
 
         //  getni vseky cvika
-        $reArray = $this->getRoomPartSchedule($rowStructure, $roomId, 'exercises');
+        $retArray = $this->getRoomPartSchedule($retArray, $rowStructure, $roomId, 'exercises');
 
         //  getni vseky konzultacie
-        $reArray = $this->getRoomPartSchedule($rowStructure, $roomId, 'consultations');
+        $retArray = $this->getRoomPartSchedule($retArray, $rowStructure, $roomId, 'consultations');
 
         return $retArray;
     }
 
-    protected function getRoomPartSchedule($retArray, $rowStructure, $roomId, $type) {
+    private function getRoomPartSchedule($retArray, $rowStructure, $roomId, $type) {
         switch ($type) {
             case 'lectures':
                 $type = 'lecture';
                 $samples = $this->lecturesRepository->getByRoomId($roomId);
+                $isConsultation = false;
                 break;
             case 'exercises':
-                $type = 'exercises';
+                $type = 'exercise';
                 $samples = $this->exercisesRepository->getByRoomId($roomId);
+                $isConsultation = false;
                 break;
             case 'consultations':
-                $type = 'consultations';
+                $type = 'consultation';
                 $samples = $this->consultationsRepository->getByRoomId($roomId);
+                $isConsultation = true;
                 break;
             default:
                 return array();
@@ -358,7 +423,6 @@ class MyAPI extends API {
         //  natiahni si potrebne info o predmete
         $room = $this->roomsRepository->getById($roomId);
         $roomName = $room['name'];
-
         //  prejdi vsetky vzorky (prednasky, cvicenie alebo konzultacie) podla dna v tyzdni
         foreach ($samples as $sample) {
 
@@ -384,15 +448,22 @@ class MyAPI extends API {
             $userName = $user['firstname'];
             $userSurName = $user['surname'];
 
+            //  natiahni si poznamku ku konzultaciam
+            $note = '';
+            if ($isConsultation == true) {
+                $note = $sample['note'];
+            }
+
             //  napln pole ziskanymi udajmi
-            $rowStructure['day'] = $day;
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['day'] = $day;
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
             $rowStructure['roomName'] = $roomName;
+            $rowStructure['note'] = $note;
 
             //  pridaj riadok do navratoveho pola
             array_push($retArray, $rowStructure);
@@ -401,32 +472,35 @@ class MyAPI extends API {
         return $retArray;
     }
 
-    protected function getDaySchedule($retArray, $rowStructure, $day) {
+    private function getDaySchedule($retArray, $rowStructure, $day) {
         //  getni vseky prednasky
-        $reArray = $this->getDayPartSchedule($rowStructure, $day, 'lectures');
+        $retArray = $this->getDayPartSchedule($retArray, $rowStructure, $day, 'lectures');
 
         //  getni vseky cvika
-        $reArray = $this->getDayPartSchedule($rowStructure, $day, 'exercises');
+        $retArray = $this->getDayPartSchedule($retArray, $rowStructure, $day, 'exercises');
 
         //  getni vseky konzultacie
-        $reArray = $this->getDayPartSchedule($rowStructure, $day, 'consultations');
+        $retArray = $this->getDayPartSchedule($retArray, $rowStructure, $day, 'consultations');
 
         return $retArray;
     }
 
-    protected function getDayPartSchedule($retArray, $rowStructure, $day, $type) {
+    private function getDayPartSchedule($retArray, $rowStructure, $day, $type) {
         switch ($type) {
             case 'lectures':
                 $type = 'lecture';
                 $samples = $this->lecturesRepository->getByDay($day);
+                $isConsultation = false;
                 break;
             case 'exercises':
-                $type = 'exercises';
+                $type = 'exercise';
                 $samples = $this->exercisesRepository->getByDay($day);
+                $isConsultation = false;
                 break;
             case 'consultations':
-                $type = 'consultations';
+                $type = 'consultation';
                 $samples = $this->consultationsRepository->getByDay($day);
+                $isConsultation = true;
                 break;
             default:
                 return array();
@@ -461,6 +535,12 @@ class MyAPI extends API {
             $room = $this->roomsRepository->getById($roomId);
             $roomName = $room['name'];
 
+            //  natiahni si poznamku ku konzultaciam
+            $note = '';
+            if ($isConsultation == true) {
+                $note = $sample['note'];
+            }
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -470,6 +550,7 @@ class MyAPI extends API {
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
             $rowStructure['roomName'] = $roomName;
+            $rowStructure['note'] = $note;
 
             //  pridaj riadok do navratoveho pola
             array_push($retArray, $rowStructure);
@@ -478,7 +559,7 @@ class MyAPI extends API {
         return $retArray;
     }
 
-    protected function getGroupSchedule($retArray, $rowStructure, $groupId) {
+    private function getGroupSchedule($retArray, $rowStructure, $groupId) {
         $users = $this->usersRepository->getByGroupId($groupId);
         if (empty($users)) {
             return array();
@@ -486,21 +567,21 @@ class MyAPI extends API {
 
         foreach ($users as $user) {
             $userId = $user['id'];
-            
+
             //  getni vseky prednasky
-            $reArray = $this->getUserPartSchedule($rowStructure, $userId, 'lectures');
+            $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'lectures');
 
             //  getni vseky cvika
-            $reArray = $this->getUserPartSchedule($rowStructure, $userId, 'exercises');
+            $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'exercises');
 
             //  getni vseky konzultacie
-            $reArray = $this->getUserPartSchedule($rowStructure, $userId, 'consultations');
+            $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'consultations');
         }
 
         return $retArray;
     }
 
-    protected function subjectValid() {
+    private function subjectValid() {
         if ($this->method != 'GET') {
             return array();
         }
@@ -517,7 +598,7 @@ class MyAPI extends API {
     }
 
     //  fcia skontroluje ci je danemu predmetu priradena prednaska + cviko, ak ano vrati true, inak false
-    protected function checkSubjectValid($subjectId) {
+    private function checkSubjectValid($subjectId) {
         $subject = $this->subjectsRepository->getById($subjectId);
         $lectures = $this->lecturesRepository->getBySubjectId($subjectId);
         $exercises = $this->exercisesRepository->getBySubjectId($subjectId);

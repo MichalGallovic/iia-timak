@@ -19,8 +19,10 @@ function rob(od){
 		url: "/service/subjectValid",
 		data: 'id='+od[i].id,
 		success: function(resp){
-		  	var id = this.url.substring(this.url.length-1,this.url.length);
-		  	$('#'+id).html('kone '+id)
+		  	var id = this.url.substring(25);
+		  	if(resp.valid == "true")$('#'+id).html('Zaradený');
+		  	else $('#'+id).html('Nezaradený');
+
 		 } 
 		});
 	}

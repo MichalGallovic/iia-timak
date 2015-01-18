@@ -10,14 +10,31 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+			<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+
 </head>
 <body>
-	<h1>Create Room</h1>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<h1>Create Room</h1>
+					<form  method="POST">
+						<div class="form-group">
+						   <label >Room name:</label>
+						   <input type="text" class="form-control" name="room_name"/>
+						 </div>
+						<div>
+						<input class="btn btn-primary" type="submit" name="add" />
+						</div>
 
-	<form  method="POST">
-		<p>Room name: </p>
-		<input type="text" name="room_name" />
-		<input type="submit" name="add" />
-	</form>
+					</form>
+					
+					
+				</div>
+			</div>
+		</div>
+	
+
+	
 </body>
 </html>
