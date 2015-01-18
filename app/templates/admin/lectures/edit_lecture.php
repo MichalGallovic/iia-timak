@@ -14,13 +14,9 @@ $lectures = $db->get('lectures');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
+
     <title><?php echo Lang::get('navbar_brand') ?></title>
-            <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
-=======
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
->>>>>>> 4c040e306dc9d24e8549b4701ea27e9c3b0bac25
     <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
     <link rel="stylesheet" href="/style/bootstrap-timepicker.min.css"/>
 </head>
