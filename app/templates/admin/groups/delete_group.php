@@ -10,20 +10,32 @@ $groups = $db->get('groups');
 <head>
 	<meta charset="UTF-8">
 	<title>Delete Group</title>
+			<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+
 </head>
 <body>
-	<h1>Delete Group</h1>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<h1>Delete Group</h1>
 
-	<form action="<?php echo $app->urlFor('admin.groups.remove') ?>" method="POST">
-	<select value="id" name="id">
-		<?php foreach($groups as $group): ?>
-			<option name="<?php echo $group['id'] ?>" value="<?php echo $group['id'] ?>" > <?php echo $group['name']; echo $group['code']; ?> </option>
-		<?php endforeach; ?>
+					<form action="<?php echo $app->urlFor('admin.groups.remove') ?>" method="POST">
+					<select class='form-control' value="id" name="id">
+						<?php foreach($groups as $group): ?>
+							<option name="<?php echo $group['id'] ?>" value="<?php echo $group['id'] ?>" > <?php echo $group['code']; echo " - "; echo $group['name'];  ?> </option>
+						<?php endforeach; ?>
 
-	</select>
+					</select>
 
-	<input type="submit" value="delete" />
-	</form>
+					<input class='btn btn-primary' type="submit" value="delete" />
+					</form>
+					
+					
+				</div>
+			</div>
+		</div>
+	
 
 </body>
 </html>

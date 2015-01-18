@@ -1,5 +1,7 @@
 <?php
 use IIA\Lang\Lang as Lang;
+use IIA\Auth\Auth as Auth;
+$auth = new Auth($app);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +27,11 @@ use IIA\Lang\Lang as Lang;
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo $app->urlFor('login') ?>"><?php echo Lang::get('navbar_login') ?></a></li>
+                <?php if($auth->check()): ?>
+                    <li><a href="<?php echo $app->urlFor('logout') ?>"><?php echo Lang::get('navbar_logout') ?></a></li>
+                <?php else: ?>
+                    <li><a href="<?php echo $app->urlFor('login') ?>"><?php echo Lang::get('navbar_login') ?></a></li>
+                <?php endif; ?>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->

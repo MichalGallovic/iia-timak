@@ -2,5 +2,6 @@
 
 return [
     "brand"     =>  'FEI TimeTables',
-    "login"     =>  'Login'
+    "login"     =>  'Login',
+    "logout"	=> 	'Logout'
 ];

@@ -15,9 +15,9 @@ $groups = $db->get('exercises');
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-
-        <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/style/bootstrap-timepicker.min.css"/>
 </head>
 <body>
     <div class="container">
@@ -59,14 +59,14 @@ $groups = $db->get('exercises');
                             <!-- <li> -->
                             <div class="form-group">
                                <label >Start time</label> 
-                               <input class='form-control' type="text" name="start_time" />
+                               <input id="timepicker1" class='form-control' type="text" name="start_time" />
     
                                 </div>
                                <!-- </li> -->
                            <!--  <li> -->
                            <div class="form-group">
                                <label >End time</label> 
-                                <input class='form-control' type="text" name="end_time" />
+                                <input id="timepicker2" class='form-control' type="text" name="end_time" />
                             </div><!-- </li> -->
                             
                            <!--  <li> -->
@@ -132,8 +132,20 @@ $groups = $db->get('exercises');
                 </div>
             </div>
         </div>
-    
 
+    <script src="/js/libs/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="/js/libs/bootstrap-timepicker.min.js"></script>
+    <script>
+        $('#timepicker1').timepicker({
+            minuteStep: 1,
+            showMeridian: false
+        });
+        $('#timepicker2').timepicker({
+            minuteStep: 1,
+            showMeridian: false
+        });
+    </script>
     
 </body>
 </html>
