@@ -23,7 +23,7 @@
         <button id='logButt' type="submit" class="btn btn-primary">Odhlás</button>
     </form>
 </div>
-<form action="insert_subject.php" method="get">
+<form action="admin/subjects/add" method="post">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
