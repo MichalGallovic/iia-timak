@@ -43,6 +43,11 @@ class LecturesRepository implements DbRepositoryInterface{
         $this->databaseConnector->where('end_time', $endTime);
         return $this->databaseConnector->get('lectures');
     }
+    
+    public function getByDay($day) {
+        $this->databaseConnector->where('day', $day);
+        return $this->databaseConnector->get('lectures');
+    }
 
 }
 
