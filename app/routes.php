@@ -1,5 +1,6 @@
 <?php
 use IIA\Auth\Auth as Auth;
+use IIA\Lang\Lang as Lang;
 // routes
 // check login and set url according to role
 $authenticateForRole = function($role = 'guest') use ($app) {
@@ -33,6 +34,10 @@ $isLoggedIn = function() use ($app) {
     }
 };
 
+$langForUrl = function() {
+      
+};
+
 // #### FORNYHO SERVICE ####
 $app->get('/service/:segments+', function($segments) use ($app) {
     $API = new \IIA\service\MyAPI($segments, $app->config('db'));
@@ -45,7 +50,7 @@ $app->get('/service/:segments+', function($segments) use ($app) {
 // tuna pridame vsetky cesty pre guesta
 
 $app->get('/', function() use ($app) {
-   $app->render('index.php');
+   $app->render('index.php', ['app' => $app]);
 })->name('site.index');
 
 $app->get('/logout', function() use ($app) {
@@ -70,6 +75,9 @@ $app->group('/admin', $authenticateForRole('admin') ,function() use ($app) {
     $app->get('/', function() use ($app) {
         $app->render('admin/index.php', ['app'=>$app]);
     })->name('admin.index');
+    $app->get('/settings', function() use ($app) {
+        $app->render('admin/settings.php',['app' => $app]);
+    })->name('admin.settings');
 
 // //$app->group('/admin', function() use ($app) {
 //     $app->get('/', function() use ($app) {

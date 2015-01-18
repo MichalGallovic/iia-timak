@@ -24,7 +24,8 @@ $config['app'] = array(
 //    )),
     'mode' => (!empty($_ENV['environment'])) ? $_ENV['SLIM_MODE']: 'production',
     'templates.path'    =>  '../app/templates',
-    'db'    =>  $configFile
+    'db'    =>  $configFile,
+    'locale'    =>  'sk_SK'
 );
 
 // vytvorenie instancie slim frameworku
