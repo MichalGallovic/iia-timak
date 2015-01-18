@@ -9,7 +9,7 @@
 <h1><?php echo $flash['error_message'] ?></h1>
 <form action="<?php echo $app->urlFor('auth'); ?>" method="POST">
     <label for="">ldap username</label>
-    <input type="text" name="username"/><br/>
+    <input value="<?php echo $flash['username'] ?>" type="text" name="username"/><br/>
     <label for="">ldap password</label>
     <input type="password" name="password"/><br/>
     <button type="submit">Prihlasit</button>

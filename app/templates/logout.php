@@ -1,2 +1,4 @@
 <?php
-echo 'logout page';
+use IIA\Auth\Auth as Auth;
+$auth = new Auth($app);
+$auth->logout();

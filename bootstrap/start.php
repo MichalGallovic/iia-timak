@@ -1,7 +1,9 @@
 <?php
 // nacitanie prostredia development/production
 $_ENV['SLIM_MODE'] = getenv('environment');
+session_cache_limiter(false);
 session_start();
+
 // nacitanie configu pre slim framework
 $config = array();
 // Basic config for Slim Application
@@ -27,7 +29,6 @@ $config['app'] = array(
 
 // vytvorenie instancie slim frameworku
 $app = new Slim\Slim($config['app']);
-
 
 // ak sme v mode production
 $app->configureMode('production', function () use ($app) {

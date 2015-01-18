@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.40-0ubuntu0.12.04.1)
 # Database: iiaTimak
-# Generation Time: 2015-01-16 16:03:09 +0000
+# Generation Time: 2015-01-18 09:31:21 +0000
 # ************************************************************
 
 
@@ -27,9 +27,10 @@ DROP TABLE IF EXISTS `consultations`;
 
 CREATE TABLE `consultations` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `start_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
   `note` text NOT NULL,
+  `day` tinyint(6) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -42,11 +43,12 @@ DROP TABLE IF EXISTS `exercises`;
 
 CREATE TABLE `exercises` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `start_time` datetime NOT NULL,
-  `date_time` datetime NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
   `subject_id` int(11) unsigned NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
   `room_id` int(11) unsigned NOT NULL,
+  `day` tinyint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_exercises_users` (`user_id`),
   KEY `fk_exercises_rooms` (`room_id`),
@@ -92,10 +94,11 @@ DROP TABLE IF EXISTS `lectures`;
 CREATE TABLE `lectures` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `subject_id` int(11) unsigned NOT NULL,
-  `start_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
   `user_id` int(11) unsigned NOT NULL,
   `room_id` int(11) unsigned NOT NULL,
+  `day` tinyint(6) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_lectures_rooms` (`room_id`),
   KEY `fk_lectures_subjects` (`subject_id`),
@@ -227,7 +230,10 @@ VALUES
 	(40,NULL,NULL,'Pavol','Bisták','Ing.','PhD.',4,'bistak'),
 	(41,NULL,NULL,'Alena','Kozáková','Doc. Ing.','PhD.',2,'kozakova'),
 	(42,NULL,NULL,'Peter','Ťapák','Ing.','PhD.',4,'tapak'),
-	(49,1,NULL,'Michal','Gallovič','Bc.',NULL,NULL,'xgallovicm');
+	(49,1,NULL,'Michal','Gallovič','Bc.',NULL,NULL,'xgallovicm'),
+	(50,1,NULL,'Jakub','Fornádel','Bc.',NULL,NULL,'xfornadelj'),
+	(51,1,NULL,'Igor','Packo','Bc',NULL,NULL,'xpacko'),
+	(52,1,NULL,'Jakub','Hoblík','Bc',NULL,NULL,'xhoblikj');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

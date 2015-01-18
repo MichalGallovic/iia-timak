@@ -2,11 +2,39 @@
 use IIA\Auth\Auth as Auth;
 // routes
 $auth = new Auth($app);
+// #### FORNYHO SERVICE ####
+$app->get('/service/:segments+', function($segments) use ($app) {
+    $API = new \IIA\service\MyAPI($segments, $app->config('db'));
+    $responseData = $API->processAPI();
+    $response = $app->response();
+    $response['Content-Type'] = 'application/json';
+    $response->body($responseData);
+});
 
-$app->group('/admin', function() use ($app) {
-	$app->get('/', function() use ($app) {
-		$app->render('admin/index.php', ['app'=>$app]);
-	})->name('admin.index');
+// tuna pridame vsetky cesty pre guesta
+
+$app->get('/', function() use ($app) {
+   $app->render('index.php');
+})->name('site.index');
+
+$app->get('/logout', function() use ($app) {
+    $app->render('logout.php', ['app' => $app]);
+})->name('logout');
+
+$app->get('/login', function() use ($app) {
+    $app->render('login.php', ['app' => $app]);
+})->name('login');
+
+$app->post('/login', function() use ($app) {
+    $app->render('authenticate.php', ['app' => $app]);
+})->name('auth');
+
+
+$app->group('/admin', function() use ($app,$auth) {
+
+    $app->get('/', function() use ($app) {
+        $app->render('admin/index.php', ['app'=>$app]);
+    })->name('admin.index');
 
 // //$app->group('/admin', function() use ($app) {
 //     $app->get('/', function() use ($app) {
@@ -14,11 +42,11 @@ $app->group('/admin', function() use ($app) {
 //     })->name('admin.kontrola');
 
 
-	$app->group('/rooms', function() use ($app) {
-		
+    $app->group('/rooms', function() use ($app) {
+
         $app->get('/', function() use ($app) {
-			$app->render('admin/rooms/get_all_rooms.php', ['app' => $app]);
-		})->name('admin.rooms');
+            $app->render('admin/rooms/get_all_rooms.php', ['app' => $app]);
+        })->name('admin.rooms');
 
         $app->get('/create', function() use ($app) {
             $app->render('admin/rooms/create_room.php', ['app' => $app]);
@@ -45,7 +73,7 @@ $app->group('/admin', function() use ($app) {
             $app->render('admin/rooms/update_room.php', ['app' => $app]);
         })->name('admin.rooms.update');
 
-	});
+    });
 
     $app->group('/subjects', function() use ($app) {
 
@@ -54,10 +82,10 @@ $app->group('/admin', function() use ($app) {
         })->name('admin.subjects');
 
         $app->get('/add', function() use ($app) {
-           $app->render('admin/subjects/pridat_predmet.php');
+            $app->render('admin/subjects/pridat_predmet.php');
         });
         $app->get('/kontrola', function() use ($app) {
-           $app->render('admin/subjects/kontrola.php');
+            $app->render('admin/subjects/kontrola.php');
         });
 
         $app->get('/create', function() use ($app) {
@@ -126,9 +154,9 @@ $app->group('/admin', function() use ($app) {
             $app->render('admin/groups/get_all_groups.php', ['app' => $app]);
         })->name('admin.groups');
 
-         $app->get('/create', function() use ($app) {
+        $app->get('/create', function() use ($app) {
             $app->render('admin/groups/create_group.php', ['app' => $app]);
-         })->name('admin.groups.create');
+        })->name('admin.groups.create');
 
         $app->post('/create', function() use ($app) {
             $app->render('admin/groups/store_group.php', ['app' => $app]);
@@ -152,16 +180,16 @@ $app->group('/admin', function() use ($app) {
 
     });
 
-    
-     $app->group('/lectures', function() use ($app) {
+
+    $app->group('/lectures', function() use ($app) {
 
         $app->get('/', function() use ($app) {
             $app->render('admin/lectures/get_all_lectures.php', ['app' => $app]);
         })->name('admin.lectures');
 
-         $app->get('/create', function() use ($app) {
+        $app->get('/create', function() use ($app) {
             $app->render('admin/lectures/create_lecture.php', ['app' => $app]);
-         })->name('admin.lectures.create');
+        })->name('admin.lectures.create');
 
         $app->post('/create', function() use ($app) {
             $app->render('admin/lectures/store_lecture.php', ['app' => $app]);
@@ -185,31 +213,6 @@ $app->group('/admin', function() use ($app) {
 
     });
 
-
-
-
-
-
 });
 
-$app->get('/login', function() use ($app) {
-    $app->render('login.php', ['app' => $app]);
-})->name('login');
 
-$app->post('/login', function() use ($app) {
-    $app->render('authenticate.php', ['app' => $app]);
-})->name('auth');
-
-$app->get('/logout', function() use ($app) {
-   $app->render('logout.php', ['app' => $app]);
-})->name('logout');
-
-
-// #### FORNYHO SERVICE ####
-$app->get('/service/:segments+', function($segments) use ($app) {
-    $API = new \IIA\service\MyAPI($segments, $app->config('db'));
-    $responseData = $API->processAPI();
-    $response = $app->response();
-    $response['Content-Type'] = 'application/json';
-    $response->body($responseData);
-});
