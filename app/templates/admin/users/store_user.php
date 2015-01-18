@@ -5,9 +5,10 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 
 			// $name = ["name" => $_POST['room_name']]; 
 
+	
 	 // var_dump($_POST);
 			
-			 $id = $db->insert ('lectures', $_POST);
+			 $id = $db->insert ('users', $_POST);
 			
 			//$app->flash('error_message','Zleje');
 			//$app->redirect($app->urlFor('admin.rooms.create'));

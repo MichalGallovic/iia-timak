@@ -19,7 +19,8 @@ $consultations = $db->get('consultations');
 		<?php foreach($consultations as $consultation): ?>
 			<option name="<?php echo $consultation['id'] ?>" value="<?php echo $consultation['id'] ?>" >
 <?php echo "day: ";echo $consultation['day']; echo ", note: "; echo $consultation['note'];
-			echo ", start "; echo $consultation['start_time'];echo ", "; echo $consultation['end_time']; ?>
+			echo ", start "; echo $consultation['start_time'];echo ", "; echo $consultation['end_time'];
+			echo ", day "; echo $consultation['day']; ?>
 			 </option>
 		<?php endforeach; ?>
 

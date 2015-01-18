@@ -2,7 +2,11 @@
 $credentials = $app->config('db');
 $db = new MysqliDb($credentials['host'], $credentials['username'],
             $credentials['password'], $credentials['dbName']);
+
 $consultations = $db->get('consultations');
+$subjects = $db->get('subjects');
+$users = $db->get('users');
+$rooms = $db->get('rooms');
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +35,48 @@ $consultations = $db->get('consultations');
 
 
 
-    <ul>         
+    <ul>       
+
+
+
+            <li>Subjects
+
+                <select name="subject_id" />
+
+                <?php foreach($subjects as $subject): ?>
+                    <option value="<?php echo $subject['id'] ?>"><?php echo $subject['acronym']; echo ", "; echo $subject['name']; echo ", "; echo $subject['code'];  ?></option>
+                <?php endforeach; ?>
+
+                </select>
+
+             </li>
+
+              <li>Teacher 
+                <select name="user_id" />
+
+                <?php foreach($users as $user): ?>
+                    <option value="<?php echo $user['id'] ?>"><?php echo $user['title1']; echo " "; echo $user['firstname']; echo ", "; echo $user['surname']; echo " "; echo $user['title2'];  ?></option>
+                <?php endforeach; ?>
+
+                </select>
+            </li>
+
+
+
+            <li>Room 
+
+                    <select name="room_id" />
+
+                <?php foreach($rooms as $room): ?>
+                    <option value="<?php echo $room['id'] ?>"><?php echo $room['name'];?></option>
+                <?php endforeach; ?>
+
+                </select>
+
+                
+          
+            </li>
+
             <li>Day
 
                 <select name="day" />
