@@ -243,6 +243,39 @@ $app->group('/admin', $authenticateForRole('admin') ,function() use ($app) {
 
     });
 
+
+    $app->group('/consultations', function() use ($app) {
+
+        $app->get('/', function() use ($app) {
+            $app->render('admin/consultations/get_all_consultations.php', ['app' => $app]);
+        })->name('admin.consultations');
+
+        $app->get('/create', function() use ($app) {
+            $app->render('admin/consultations/create_consultation.php', ['app' => $app]);
+        })->name('admin.consultations.create');
+
+        $app->post('/create', function() use ($app) {
+            $app->render('admin/consultations/store_consultation.php', ['app' => $app]);
+        })->name('admin.consultations.store');
+
+        $app->get('/edit', function() use ($app) {
+            $app->render('admin/consultations/edit_consultation.php', ['app' => $app]);
+        })->name('admin.consultations.edit');
+
+        $app->post('/edit', function() use ($app) {
+            $app->render('admin/consultations/update_consultation.php', ['app' => $app]);
+        })->name('admin.consultations.update');
+
+        // $app->get('/delete', function() use ($app) {
+        //     $app->render('admin/consultations/delete_lecture.php', ['app' => $app]);
+        // })->name('admin.consultations.delete');
+
+        // $app->post('/delete', function() use ($app) {
+        //     $app->render('admin/consultations/remove_lecture.php', ['app' => $app]);
+        // })->name('admin.consultations.remove');
+
+    });
+
 });
 
 
