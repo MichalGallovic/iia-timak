@@ -20,6 +20,16 @@ class Auth {
         // lebo gmail si moze az v systeme pripojit
         // az ked bude gmail assigned k userovi potom sa cez neho mozeme aj pripojit
 
+        if(strlen($_POST["username"]) == 0) {
+            $this->app->flash('error_message','Zadajte prihlasovacie meno.');
+            $this->app->redirect($this->app->urlFor('login'));
+        }
+
+        if(strlen($_POST["password"]) == 0) {
+            $this->app->flash('error_message','Zadajte heslo.');
+            $this->app->redirect($this->app->urlFor('login'));
+        }
+
         // test if in db
         $this->db->where('ldap',$username);
         $result = $this->db->get('users');
