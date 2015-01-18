@@ -16,8 +16,8 @@
 <div class="nav navbar navbar-default">
     <div class="navbar-header"><span class="navbar-brand">FEI Timetable Master Overlord 10 001</span></div>
     <ul class="nav navbar-nav">
-        <li class="active"><a href="pridat_predmet.html"><span id='nav-0'>Pridať Predmet</span></a></li>
-        <li><a href="kontrola.html"><span id='nav-1'>Kontrola</span></a></li>
+        <li class="active"><a href="add"><span id='nav-0'>Pridať Predmet</span></a></li>
+        <li><a href="kontrola"><span id='nav-1'>Kontrola</span></a></li>
     </ul>
     <form id="logout" class="navbar-form navbar-right">
         <button id='logButt' type="submit" class="btn btn-primary">Odhlás</button>
@@ -120,8 +120,8 @@
             </div>
             <div class="col-md-4"></div>
             <div id="cvicenie_admin" hidden class="col-md-4">
-                <button id="doLava" class="btn btn-primary">&lt</button>
-                <button id="doPrava" class="btn btn-primary">&gt</button>
+                <button id="doLava" class="btn btn-primary">&lt;</button>
+                <button id="doPrava" class="btn btn-primary">&gt;</button>
                 <div id="cvicenie_admin_cont"></div>
 
             </div>
