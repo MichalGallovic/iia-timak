@@ -267,13 +267,77 @@ $app->group('/admin', $authenticateForRole('admin') ,function() use ($app) {
             $app->render('admin/consultations/update_consultation.php', ['app' => $app]);
         })->name('admin.consultations.update');
 
-        // $app->get('/delete', function() use ($app) {
-        //     $app->render('admin/consultations/delete_lecture.php', ['app' => $app]);
-        // })->name('admin.consultations.delete');
+        $app->get('/delete', function() use ($app) {
+            $app->render('admin/consultations/delete_consultation.php', ['app' => $app]);
+        })->name('admin.consultations.delete');
 
-        // $app->post('/delete', function() use ($app) {
-        //     $app->render('admin/consultations/remove_lecture.php', ['app' => $app]);
-        // })->name('admin.consultations.remove');
+        $app->post('/delete', function() use ($app) {
+            $app->render('admin/consultations/remove_consultation.php', ['app' => $app]);
+        })->name('admin.consultations.remove');
+
+    });
+
+      $app->group('/exercises', function() use ($app) {
+
+        $app->get('/', function() use ($app) {
+            $app->render('admin/exercises/get_all_exercises.php', ['app' => $app]);
+        })->name('admin.exercises');
+
+        $app->get('/create', function() use ($app) {
+            $app->render('admin/exercises/create_exercise.php', ['app' => $app]);
+        })->name('admin.exercises.create');
+
+        $app->post('/create', function() use ($app) {
+            $app->render('admin/exercises/store_exercise.php', ['app' => $app]);
+        })->name('admin.exercises.store');
+
+        $app->get('/edit', function() use ($app) {
+            $app->render('admin/exercises/edit_exercise.php', ['app' => $app]);
+        })->name('admin.exercises.edit');
+
+        $app->post('/edit', function() use ($app) {
+            $app->render('admin/exercises/update_exercise.php', ['app' => $app]);
+        })->name('admin.exercises.update');
+
+        $app->get('/delete', function() use ($app) {
+            $app->render('admin/exercises/delete_exercise.php', ['app' => $app]);
+        })->name('admin.exercises.delete');
+
+        $app->post('/delete', function() use ($app) {
+            $app->render('admin/exercises/remove_exercise.php', ['app' => $app]);
+        })->name('admin.exercises.remove');
+
+    });
+
+       $app->group('/users', function() use ($app) {
+
+        $app->get('/', function() use ($app) {
+            $app->render('admin/users/get_all_users.php', ['app' => $app]);
+        })->name('admin.users');
+
+        $app->get('/create', function() use ($app) {
+            $app->render('admin/users/create_user.php', ['app' => $app]);
+        })->name('admin.users.create');
+
+        $app->post('/create', function() use ($app) {
+            $app->render('admin/users/store_user.php', ['app' => $app]);
+        })->name('admin.users.store');
+
+        $app->get('/edit', function() use ($app) {
+            $app->render('admin/users/edit_user.php', ['app' => $app]);
+        })->name('admin.users.edit');
+
+        $app->post('/edit', function() use ($app) {
+            $app->render('admin/users/update_user.php', ['app' => $app]);
+        })->name('admin.users.update');
+
+        $app->get('/delete', function() use ($app) {
+            $app->render('admin/users/delete_user.php', ['app' => $app]);
+        })->name('admin.users.delete');
+
+        $app->post('/delete', function() use ($app) {
+            $app->render('admin/users/remove_user.php', ['app' => $app]);
+        })->name('admin.users.remove');
 
     });
 
