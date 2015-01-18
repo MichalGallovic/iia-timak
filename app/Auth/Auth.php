@@ -3,7 +3,8 @@
 namespace IIA\Auth;
 
 use IIA\service\repositories\UsersRepository as UsersRepository;
-
+use \Google_Client as Google_Client;
+use \Google_Service_Oauth2 as Google_Service_Oauth2;
 class Auth {
 
     protected $app;
@@ -81,6 +82,59 @@ class Auth {
 
     public function loginGoogle() {
 
+        // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
+        $application_name = 'IIARozvrhy';
+        $client_id = '489912615381-00qk84fqk1gmdfclgtovama4t5jc38vm.apps.googleusercontent.com';
+        $client_secret = 'z1ZmJzyQ8kUo4yzoAqYcHXyw';
+        $redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].$this->app->urlFor('auth.google');
+
+
+        //Create Client Request to access Google API
+        $client = new Google_Client();
+        $client->setApplicationName($application_name);
+        $client->setClientId($client_id);
+        $client->setClientSecret($client_secret);
+        $client->setRedirectUri($redirect_uri);
+        $client->setScopes(array(
+            'https://www.googleapis.com/auth/userinfo.email',
+            'https://www.googleapis.com/auth/userinfo.profile',
+        ));
+
+        //Send Client Request
+        $objOAuthService = new Google_Service_Oauth2($client);
+
+
+        //Add Access Token to Session
+        if (isset($_GET['code'])) {
+            $client->authenticate($_GET['code']);
+            $_SESSION['access_token'] = $client->getAccessToken();
+        }
+
+        //Set Access Token to make Request
+        if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+            $client->setAccessToken($_SESSION['access_token']);
+        }
+
+        //Get User Data from Google Plus
+        if ($client->getAccessToken()) {
+            $userData = $objOAuthService->userinfo->get();
+            if(!empty($userData)) {
+                $user = $this->users->getByGoogle($userData['email']);
+                if($user) {
+                    $_SESSION['user_id'] = $user['id'];
+                    $role = $this->users->getUserRoleById($user['id']);
+                    return $this->app->redirect($this->app->urlFor($role.'.index'));
+                } else {
+                    $this->app->flash('error_message','Vas gmail ucet nie je pripojeny ku ziadnemu LDAP. Prihlaste sa najskor cez LDAP.');
+                    unset($_SESSION['access_token']);
+                    $client->revokeToken();
+                    return $this->app->redirect($this->app->urlFor('login'));
+                }
+            }
+        } else {
+            $this->app->redirectTo($this->app->urlFor('login'),401);
+        }
+
     }
     public function check() {
         if(!isset($_SESSION['user_id'])) {
@@ -104,6 +158,26 @@ class Auth {
     }
     public function logout() {
         unset($_SESSION['user_id']);
+        if(isset($_SESSION['access_token'])) {
+            // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
+            $application_name = 'IIARozvrhy';
+            $client_id = '489912615381-00qk84fqk1gmdfclgtovama4t5jc38vm.apps.googleusercontent.com';
+            $client_secret = 'z1ZmJzyQ8kUo4yzoAqYcHXyw';
+            $redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].$this->app->urlFor('auth.google');
+
+            $client = new Google_Client();
+            $client->setApplicationName($application_name);
+            $client->setClientId($client_id);
+            $client->setClientSecret($client_secret);
+            $client->setRedirectUri($redirect_uri);
+            $client->setScopes(array(
+                'https://www.googleapis.com/auth/userinfo.email',
+                'https://www.googleapis.com/auth/userinfo.profile',
+            ));
+            unset($_SESSION['access_token']);
+
+            $client->revokeToken();
+        }
         return $this->app->redirect($this->app->urlFor('site.index'));
     }
 }

@@ -56,6 +56,10 @@ $app->get('/login', $isLoggedIn, function() use ($app) {
     $app->render('login.php', ['app' => $app]);
 })->name('login');
 
+$app->get('/google-login', function() use ($app) {
+   $app->render('googleAuth.php',['app'=>$app]);
+})->name('auth.google');
+
 $app->post('/login',$isLoggedIn, function() use ($app) {
     $app->render('authenticate.php', ['app' => $app]);
 })->name('auth');
