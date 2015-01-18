@@ -17,4 +17,14 @@ class Lang {
     public static function getLang() {
         return Lang::$current;
     }
+
+    public static function get($string) {
+        // get contents of app/Lang/{$current}/$s
+        $fileName = explode('_',$string);
+        $langContents = include(dirname(__FILE__).'/'.Lang::$current.'/'.$fileName[0].'.php');
+        if(isset($langContents[$fileName[1]])) {
+            return $langContents[$fileName[1]];
+        }
+        return '';
+    }
 } 

@@ -43,13 +43,15 @@ $app->get('/service/:segments+', function($segments) use ($app) {
     $response->body($responseData);
 });
 
-// if no lang in url add default lang (sk)
+// if no lang in url prepend url with default lang (sk)
 $setLang = function() use ($app){
     $lang = substr($app->request()->getResourceUri(), 1, 2);
-    Lang::setLocale($lang);
+
     if(!in_array($lang,['sk','en'])) {
         Lang::setLocale($app->config('lang'));
         $app->redirect($app->config('lang').$app->request()->getResourceUri());
+    } else {
+        Lang::setLocale($lang);
     }
 };
 

@@ -27,6 +27,7 @@ $config['app'] = array(
     'db'    =>  $configFile
 );
 
+// extending default slim for url rewriting with domain/locale/*
 class i18nSlim extends \Slim\Slim {
     public function urlFor($name, $params = array(), $lang = null){
         $lang = $lang ? $lang : $this->config('lang');
@@ -34,19 +35,14 @@ class i18nSlim extends \Slim\Slim {
         return parent::urlFor($name, $params);
     }
 }
-$LANGS = array('','en','sk');
+$LANGS = array('en','sk');
 $DEFAULT_LANG = 'sk';
 
 // vytvorenie instancie slim frameworku
 $app = new i18nSlim($config['app']);
-
+// if lang in url empty or not en,sk - we set it to sk by default
 $lang = substr($app->request()->getResourceUri(), 1, 2);
-
-if(!in_array($lang,['en','sk'])) {
-    $lang = $DEFAULT_LANG;
-} else {
-    $lang = in_array($lang,$LANGS) ? $lang : $DEFAULT_LANG;
-}
+$lang = in_array($lang,$LANGS) ? $lang : $DEFAULT_LANG;
 $app->config('lang', $lang);
 
 // ak sme v mode production
