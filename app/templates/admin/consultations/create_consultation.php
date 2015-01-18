@@ -91,16 +91,21 @@ $rooms = $db->get('rooms');
                                 <select class='form-control' name="day" />
 
                                 
-                                    <option value="0">Mon</option>
-                                    <option value="1">Tue</option>
-                                    <option value="2">Wed</option>
-                                    <option value="3">Thu</option>
-                                    <option value="4">Fri</option>
-                                    <option value="5">Sat</option>
-                                    <option value="6">Sun</option>
+                                    <option value="0">Monday</option>
+                                    <option value="1">Tuesday</option>
+                                    <option value="2">Wednesday</option>
+                                    <option value="3">Thursday</option>
+                                    <option value="4">Friday</option>
+                                    <option value="5">Saturday</option>
+                                    <option value="6">Sunday</option>
                                
 
                                 </select>
+
+
+
+
+
                                 </div>
 
 <!--                              </li>
