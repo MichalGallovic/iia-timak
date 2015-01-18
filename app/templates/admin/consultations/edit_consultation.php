@@ -37,8 +37,9 @@ $dni = array(
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-            <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/style/bootstrap-timepicker.min.css"/>
 </head>
 <body>
     <div class="container">
@@ -175,11 +176,11 @@ $dni = array(
                             <!-- </li> -->
                              <div class="form-group">
                                    <label >Start time</label>
-                                   <input type="text" class="form-control" name="start_time"/>
+                                   <input id="timepicker1" type="text" class="form-control" name="start_time"/>
                                  </div>
                              <div class="form-group">
                                    <label >End time</label>
-                                   <input type="text" class="form-control" name="end_time"/>
+                                   <input id="timepicker2" type="text" class="form-control" name="end_time"/>
                                  </div>
 
                            <!--  <li>Start time <input type="text" name="start_time" /></li>
@@ -196,6 +197,18 @@ $dni = array(
             </div>
         </div>
 
-
+    <script src="/js/libs/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="/js/libs/bootstrap-timepicker.min.js"></script>
+    <script>
+        $('#timepicker1').timepicker({
+            minuteStep: 1,
+            showMeridian: false
+        });
+        $('#timepicker2').timepicker({
+            minuteStep: 1,
+            showMeridian: false
+        });
+    </script>
 </body>
 </html>

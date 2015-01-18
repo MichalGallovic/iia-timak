@@ -45,11 +45,12 @@ $app->get('/service/:segments+', function($segments) use ($app) {
 
 // if no lang in url prepend url with default lang (sk)
 $setLang = function() use ($app){
+
     $lang = substr($app->request()->getResourceUri(), 1, 2);
 
     if(!in_array($lang,['sk','en'])) {
         Lang::setLocale($app->config('lang'));
-        $app->redirect($app->config('lang').$app->request()->getResourceUri());
+        $app->redirect('/'.$app->config('lang').$app->request()->getResourceUri());
     } else {
         Lang::setLocale($lang);
     }
@@ -57,12 +58,16 @@ $setLang = function() use ($app){
 
 $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateForRole) {
 
-// tuna pridame vsetky cesty pre guesta
+    // tuna pridame vsetky cesty pre guesta
 
     $app->get('/', function() use ($app) {
         $app->render('index.php', ['app' => $app]);
     })->name('site.index');
 
+    $app->get('/genSchedulePdf', function() use ($app) {
+        $app->render('genPdf.php', ['app' => $app]);
+    })->name('genPdf');
+    
     $app->get('/logout', function() use ($app) {
         $app->render('logout.php', ['app' => $app]);
     })->name('logout');

@@ -2,12 +2,11 @@
 
 namespace IIA\PdfGen;
 
-use IIA\service\MyApi as MyApi;
 use \TCPDF as TCPDF;
 
-class SchedulePdf extends TCPDF {
+class InvoicePdf extends TCPDF {
 
-    private $scheduleData;
+    private $invoiceData;
 
     function __construct($data, $orientation, $unit, $format) {
         parent::__construct($orientation, $unit, $format, true, 'UTF-8', false);
@@ -21,8 +20,8 @@ class SchedulePdf extends TCPDF {
         # Set document meta-information
         $this->SetCreator(PDF_CREATOR);
         $this->SetAuthor('STU User (user@stuba.sk)');
-        $this->SetTitle('Schedule for ' . $this->invoiceData['user']);
-        $this->SetSubject("A simple schedule for STU user");
+        $this->SetTitle('Invoice for ' . $this->invoiceData['user']);
+        $this->SetSubject("A simple invoice example for 'Creating PDFs on the fly with TCPDF' on IBM's developerWorks");
         $this->SetKeywords('PHP, sample, invoice, PDF, TCPDF');
 
         //set image scale factor
@@ -69,7 +68,7 @@ class SchedulePdf extends TCPDF {
         $this->Cell(72, 0, 'Faktúra pripravená pre ' . $this->invoiceData['user'] . ' ' . $this->invoiceData['date']);
     }
 
-    public function CreateSchedule() {
+    public function CreateInvoice() {
         $this->AddPage();
         $this->SetFont('helvetica', '', 11);
         $this->SetY(144, true);
@@ -111,5 +110,6 @@ class SchedulePdf extends TCPDF {
     }
 
 }
+
 ?>
 

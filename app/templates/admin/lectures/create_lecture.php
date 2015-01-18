@@ -14,9 +14,16 @@ $rooms = $db->get('rooms');
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
    <title><?php echo Lang::get('navbar_brand') ?></title>
             <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+=======
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/style/bootstrap-timepicker.min.css"/>
+>>>>>>> 4c040e306dc9d24e8549b4701ea27e9c3b0bac25
 
 </head>
 <body>
@@ -69,11 +76,11 @@ $rooms = $db->get('rooms');
                             <li>End time <input type="text" name="end_time" /></li> -->
                             <div class="form-group">
                                <label >Start time</label>
-                               <input type="text" class="form-control" name="start_time"/>
+                               <input id="timepicker1" type="text" class="form-control" name="start_time"/>
                              </div>
                             <div class="form-group">
                                <label >End time</label>
-                               <input type="text" class="form-control" name="end_time"/>
+                               <input id="timepicker2" type="text" class="form-control" name="end_time"/>
                              </div>
                             
                             <!-- <li> -->
@@ -130,12 +137,24 @@ $rooms = $db->get('rooms');
                    <!--  </ul> -->
                         <input class='btn btn-primary' type="submit" value="Add" />
                     </form>
-                    
-                    
+
+
                     
                 </div>
             </div>
         </div>
-    
+    <script src="/js/libs/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="/js/libs/bootstrap-timepicker.min.js"></script>
+    <script>
+        $('#timepicker1').timepicker({
+            minuteStep: 1,
+            showMeridian: false
+        });
+        $('#timepicker2').timepicker({
+            minuteStep: 1,
+            showMeridian: false
+        });
+    </script>
 </body>
 </html>
