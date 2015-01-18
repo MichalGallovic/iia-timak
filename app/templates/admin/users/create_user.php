@@ -27,7 +27,7 @@ $groups = $db->get('groups');
                     	<?php echo $role['name']; ?>
                     </option>
                 <?php endforeach; ?>
-
+   
                 </select>
 
              </li>

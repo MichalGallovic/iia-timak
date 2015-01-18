@@ -342,7 +342,7 @@ $app->group('/admin', $authenticateForRole('admin') ,function() use ($app) {
     });
 
 });
-
+      
 
 $app->group('/teacher', $authenticateForRole('teacher'), function() use ($app) {
    $app->get('/', function() use ($app) {
