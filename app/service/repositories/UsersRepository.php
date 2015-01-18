@@ -56,7 +56,7 @@ class UsersRepository implements DbRepositoryInterface{
     
     public function getByGoogle($google) {
         $this->databaseConnector->where('google', $google);
-        return $this->databaseConnector->get('users');
+        return $this->databaseConnector->getOne('users');
     }
 
     public function getUserRoleById($id) {
