@@ -1,4 +1,5 @@
 <?php
+use IIA\Lang\Lang as Lang;
 
 // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
 $application_name = 'IIARozvrhy';

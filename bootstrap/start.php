@@ -24,12 +24,30 @@ $config['app'] = array(
 //    )),
     'mode' => (!empty($_ENV['environment'])) ? $_ENV['SLIM_MODE']: 'production',
     'templates.path'    =>  '../app/templates',
-    'db'    =>  $configFile,
-    'locale'    =>  'sk_SK'
+    'db'    =>  $configFile
 );
 
+class i18nSlim extends \Slim\Slim {
+    public function urlFor($name, $params = array(), $lang = null){
+        $lang = $lang ? $lang : $this->config('lang');
+        $params['lang'] = $lang;
+        return parent::urlFor($name, $params);
+    }
+}
+$LANGS = array('','en','sk');
+$DEFAULT_LANG = 'sk';
+
 // vytvorenie instancie slim frameworku
-$app = new Slim\Slim($config['app']);
+$app = new i18nSlim($config['app']);
+
+$lang = substr($app->request()->getResourceUri(), 1, 2);
+
+if(!in_array($lang,['en','sk'])) {
+    $lang = $DEFAULT_LANG;
+} else {
+    $lang = in_array($lang,$LANGS) ? $lang : $DEFAULT_LANG;
+}
+$app->config('lang', $lang);
 
 // ak sme v mode production
 $app->configureMode('production', function () use ($app) {

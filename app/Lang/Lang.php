@@ -9,7 +9,7 @@ class Lang {
 
     public static function setLocale($locale) {
         if(array_key_exists($locale,Lang::$languages)) {
-            setlocale(LC_ALL,Lang::$language[$locale]);
+            setlocale(LC_ALL,Lang::$languages[$locale]);
             Lang::$current = $locale;
         }
     }

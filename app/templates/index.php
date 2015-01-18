@@ -4,7 +4,6 @@
     <title>IIA</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <script src="/js/index/index.js"></script>
 </head>
 <body>
 <div class="nav navbar-default">
@@ -65,5 +64,6 @@
 </div>
 <script src="/js/libs/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="/js/index/index.js"></script>
 </body>
 </html>
