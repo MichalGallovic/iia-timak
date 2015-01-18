@@ -164,6 +164,7 @@ class MyAPI extends API {
             'day' => '',
             'type' => '',
             'subjectName' => '',
+            'color' => '',
             'userName' => '',
             'userSurName' => '',
             'startTime' => '',
@@ -181,15 +182,15 @@ class MyAPI extends API {
 
             case 'users_group':
             case 'skupina_uzivatelov':
-                $this->getUserSchedule($retArray, $rowStructure, $id);
-                $id = 1;
+                $retArray = $this->getUserSchedule($retArray, $rowStructure, $id);
                 $maxId = 10;
-                while (true && $id < $maxId) {
+                for ($id = 0; $id < $maxId; $id++) {
                     $optId = 'id' . $id;
-                    if (!isset($this->request[$optId]))
-                        break;
-                    $this->getUserSchedule($retArray, $rowStructure, $optId);
-                    $id+=1;
+                    if (!isset($this->request[$optId])) {
+                        continue;
+                    }
+                    $id = $this->request[$optId];
+                    $retArray = $this->getUserSchedule($retArray, $rowStructure, $id);
                 }
                 return $retArray;
 
@@ -276,7 +277,8 @@ class MyAPI extends API {
             //  natiahni si potrebne info o predmete
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
-
+            $color = $subject['color'];
+            
             //  natiahni si poznamku ku konzultaciam
             $note = '';
             if ($isConsultation == true) {
@@ -286,6 +288,7 @@ class MyAPI extends API {
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
             $rowStructure['day'] = $day;
@@ -344,6 +347,7 @@ class MyAPI extends API {
         //  natiahni si potrebne info o predmete
         $subject = $this->subjectsRepository->getById($subjectId);
         $subjectName = $subject['name'];
+        $color = $subject['color'];
 
         //  prejdi vsetky vzorky (prednasky, cvicenie alebo konzultacie) podla dna v tyzdni
         foreach ($samples as $sample) {
@@ -371,6 +375,7 @@ class MyAPI extends API {
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
             $rowStructure['day'] = $day;
@@ -441,7 +446,8 @@ class MyAPI extends API {
             //  natiahni si potrebne info o predmete
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
-
+            $color = $subject['color'];
+            
             //  natiahni si potrebne info o uzivatelovi
             $userId = $sample['user_id'];
             $user = $this->usersRepository->getById($userId);
@@ -457,6 +463,7 @@ class MyAPI extends API {
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
             $rowStructure['day'] = $day;
@@ -524,6 +531,7 @@ class MyAPI extends API {
             //  natiahni si potrebne info o predmete
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
+            $color = $subject['color'];
 
             //  natiahni si potrebne info o uzivatelovi
             $userId = $sample['user_id'];
@@ -544,6 +552,7 @@ class MyAPI extends API {
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
             $rowStructure['day'] = $day;
