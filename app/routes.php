@@ -372,9 +372,13 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
 
 
     $app->group('/teacher', $authenticateForRole('teacher'), function() use ($app) {
+        
         $app->get('/', function() use ($app) {
-            echo 'teacher index';
+            $app->render('teacher/index.php', ['app'=>$app]);
         })->name('teacher.index');
+
+        //     echo 'teacher index';
+        // })->name('teacher.index');
     });
 
 });
