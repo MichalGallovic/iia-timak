@@ -19,6 +19,7 @@ function rob(od){
 		url: "/service/subjectValid",
 		data: 'id='+od[i].id,
 		success: function(resp){
+			console.log(resp);
 		  	var id = this.url.substring(this.url.length-1,this.url.length);
 		  	$('#'+id).html('kone '+id)
 		 } 
