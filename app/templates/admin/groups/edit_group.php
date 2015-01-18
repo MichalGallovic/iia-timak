@@ -10,26 +10,49 @@ $groups = $db->get('groups');
 <head>
 	<meta charset="UTF-8"> 
 	<title>Update group</title>
+			<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+
 </head>
 <body>
-	<h1>Edit Group</h1>
-	<p>Select room to edit</p>
-	<form action="<?php echo $app->urlFor('admin.groups.update'); ?>" method="POST">
-	<select value="id" name="id">
-		<?php foreach($groups as $group): ?>
-			<option name="<?php echo $group['id'] ?>" value="<?php echo $group['id'] ?>" > <?php echo $group['name'] ?> </option>
-		<?php endforeach; ?>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+						<h1>Edit Group</h1>
+						
+						<div class="form-group">
+						   <label >Group to edit</label>
+						<form action="<?php echo $app->urlFor('admin.groups.update'); ?>" method="POST">
+						<select class='form-control' value="id" name="id">
+							<?php foreach($groups as $group): ?>
+								<option name="<?php echo $group['id'] ?>" value="<?php echo $group['id'] ?>" > <?php echo $group['name'] ?> </option>
+							<?php endforeach; ?>
 
-	</select>
-
-        <ul>
-            <li>Group name: <input type="text" name="name" /></li>
-             <li>Group code: <input type="text" name="code" /></li>
-        </ul>
+						</select>
+					</div>
 
 
-	<input type="submit" value="edit" />
-	</form>
+					        <!-- <ul>
+					            <li>Group name: <input type="text" name="name" /></li>
+					             <li>Group code: <input type="text" name="code" /></li>
+					        </ul> -->
+							<div class="form-group">
+							   <label >Group name</label>
+							   <input type="text" class="form-control" name="name"/>
+							 </div>
+							 <div class="form-group">
+							    <label >Group code</label>
+							    <input type="text" class="form-control" name="code"/>
+							  </div>
+
+						<input class='btn btn-primary' type="submit" value="edit" />
+						</form>
+					
+					
+				</div>
+			</div>
+		</div>
+	
 
 </body>
 </html>

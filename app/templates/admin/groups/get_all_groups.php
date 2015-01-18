@@ -10,13 +10,31 @@ $groups = $db->get('groups');
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+
 </head>
 <body>
-	<h1>Groups</h1>
-	<ul>
-		<?php foreach($groups as $group): ?>
-			<li><?php echo $group['code']; echo ", "; echo $group['name']; ?></li>
-		<?php endforeach; ?>
-	</ul>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Groups</h1>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Code</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($groups as $group): ?>
+								<tr><td><?php echo $group['code']?></td><td><?php echo $group['name']; ?></td></tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+						
+				</div>
+			</div>
+		</div>
+	
 </body>
 </html>
