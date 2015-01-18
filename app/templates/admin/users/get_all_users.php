@@ -10,14 +10,34 @@ $users = $db->get('users');
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+			<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+
 </head>
 <body>
-	<h1>Users</h1>
-	<ul>
-		<?php foreach($users as $user): ?>
-			<li><?php echo $user['title1']; echo " "; echo $user['firstname']; echo " ";
-			 echo $user['surname']; echo " "; echo $user['title2']; ?></li>
-		<?php endforeach; ?>
-	</ul>
+	<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Users</h1>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php foreach($users as $user): ?>
+								<tr><td><?php echo $user['title1']; echo " "; echo $user['firstname']; echo " ";
+								 echo $user['surname']; echo " "; echo $user['title2']; ?></td></lr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+						
+					
+					
+				</div>
+			</div>
+		</div>
+	
 </body>
 </html>

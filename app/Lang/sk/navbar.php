@@ -2,5 +2,6 @@
 
 return [
     "brand"     =>  'FEI Rozvrhy',
-    "login"     =>  'Prihlásiť sa'
+    "login"     =>  'Prihlásiť sa',
+    "logout"	=> 	'Odhlásiť sa'
 ];
