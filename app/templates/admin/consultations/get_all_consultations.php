@@ -15,8 +15,9 @@ $consultations = $db->get('consultations');
 	<h1>Consultations</h1>
 	<ul>
 		<?php foreach($consultations as $consultation): ?>
-			<li><?php echo "day: ";echo $consultation['day']; echo ", note: "; echo $consultation['note'];
-			echo ", start "; echo $consultation['start_time'];echo ", "; echo $consultation['end_time']; ?></li>
+			<li><?php echo "room: ";echo $consultation['room_id']; echo ", note: "; echo $consultation['note'];
+			echo ", start "; echo $consultation['start_time'];echo ", "; echo $consultation['end_time'];
+			echo ", day "; echo $consultation['day']; ?></li>
 		<?php endforeach; ?>
 	</ul>
 </body>
