@@ -27,6 +27,7 @@ $consultations = $db->get('consultations');
 							 </option>
 						<?php endforeach; ?>
 
+<<<<<<< HEAD
 					</select>
 					<div>
 					<input class="btn btn-primary" type="submit" value="delete" />
@@ -35,6 +36,17 @@ $consultations = $db->get('consultations');
 			</div>
 		</div>
 	</div>
+=======
+	<form action="<?php echo $app->urlFor('admin.consultations.remove') ?>" method="POST">
+	<select value="id" name="id">
+		<?php foreach($consultations as $consultation): ?>
+			<option name="<?php echo $consultation['id'] ?>" value="<?php echo $consultation['id'] ?>" >
+<?php echo "day: ";echo $consultation['day']; echo ", note: "; echo $consultation['note'];
+			echo ", start "; echo $consultation['start_time'];echo ", "; echo $consultation['end_time'];
+			echo ", day "; echo $consultation['day']; ?>
+			 </option>
+		<?php endforeach; ?>
+>>>>>>> 4bd62468476633e91a3c0459f8c911506610ad8f
 
 	
 

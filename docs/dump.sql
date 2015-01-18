@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.40-0ubuntu0.12.04.1)
 # Database: iiaTimak
-# Generation Time: 2015-01-18 11:10:34 +0000
+# Generation Time: 2015-01-18 13:53:55 +0000
 # ************************************************************
 
 
@@ -43,6 +43,18 @@ CREATE TABLE `consultations` (
   CONSTRAINT `fk_consultations_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `consultations` WRITE;
+/*!40000 ALTER TABLE `consultations` DISABLE KEYS */;
+
+INSERT INTO `consultations` (`id`, `start_time`, `end_time`, `note`, `day`, `user_id`, `room_id`, `subject_id`)
+VALUES
+	(1,'11:11:00','12:00:00','trololo\n',2,40,2,4),
+	(2,'08:00:00','12:00:00','som jak pan , v kabinete sam',1,42,1,8),
+	(7,'16:00:00','17:00:00','pijeme fernet cez internet',4,42,5,9),
+	(8,'16:56:00','17:46:00','satan je nas pan',3,54,5,6);
+
+/*!40000 ALTER TABLE `consultations` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table exercises
@@ -67,6 +79,17 @@ CREATE TABLE `exercises` (
   CONSTRAINT `fk_exercises_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `exercises` WRITE;
+/*!40000 ALTER TABLE `exercises` DISABLE KEYS */;
+
+INSERT INTO `exercises` (`id`, `start_time`, `end_time`, `subject_id`, `user_id`, `room_id`, `day`)
+VALUES
+	(1,'00:00:10','00:00:11',6,51,2,2),
+	(3,'10:00:00','12:00:00',4,50,3,3),
+	(7,'08:00:00','09:00:00',6,41,1,1);
+
+/*!40000 ALTER TABLE `exercises` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table groups
@@ -89,7 +112,8 @@ VALUES
 	(1,'OAMM','Oddelenie aplikovanej mechaniky a mechatroniky'),
 	(2,'OIKR','Oddelenie informačných, komunikačných a riadiacich systémov'),
 	(3,'OAEM','Oddelenie elektroniky, mikropočítačov a PLC systémov'),
-	(4,'OEAP','Oddelenie E-mobility, automatizácie a pohonov');
+	(4,'OEAP','Oddelenie E-mobility, automatizácie a pohonov'),
+	(5,'JBMNT','Oddelenie Patrika Vrbovskeho');
 
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -117,6 +141,18 @@ CREATE TABLE `lectures` (
   CONSTRAINT `fk_lectures_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `lectures` WRITE;
+/*!40000 ALTER TABLE `lectures` DISABLE KEYS */;
+
+INSERT INTO `lectures` (`id`, `subject_id`, `start_time`, `end_time`, `user_id`, `room_id`, `day`)
+VALUES
+	(1,5,'11:00:00','12:00:00',40,4,1),
+	(2,8,'10:00:00','11:00:00',42,1,2),
+	(3,10,'16:06:00','16:56:00',51,7,5),
+	(4,5,'00:00:00','00:00:00',38,1,6);
+
+/*!40000 ALTER TABLE `lectures` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table roles
@@ -140,7 +176,9 @@ LOCK TABLES `roles` WRITE;
 INSERT INTO `roles` (`id`, `name`, `create`, `read`, `update`, `delete`)
 VALUES
 	(1,'admin',1,1,1,1),
-	(2,'teacher',1,1,1,1);
+	(2,'teacher',1,1,1,1),
+	(3,'nasratySysAdmin',1,1,1,1),
+	(4,'bejzikovy typco',0,0,0,0);
 
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -167,7 +205,8 @@ VALUES
 	(3,'CD300'),
 	(4,'D406'),
 	(5,'CPU-a'),
-	(6,'D405');
+	(6,'D405'),
+	(7,'dungeon');
 
 /*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -200,7 +239,8 @@ VALUES
 	(6,'39901_3B','Úvod do inžinierstva','UI',2,2,'#91E3C5','W'),
 	(7,'37115_3I','Teória automatického riadenia 3','TAR3',2,3,'#E3BF91','S'),
 	(8,'33115_3B','Tvorba internetových aplikácií','TIA',2,2,'#98BF49','S'),
-	(9,'33171_3B','Nelineárne systémy','NS',2,3,'#BF7049','S');
+	(9,'33171_3B','Nelineárne systémy','NS',2,3,'#BF7049','S'),
+	(10,'666','Satanisticke ritualy','SR',3,2,'#666','W');
 
 /*!40000 ALTER TABLE `subjects` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -242,7 +282,10 @@ VALUES
 	(49,1,NULL,'Michal','Gallovič','Bc.',NULL,NULL,'xgallovicm'),
 	(50,1,NULL,'Jakub','Fornádel','Bc.',NULL,NULL,'xfornadelj'),
 	(51,1,NULL,'Igor','Packo','Bc',NULL,NULL,'xpacko'),
-	(52,1,NULL,'Jakub','Hoblík','Bc',NULL,NULL,'xhoblikj');
+	(52,1,NULL,'Jakub','Hoblík','Bc',NULL,NULL,'xhoblikj'),
+	(54,3,'foxyzv','Igorko','Packo','krasavec','najsamvacsi',5,'xpacko'),
+	(55,3,'palo','Pavol','Habera','naj spevacik','zapredany',5,'ldap'),
+	(56,4,'a','s','d','dw','r',1,'e');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

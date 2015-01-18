@@ -38,4 +38,10 @@ class ExercisesRepository implements DbRepositoryInterface{
         $this->databaseConnector->where('room_id', $roomId);
         return $this->databaseConnector->get('exercises');
     }
+    
+    public function getByDay($day) {
+        $this->databaseConnector->where('day', $day);
+        return $this->databaseConnector->get('exercises');
+    }
+    
 }

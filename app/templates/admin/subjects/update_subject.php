@@ -4,7 +4,7 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
             $credentials['password'], $credentials['dbName']);
 
 
-	var_dump($_POST);
+	//var_dump($_POST);
 
 	$id = $_POST['id'];
 

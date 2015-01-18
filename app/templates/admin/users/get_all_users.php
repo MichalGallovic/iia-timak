@@ -2,7 +2,7 @@
 $credentials = $app->config('db');
 $db = new MysqliDb($credentials['host'], $credentials['username'],
             $credentials['password'], $credentials['dbName']);
-$subjects = $db->get('subjects');
+$users = $db->get('users');
 
 ?>
 <!DOCTYPE html>
@@ -14,8 +14,9 @@ $subjects = $db->get('subjects');
 <body>
 	<h1>Users</h1>
 	<ul>
-		<?php foreach($subjects as $subjects): ?>
-			<li><?php echo $subjects['name']; echo ", "; echo $subjects['code']; ?></li>
+		<?php foreach($users as $user): ?>
+			<li><?php echo $user['title1']; echo " "; echo $user['firstname']; echo " ";
+			 echo $user['surname']; echo " "; echo $user['title2']; ?></li>
 		<?php endforeach; ?>
 	</ul>
 </body>

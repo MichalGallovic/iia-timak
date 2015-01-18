@@ -14,6 +14,7 @@ $consultations = $db->get('consultations');
 
 </head>
 <body>
+<<<<<<< HEAD
 	<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -40,5 +41,15 @@ $consultations = $db->get('consultations');
 		</div>
 	
 		
+=======
+	<h1>Consultations</h1>
+	<ul>
+		<?php foreach($consultations as $consultation): ?>
+			<li><?php echo "room: ";echo $consultation['room_id']; echo ", note: "; echo $consultation['note'];
+			echo ", start "; echo $consultation['start_time'];echo ", "; echo $consultation['end_time'];
+			echo ", day "; echo $consultation['day']; ?></li>
+		<?php endforeach; ?>
+	</ul>
+>>>>>>> 4bd62468476633e91a3c0459f8c911506610ad8f
 </body>
 </html>

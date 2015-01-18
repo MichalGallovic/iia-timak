@@ -11,11 +11,12 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 		'start_time' => $_POST['start_time'],
 		'end_time' => $_POST['end_time'],
 		'user_id' => $_POST['user_id'],
-		'room_id' => $_POST['room_id'] 
+		'room_id' => $_POST['room_id'],
+		'day' => $_POST['day'] 
 	 );
 
 
-//var_dump($_POST);
+// var_dump($_POST);
 
 
 	$db->where ('id', $id);

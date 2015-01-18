@@ -46,8 +46,9 @@ $lectures = $db->get('lectures');
             <li>Start time <input type="text" name="start_time" /></li>
             <li>End time <input type="text" name="end_time" /></li>
             
-            <li>
+            <li>Teacher
                 <select name="user_id" />
+                
 
                 <?php foreach($users as $user): ?>
                     <option value="<?php echo $user['id'] ?>"><?php echo $user['title1']; echo " "; echo $user['firstname']; echo ", "; echo $user['surname']; echo " "; echo $user['title2'];  ?></option>
@@ -58,7 +59,7 @@ $lectures = $db->get('lectures');
 
 
 
-            <li>
+            <li>Room
 
                     <select name="room_id" />
 
@@ -71,6 +72,24 @@ $lectures = $db->get('lectures');
                 
           
             </li>
+
+               <li>Day
+
+                <select name="day" />
+
+                
+                    <option value="0">Mon</option>
+                    <option value="1">Tue</option>
+                    <option value="2">Wed</option>
+                    <option value="3">Thu</option>
+                    <option value="4">Fri</option>
+                    <option value="5">Sat</option>
+                    <option value="6">Sun</option>
+               
+
+                </select>
+
+             </li>
 
     </ul>
         <input type="submit" value="edit" />
