@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.40-0ubuntu0.12.04.1)
 # Database: iiaTimak
-# Generation Time: 2015-01-18 09:31:21 +0000
+# Generation Time: 2015-01-18 11:10:34 +0000
 # ************************************************************
 
 
@@ -31,7 +31,16 @@ CREATE TABLE `consultations` (
   `end_time` time NOT NULL,
   `note` text NOT NULL,
   `day` tinyint(6) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `user_id` int(11) unsigned NOT NULL,
+  `room_id` int(11) unsigned NOT NULL,
+  `subject_id` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_consultations_subjects` (`subject_id`),
+  KEY `fk_consultations_users` (`user_id`),
+  KEY `fk_consultations_rooms` (`room_id`),
+  CONSTRAINT `fk_consultations_rooms` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_consultations_subjects` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_consultations_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
