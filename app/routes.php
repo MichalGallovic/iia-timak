@@ -63,6 +63,10 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->render('index.php', ['app' => $app]);
     })->name('site.index');
 
+    $app->get('/genSchedulePdf', function() use ($app) {
+        $app->render('genPdf.php', ['app' => $app]);
+    })->name('genPdf');
+    
     $app->get('/logout', function() use ($app) {
         $app->render('logout.php', ['app' => $app]);
     })->name('logout');
