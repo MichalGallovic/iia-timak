@@ -57,62 +57,104 @@ class MyAPI extends API {
     }
 
     protected function consultations() {
-        if ($this->method == 'GET') {
-            return $this->consultationsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->consultationsRepository->getById($id);
+        }
+        return $this->consultationsRepository->getAll();
     }
 
     protected function exercises() {
-        if ($this->method == 'GET') {
-            return $this->exercisesRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->exercisesRepository->getById($id);
+        }
+        return $this->exercisesRepository->getAll();
     }
 
     protected function groups() {
-        if ($this->method == 'GET') {
-            return $this->groupsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->groupsRepository->getById($id);
+        }
+        return $this->groupsRepository->getAll();
     }
 
     protected function lectures() {
-        if ($this->method == 'GET') {
-            return $this->lecturesRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->lecturesRepository->getById($id);
+        }
+        return $this->lecturesRepository->getAll();
     }
 
     protected function roles() {
-        if ($this->method == 'GET') {
-            return $this->rolesRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->rolesRepository->getById($id);
+        }
+        return $this->rolesRepository->getAll();
     }
 
     protected function subjects() {
-        if ($this->method == 'GET') {
-            if (isset($this->request['term'])) {
-                $term = $this->request['term'];
-                return $this->subjectsRepository->getByTerm($term);
-            }
-            return $this->subjectsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->subjectsRepository->getById($id);
+        }
+        if (isset($this->request['term'])) {
+            $term = $this->request['term'];
+            return $this->subjectsRepository->getByTerm($term);
+        }
+        return $this->subjectsRepository->getAll();
     }
 
     protected function users() {
-        if ($this->method == 'GET') {
-            return $this->usersRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->usersRepository->getById($id);
+        }
+        return $this->usersRepository->getAll();
     }
 
     protected function rooms() {
-        if ($this->method == 'GET') {
-            return $this->roomsRepository->getAll();
+        if ($this->method != 'GET') {
+            return array();
         }
+        if (isset($this->request['id'])) {
+            $id = $this->request['id'];
+            return $this->roomsRepository->getById($id);
+        }
+        return $this->roomsRepository->getAll();
     }
 
     protected function schedule() {
-        if ($this->method != 'GET')
+        if ($this->method != 'GET') {
             return array();
-        if (!isset($this->request['type']) || !isset($this->request['id']))
+        }
+        if (!isset($this->request['type']) || !isset($this->request['id'])) {
             return array();
+        }
 
         //  navratove pole
         $retArray = array();
@@ -240,7 +282,7 @@ class MyAPI extends API {
             if ($isConsultation == true) {
                 $note = $sample['note'];
             }
-            
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -325,7 +367,7 @@ class MyAPI extends API {
             if ($isConsultation == true) {
                 $note = $sample['note'];
             }
-            
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -350,10 +392,10 @@ class MyAPI extends API {
 
         //  getni vseky cvika
         $retArray = $this->getRoomPartSchedule($retArray, $rowStructure, $roomId, 'exercises');
-        
+
         //  getni vseky konzultacie
         $retArray = $this->getRoomPartSchedule($retArray, $rowStructure, $roomId, 'consultations');
-        
+
         return $retArray;
     }
 
@@ -411,7 +453,7 @@ class MyAPI extends API {
             if ($isConsultation == true) {
                 $note = $sample['note'];
             }
-            
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -498,7 +540,7 @@ class MyAPI extends API {
             if ($isConsultation == true) {
                 $note = $sample['note'];
             }
-            
+
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
@@ -525,7 +567,7 @@ class MyAPI extends API {
 
         foreach ($users as $user) {
             $userId = $user['id'];
-            
+
             //  getni vseky prednasky
             $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'lectures');
 
