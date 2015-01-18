@@ -114,102 +114,390 @@ class MyAPI extends API {
         if (!isset($this->request['type']) || !isset($this->request['id']))
             return array();
 
-//  navratove pole
+        //  navratove pole
         $retArray = array();
 
-//  struktura jedneho riadku navratoho pola
+        //  struktura jedneho riadku navratoho pola
         $rowStructure = array(
+            'day' => '',
             'type' => '',
             'subjectName' => '',
-            'teacherName' => '',
-            'teacherSurName' => '',
-            'day' => '',
+            'userName' => '',
+            'userSurName' => '',
             'startTime' => '',
             'endTime' => '',
-            'roomName' => ''
+            'roomName' => '',
+            'note' => ''
         );
 
         $type = $this->request['type'];
         $id = $this->request['id'];
         switch ($type) {
-            case 'teacher':
-            case 'ucitel':
-                $user = $this->usersRepository->getById($id);
-                if (empty($user)) {
-                    return $retArray;   //  ak sa user s danym id nenachadza v database, vrati prazdne pole
-                }
-                
-                //  natiahni si zakladne info o ucitelovi
-                $teacherId = $user['id'];
-                $teacherName = $user['firstname'];
-                $teacherSurName = $user['surname'];
+            case 'user':
+            case 'uzivatel':
+                return $this->getUserSchedule($retArray, $rowStructure, $id);
 
-                //  prejdi vsetky prednasky s id-ckom daneho ucitela
-                $lectures = $this->lecturesRepository->getByUserId($teacherId);
-                foreach ($lectures as $lecture) {
-                    $type = 'lecture';
-                    $startTime = $lecture['start_time'];
-                    $endTime = $lecture['end_time'];
-                    $day = $lecture['day'];
-
-                    //  skontroluj ci je dany predmet validny - boli zadefinovane aj prednaska aj cviko + miestnosti
-                    $subjectId = $lecture['subject_id'];
-                    if ($this->checkSubjectValid($subjectId) == false) {
-                        continue;
-                    }
-
-                    //   natiahni si potrebne info o miestnosti
-                    $roomId = $lecture['room_id'];
-                    $room = $this->roomsRepository->getById($exerciseRoomId);
-                    $roomName = $room['name'];
-                    
-                    //  natiahni si potrebne info o predmete
-                    $subject = $this->subjectsRepository->getById($subjectId);
-                    $subjectName = $subject['name'];
-
-                    //  napln pole ziskanymi udajmi
-                    $rowStructure['type'] = $type;
-                    $rowStructure['subjectName'] = $subjectName;
-                    $rowStructure['teacherName'] = $teacherName;
-                    $rowStructure['teacherSurName'] = $teacherSurName;
-                    $rowStructure['day'] = $day;
-                    $rowStructure['startTime'] = $startTime;
-                    $rowStructure['endTime'] = $endTime;
-                    $rowStructure['roomName'] = $roomName;
-                    
-                    //  pridaj riadok do navratoveho pola
-                    array_push($retArray, $rowStructure);
+            case 'users_group':
+            case 'skupina_uzivatelov':
+                $this->getUserSchedule($retArray, $rowStructure, $id);
+                $id = 1;
+                $maxId = 10;
+                while (true && $id < $maxId) {
+                    $optId = 'id' . $id;
+                    if (!isset($this->request[$optId]))
+                        break;
+                    $this->getUserSchedule($retArray, $rowStructure, $optId);
+                    $id+=1;
                 }
                 return $retArray;
 
-            case 'teachers_group':
-            case 'skupina_ucitelov':
-                return 'teachers_group';
-                break;
-
             case 'subject':
             case 'predmet':
-                return 'subject';
-                break;
+                return $this->getSubjectSchedule($retArray, $rowStructure, $id);
 
             case 'room':
             case 'miestnost':
-                return 'room';
-                break;
+                return $this->getRoomSchedule($retArray, $rowStructure, $id);
 
             case 'day':
             case 'den':
-                return 'room';
-                break;
+                return $this->getDaySchedule($retArray, $rowStructure, $id);
 
             case 'group':
             case 'oddelenie':
-                return 'group';
-                break;
+                return $this->getGroupSchedule($retArray, $rowStructure, $id);
 
             default:
                 return array();
         }
+    }
+
+    protected function getUserSchedule($retArray, $rowStructure, $userId) {
+        //  getni vseky prednasky
+        $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'lectures');
+
+        //  getni vseky cvika
+        $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'exercises');
+
+        //  getni vseky konzultacie
+        $retArray = $this->getUserPartSchedule($retArray, $rowStructure, $userId, 'consultations');
+
+        return $retArray;
+    }
+
+    protected function getUserPartSchedule($retArray, $rowStructure, $userId, $type) {
+        switch ($type) {
+            case 'lectures':
+                $type = 'lecture';
+                $samples = $this->lecturesRepository->getByUserId($userId);
+                break;
+            case 'exercises':
+                $type = 'exercises';
+                $samples = $this->exercisesRepository->getByUserId($userId);
+                break;
+            case 'consultations':
+                $type = 'consultations';
+                $samples = $this->consultationsRepository->getByUserId($userId);
+                break;
+            default:
+                return array();
+        }
+
+        $user = $this->usersRepository->getById($userId);
+        if (empty($user)) {
+            return array();   //  ak sa user s danym id nenachadza v database, vrati prazdne pole
+        }
+
+        //  natiahni si zakladne info o uzivatelovi
+        $userName = $user['firstname'];
+        $userSurName = $user['surname'];
+
+        //  natiahni si potrebne info o predmete
+        foreach ($samples as $sample) {
+            $startTime = $sample['start_time'];
+            $endTime = $sample['end_time'];
+            $day = $sample['day'];
+
+            //  skontroluj ci je dany predmet validny - boli zadefinovane aj prednaska aj cviko + miestnosti
+            $subjectId = $sample['subject_id'];
+            //if ($this->checkSubjectValid($subjectId) == false) {
+            //    continue;
+            //}
+            //   natiahni si potrebne info o miestnosti
+            $roomId = $sample['room_id'];
+            $room = $this->roomsRepository->getById($roomId);
+            $roomName = $room['name'];
+
+            //  natiahni si potrebne info o predmete
+            $subject = $this->subjectsRepository->getById($subjectId);
+            $subjectName = $subject['name'];
+
+            //  napln pole ziskanymi udajmi
+            $rowStructure['type'] = $type;
+            $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['userName'] = $userName;
+            $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['day'] = $day;
+            $rowStructure['startTime'] = $startTime;
+            $rowStructure['endTime'] = $endTime;
+            $rowStructure['roomName'] = $roomName;
+
+            //  pridaj riadok do navratoveho pola
+            array_push($retArray, $rowStructure);
+        }
+
+        return $retArray;
+    }
+
+    protected function getSubjectSchedule($retArray, $rowStructure, $subjectId) {
+        //  getni vseky prednasky
+        $retArray = $this->getSubjectPartSchedule($retArray, $rowStructure, $subjectId, 'lectures');
+
+        //  getni vseky cvika
+        $retArray = $this->getSubjectPartSchedule($retArray, $rowStructure, $subjectId, 'exercises');
+
+        //  getni vseky konzultacie
+        $retArray = $this->getSubjectPartSchedule($retArray, $rowStructure, $subjectId, 'consultations');
+
+        return $retArray;
+    }
+
+    protected function getSubjectPartSchedule($retArray, $rowStructure, $subjectId, $type) {
+        switch ($type) {
+            case 'lectures':
+                $type = 'lecture';
+                $samples = $this->lecturesRepository->getBySubjectId($subjectId);
+                break;
+            case 'exercises':
+                $type = 'exercises';
+                $samples = $this->exercisesRepository->getBySubjectId($subjectId);
+                break;
+            case 'consultations':
+                $type = 'consultations';
+                $samples = $this->consultationsRepository->getBySubjectId($subjectId);
+                break;
+            default:
+                return array();
+        }
+
+        /*
+          if ($this->checkSubjectValid($subjectId) == false) {
+          return array();
+          }
+         */
+
+        //  natiahni si potrebne info o predmete
+        $subject = $this->subjectsRepository->getById($subjectId);
+        $subjectName = $subject['name'];
+
+        //  prejdi vsetky vzorky (prednasky, cvicenie alebo konzultacie) podla dna v tyzdni
+        foreach ($samples as $sample) {
+            $startTime = $sample['start_time'];
+            $endTime = $sample['end_time'];
+            $day = $sample['day'];
+
+            //  natiahni si potrebne info o uzivatelovi
+            $userId = $sample['user_id'];
+            $user = $this->usersRepository->getById($userId);
+            $userName = $user['firstname'];
+            $userSurName = $user['surname'];
+
+            //   natiahni si potrebne info o miestnosti
+            $roomId = $sample['room_id'];
+            $room = $this->roomsRepository->getById($roomId);
+            $roomName = $room['name'];
+
+            //  napln pole ziskanymi udajmi
+            $rowStructure['type'] = $type;
+            $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['userName'] = $userName;
+            $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['day'] = $day;
+            $rowStructure['startTime'] = $startTime;
+            $rowStructure['endTime'] = $endTime;
+            $rowStructure['roomName'] = $roomName;
+
+            //  pridaj riadok do navratoveho pola
+            array_push($retArray, $rowStructure);
+        }
+
+        return $retArray;
+    }
+
+    protected function getRoomSchedule($retArray, $rowStructure, $roomId) {
+        //  getni vseky prednasky
+        $reArray = $this->getRoomPartSchedule($rowStructure, $roomId, 'lectures');
+
+        //  getni vseky cvika
+        $reArray = $this->getRoomPartSchedule($rowStructure, $roomId, 'exercises');
+
+        //  getni vseky konzultacie
+        $reArray = $this->getRoomPartSchedule($rowStructure, $roomId, 'consultations');
+
+        return $retArray;
+    }
+
+    protected function getRoomPartSchedule($retArray, $rowStructure, $roomId, $type) {
+        switch ($type) {
+            case 'lectures':
+                $type = 'lecture';
+                $samples = $this->lecturesRepository->getByRoomId($roomId);
+                break;
+            case 'exercises':
+                $type = 'exercises';
+                $samples = $this->exercisesRepository->getByRoomId($roomId);
+                break;
+            case 'consultations':
+                $type = 'consultations';
+                $samples = $this->consultationsRepository->getByRoomId($roomId);
+                break;
+            default:
+                return array();
+        }
+
+        //  natiahni si potrebne info o predmete
+        $room = $this->roomsRepository->getById($roomId);
+        $roomName = $room['name'];
+
+        //  prejdi vsetky vzorky (prednasky, cvicenie alebo konzultacie) podla dna v tyzdni
+        foreach ($samples as $sample) {
+
+            $startTime = $sample['start_time'];
+            $endTime = $sample['end_time'];
+            $day = $sample['day'];
+
+            $subjectId = $sample['subject_id'];
+            /*
+              //  skontroluj ci je dany predmet validny - boli zadefinovane aj prednaska aj cviko + miestnosti
+              if ($this->checkSubjectValid($subjectId) == false) {
+              continue;
+              }
+             */
+
+            //  natiahni si potrebne info o predmete
+            $subject = $this->subjectsRepository->getById($subjectId);
+            $subjectName = $subject['name'];
+
+            //  natiahni si potrebne info o uzivatelovi
+            $userId = $sample['user_id'];
+            $user = $this->usersRepository->getById($userId);
+            $userName = $user['firstname'];
+            $userSurName = $user['surname'];
+
+            //  napln pole ziskanymi udajmi
+            $rowStructure['day'] = $day;
+            $rowStructure['type'] = $type;
+            $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['userName'] = $userName;
+            $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['startTime'] = $startTime;
+            $rowStructure['endTime'] = $endTime;
+            $rowStructure['roomName'] = $roomName;
+
+            //  pridaj riadok do navratoveho pola
+            array_push($retArray, $rowStructure);
+        }
+
+        return $retArray;
+    }
+
+    protected function getDaySchedule($retArray, $rowStructure, $day) {
+        //  getni vseky prednasky
+        $reArray = $this->getDayPartSchedule($rowStructure, $day, 'lectures');
+
+        //  getni vseky cvika
+        $reArray = $this->getDayPartSchedule($rowStructure, $day, 'exercises');
+
+        //  getni vseky konzultacie
+        $reArray = $this->getDayPartSchedule($rowStructure, $day, 'consultations');
+
+        return $retArray;
+    }
+
+    protected function getDayPartSchedule($retArray, $rowStructure, $day, $type) {
+        switch ($type) {
+            case 'lectures':
+                $type = 'lecture';
+                $samples = $this->lecturesRepository->getByDay($day);
+                break;
+            case 'exercises':
+                $type = 'exercises';
+                $samples = $this->exercisesRepository->getByDay($day);
+                break;
+            case 'consultations':
+                $type = 'consultations';
+                $samples = $this->consultationsRepository->getByDay($day);
+                break;
+            default:
+                return array();
+        }
+
+        //  prejdi vsetky vzorky (prednasky, cvicenie alebo konzultacie) podla dna v tyzdni
+        foreach ($samples as $sample) {
+
+            $startTime = $sample['start_time'];
+            $endTime = $sample['end_time'];
+            $roomId = $sample['room_id'];
+
+            $subjectId = $sample['subject_id'];
+            /*
+              //  skontroluj ci je dany predmet validny - boli zadefinovane aj prednaska aj cviko + miestnosti
+              if ($this->checkSubjectValid($subjectId) == false) {
+              continue;
+              }
+             */
+
+            //  natiahni si potrebne info o predmete
+            $subject = $this->subjectsRepository->getById($subjectId);
+            $subjectName = $subject['name'];
+
+            //  natiahni si potrebne info o uzivatelovi
+            $userId = $sample['user_id'];
+            $user = $this->usersRepository->getById($userId);
+            $userName = $user['firstname'];
+            $userSurName = $user['surname'];
+
+            //  natiahni si potrebne info o predmete
+            $room = $this->roomsRepository->getById($roomId);
+            $roomName = $room['name'];
+
+            //  napln pole ziskanymi udajmi
+            $rowStructure['type'] = $type;
+            $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['userName'] = $userName;
+            $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['day'] = $day;
+            $rowStructure['startTime'] = $startTime;
+            $rowStructure['endTime'] = $endTime;
+            $rowStructure['roomName'] = $roomName;
+
+            //  pridaj riadok do navratoveho pola
+            array_push($retArray, $rowStructure);
+        }
+
+        return $retArray;
+    }
+
+    protected function getGroupSchedule($retArray, $rowStructure, $groupId) {
+        $users = $this->usersRepository->getByGroupId($groupId);
+        if (empty($users)) {
+            return array();
+        }
+
+        foreach ($users as $user) {
+            $userId = $user['id'];
+            
+            //  getni vseky prednasky
+            $reArray = $this->getUserPartSchedule($rowStructure, $userId, 'lectures');
+
+            //  getni vseky cvika
+            $reArray = $this->getUserPartSchedule($rowStructure, $userId, 'exercises');
+
+            //  getni vseky konzultacie
+            $reArray = $this->getUserPartSchedule($rowStructure, $userId, 'consultations');
+        }
+
+        return $retArray;
     }
 
     protected function subjectValid() {
@@ -228,7 +516,7 @@ class MyAPI extends API {
         }
     }
 
-//  fcia skontroluje ci je danemu predmetu priradena prednaska + cviko, ak ano vrati true, inak false
+    //  fcia skontroluje ci je danemu predmetu priradena prednaska + cviko, ak ano vrati true, inak false
     protected function checkSubjectValid($subjectId) {
         $subject = $this->subjectsRepository->getById($subjectId);
         $lectures = $this->lecturesRepository->getBySubjectId($subjectId);
@@ -258,4 +546,5 @@ class MyAPI extends API {
     }
 
 }
+
 ?>
