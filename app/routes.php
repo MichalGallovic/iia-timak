@@ -37,6 +37,10 @@ $isLoggedIn = function() use ($app) {
     }
 };
 
+$app->get('/print', function() use ($app) {
+    $app->render('print.php', ['app' => $app]);
+});
+
 $app->get('/service/:segments+', function($segments) use ($app) {
     $API = new TimetableApi($segments, $app->config('db'));
     $responseData = $API->processAPI();
@@ -44,6 +48,8 @@ $app->get('/service/:segments+', function($segments) use ($app) {
     $response['Content-Type'] = 'application/json';
     $response->body($responseData);
 });
+
+
 
 // if no lang in url prepend url with default lang (sk)
 $setLang = function() use ($app){

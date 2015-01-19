@@ -228,26 +228,5 @@ $(document).ready(function() {
     })
 
 
-    function getUsersHours(orderedBy, orderedMode) {
-        var params = "?orderedBy=" + orderedBy + '&orderedMode=' + orderedMode;
-        $.ajax({
-            type: "GET",
-            url: '/service/usersHours' + params,
-            dataType: 'json',
-            success: function(data) {
-                $('#usersHoursTable').html("");
-                $.each(data, function(i, item) {
-                    var tableRow;
-                    tableRow += '<tr>';
-                    tableRow += '<td>' + item.gullName + '</td>';
-                    tableRow += '<td>' + item.lectureHours + '</td>';
-                    tableRow += '<td>' + item.exerciseHours + '</td>';
-                    tableRow += '<td>' + item.totalHours + '</td>';
-                    tableRow += '</tr>';
-                    $('usersHoursTable').append(tableRow);
-                });
-            }});
-    }
-
 
 });

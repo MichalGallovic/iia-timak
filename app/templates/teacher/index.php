@@ -72,38 +72,26 @@ $username = $auth->getFullName();
                 </div>
                 <div class="col-md-4">
                     <caption><h3>Počet vyučovaných hodín</h3></caption>
-                    <thead>
+                    <table>
+                        <thead>
                         <tr>
-                            <th><a href='javascript::getUsersHours("users"," 
-                                <?php
-                                if (!isset($_SESSION['usersOrderedMode'])) {
-                                    $_SESSION['usersOrderedMode'] = 'asc';
-                                }
-                                switch ($_SESSION['usersOrderedMode']) {
-                                    case 'asc':
-                                        $_SESSION['usersOrderedMode'] = 'desc';
-                                        echo 'asc';
-                                        break;
-                                    case 'desc':
-                                        $_SESSION['usersOrderedMode'] = 'asc';
-                                        echo 'desc';
-                                        break;
-                                }
-                                ?>")' >Meno a priezvisko</a>
+                            <th>
+                                <a id="users" href="#">Meno a priezvisko</a>
                             </th>
                             <th>
-                                Prednášky    
+                                <a id="" href="#">Prednášky</a>
                             </th>
                             <th>
-                                Cvičenia    
+                                <a href="#">Cvičenia</a>
                             </th>
                             <th>
-                                Spolu    
+                                <a href=#">Spolu</a>
                             </th>
                         </tr>
-                    </thead>
-                    <tbody id="usersHoursTable">
-                    </tbody>
+                        </thead>
+                        <tbody id="usersHoursTable">
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class='row'>
@@ -115,5 +103,48 @@ $username = $auth->getFullName();
         <script src="/js/libs/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         <script src="/js/index/index.js"></script>
+<!--        FORNYHO JS-->
+        <script>
+            $(document).ready(function() {
+                var order = {
+                    users : "asc",
+                    lectureHours : "asc",
+                    exercisesHours : "asc",
+                    totalHours : "asc"
+                };
+
+                $('#users').click(function() {
+                    var newOrder = toggleOrder("users");
+                    var response = getUsersHours('users',newOrder);
+                });
+
+                function toggleOrder(orderBy) {
+                    var currentOrder = order[orderBy];
+                    order[orderBy] = (currentOrder == 'asc') ? 'desc' : 'asc';
+                    return order[orderBy];
+                }
+
+                function getUsersHours(orderedBy, orderedMode) {
+                    var params = "?orderedBy=" + orderedBy + '&orderedMode=' + orderedMode;
+                    $.ajax({
+                        type: "GET",
+                        url: '/service/usersHours' + params,
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#usersHoursTable').html("");
+                            $.each(data, function(i, item) {
+                                var tableRow;
+                                tableRow += '<tr>';
+                                tableRow += '<td>' + item.fullName + '</td>';
+                                tableRow += '<td>' + item.lectureHours + '</td>';
+                                tableRow += '<td>' + item.exerciseHours + '</td>';
+                                tableRow += '<td>' + item.totalHours + '</td>';
+                                tableRow += '</tr>';
+                                $('#usersHoursTable').append(tableRow);
+                            });
+                        }});
+                }
+            });
+        </script>
     </body>
 </html>
