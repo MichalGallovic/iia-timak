@@ -199,6 +199,7 @@ $(document).ready(function() {
 				if(data.length==22){alert('Vyber Ucitela');break;}
 				data = data.substring(0, data.length - 1);
 				console.log(data);
+                                alert("ahoj");
 				$('#tlaciaren').attr('href','/print?'+data);
 				$.ajax({
 							  type: "GET",
