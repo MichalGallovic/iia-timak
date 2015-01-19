@@ -37,6 +37,10 @@ $isLoggedIn = function() use ($app) {
     }
 };
 
+$app->get('/print', function() use ($app) {
+    $app->render('print.php', ['app' => $app]);
+});
+
 $app->get('/service/:segments+', function($segments) use ($app) {
     $API = new TimetableApi($segments, $app->config('db'));
     $responseData = $API->processAPI();
@@ -44,6 +48,8 @@ $app->get('/service/:segments+', function($segments) use ($app) {
     $response['Content-Type'] = 'application/json';
     $response->body($responseData);
 });
+
+
 
 // if no lang in url prepend url with default lang (sk)
 $setLang = function() use ($app){
@@ -435,9 +441,7 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         })->name('teacher.consultations.store');
 
        $app->post('/consultations/delete/:konkretna', function() use ($app) {
-            $urlSegments = explode('/',$app->request()->getResourceUri());
-            $id = $urlSegments[count($urlSegments)-1];
-            $app->render('teacher/remove_consultation.php', ['app' => $app,'id' => $id]);
+            $app->render('teacher/remove_consultation.php', ['app' => $app]);
         })->name('teacher.consultations.remove');
 
         $app->get('/consultations/:konkretna', function() use ($app) {
@@ -445,6 +449,13 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
             $id = $urlSegments[count($urlSegments)-1];
             $app->render('teacher/show_consultation.php', ['app' => $app,'id' => $id]);
         })->name('teacher.consultations.show');
+
+        $app->post('/consultations/:konkretna', function() use ($app) {
+            $urlSegments = explode('/',$app->request()->getResourceUri());
+            $id = $urlSegments[count($urlSegments)-1];
+            $app->render('teacher/update_consultation.php', ['app' => $app,'id' => $id]);
+        })->name('teacher.consultations.update');
+
 
         $app->get('/consultations/edit/:konkretna', function() use ($app) {
             $urlSegments = explode('/',$app->request()->getResourceUri());
