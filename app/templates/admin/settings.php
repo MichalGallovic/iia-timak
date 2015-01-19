@@ -12,6 +12,8 @@ if(!$email) {
     $authUrl = $auth->getGoogleLinkUrl();
 }
 $username = $auth->getFullName();
+$form_token = md5( uniqid('auth', true) );
+$_SESSION['form_token'] = $form_token;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,7 +152,7 @@ $username = $auth->getFullName();
             <?php endif; ?>
             <p>
                 <?php echo Lang::get('settings_dumpdownload') ?>
-                <a href="<?php echo $app->urlFor('admin.dump') ?>" class="btn btn-default" download><i class="glyphicon glyphicon-download"></i></a>
+                <a href="<?php echo $app->urlFor('admin.dump').'?token='.$form_token ?>" class="btn btn-default" download><i class="glyphicon glyphicon-download"></i></a>
             </p>
 
             <p>

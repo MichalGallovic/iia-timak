@@ -152,7 +152,7 @@ $dni = array(
     <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h1>Edit Consultation</h1> 
+                    <h1><?php echo Lang::get('consultations_editheader') ?></h1>
                     <form action="<?php echo $app->urlFor('admin.consultations.update'); ?>" method="POST">
                         
                            
@@ -204,7 +204,7 @@ $dni = array(
 
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Subjects</label>
+                               <label ><?php echo Lang::get('consultations_subject') ?></label>
 
 
                                 <select class='form-control' name="subject_id" />
@@ -220,7 +220,7 @@ $dni = array(
 
                               <!-- <li> -->
                               <div class="form-group">
-                                 <label >Teacher</label>
+                                 <label ><?php echo Lang::get('consultations_teacher') ?></label>
 
                                 <select class='form-control' name="user_id" />
 
@@ -236,7 +236,7 @@ $dni = array(
 
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Room</label>
+                               <label ><?php echo Lang::get('consultations_room') ?></label>
                              
 
                                     <select class='form-control' name="room_id" />
@@ -253,19 +253,19 @@ $dni = array(
 
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Day</label>
+                               <label ><?php echo Lang::get('consultations_day') ?></label>
                             
 
                                  <select class='form-control' name="day" />
 
                                 
-                                    <option value="0">Monday</option>
-                                    <option value="1">Tuesday</option>
-                                    <option value="2">Wednesday</option>
-                                    <option value="3">Thursday</option>
-                                    <option value="4">Friday</option>
-                                    <option value="5">Saturday</option>
-                                    <option value="6">Sunday</option>
+                                    <option value="0"><?php echo Lang::get('consultations_days')[0] ?></option>
+                                    <option value="1"><?php echo Lang::get('consultations_days')[1] ?></option>
+                                    <option value="2"><?php echo Lang::get('consultations_days')[2] ?></option>
+                                    <option value="3"><?php echo Lang::get('consultations_days')[3] ?></option>
+                                    <option value="4"><?php echo Lang::get('consultations_days')[4] ?></option>
+                                    <option value="5"><?php echo Lang::get('consultations_days')[5] ?></option>
+                                    <option value="6"><?php echo Lang::get('consultations_days')[6] ?></option>
                                
 
                                 </select>
@@ -276,17 +276,17 @@ $dni = array(
                              
 <!--                              <li>Note <input type="text" name="note" />
  -->                                <div class="form-group">
-                                   <label >Note</label>
+                                   <label ><?php echo Lang::get('consultations_note') ?></label>
                                    <input type="text" class="form-control" name="note"/>
                                  </div>
 
                             <!-- </li> -->
                              <div class="form-group">
-                                   <label >Start time</label>
+                                   <label ><?php echo Lang::get('consultations_start') ?></label>
                                    <input id="timepicker1" type="text" class="form-control" name="start_time"/>
                                  </div>
                              <div class="form-group">
-                                   <label >End time</label>
+                                   <label ><?php echo Lang::get('consultations_end') ?></label>
                                    <input id="timepicker2" type="text" class="form-control" name="end_time"/>
                                  </div>
 
@@ -294,7 +294,7 @@ $dni = array(
                             <li>End time <input type="text" name="end_time" /></li> -->
 
                     <!-- </ul> -->
-                        <input class='btn btn-primary' type="submit" value="Edit" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('consultations_edit') ?>" />
                     </form>
 
                     
