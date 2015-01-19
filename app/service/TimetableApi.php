@@ -184,7 +184,7 @@ class TimetableApi extends API {
         }
 
         switch ($orderedBy) {
-            case 'users':
+            case 'fullName':
                 $retArray = $this->array_msort($retArray, array('fullName' => $orderedMode));
                 break;
             case 'lectureHours':

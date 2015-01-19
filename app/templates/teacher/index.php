@@ -78,16 +78,16 @@ $username = $auth->getFullName();
                         <thead>
                         <tr>
                             <th>
-                                <a id="users" href="#">Meno a priezvisko</a>
+                                <a id="fullName" href="#">Meno a priezvisko</a>
                             </th>
                             <th>
-                                <a id="lectures" href="#">Prednášky</a>
+                                <a id="lectureHours" href="#">Prednášky</a>
                             </th>
                             <th>
-                                <a id="exercises" href="#">Cvičenia</a>
+                                <a id="exerciseHours" href="#">Cvičenia</a>
                             </th>
                             <th>
-                                <a id="total" href=#">Spolu</a>
+                                <a id="totalHours" href=#">Spolu</a>
                             </th>
                         </tr>
                         </thead>
@@ -256,25 +256,25 @@ $username = $auth->getFullName();
                     exercisesHours : "asc",
                     totalHours : "asc"
                 };
-                renderTableOnLoad('users','asc');
+                renderTableOnLoad('fullName','asc');
 
-                $('#users').click(function() {
-                    var newOrder = toggleOrder("users");
-                    var response = getUsersHours('users',newOrder);
+                $('#fullName').click(function() {
+                    var newOrder = toggleOrder("fullName");
+                    var response = getUsersHours('fullName',newOrder);
                 });
 
-                $('#lectures').click(function() {
+                $('#lectureHours').click(function() {
                     var newOrder = toggleOrder("lectureHours");
                     var response = getUsersHours('lectureHours',newOrder);
                 });
 
-                $('#exercises').click(function() {
-                    var newOrder = toggleOrder("exercisesHours");
-                    var response = getUsersHours('exercisesHours',newOrder);
+                $('#exerciseHours').click(function() {
+                    var newOrder = toggleOrder("exerciseHours");
+                    var response = getUsersHours('exerciseHours',newOrder);
                 });
 
 
-                $('#total').click(function() {
+                $('#totalHours').click(function() {
                     var newOrder = toggleOrder("totalHours");
                     var response = getUsersHours('totalHours',newOrder);
                 });
