@@ -1,6 +1,7 @@
 <?php
 use IIA\Auth\Auth as Auth;
 use IIA\Lang\Lang as Lang;
+use IIA\service\MyAPI as MyAPI;
 // routes
 // check login and set url according to role
 
@@ -36,7 +37,7 @@ $isLoggedIn = function() use ($app) {
 };
 
 $app->get('/service/:segments+', function($segments) use ($app) {
-    $API = new IIA\service\MyAPI($segments, $app->config('db'));
+    $API = new MyAPI($segments, $app->config('db'));
     $responseData = $API->processAPI();
     $response = $app->response();
     $response['Content-Type'] = 'application/json';
