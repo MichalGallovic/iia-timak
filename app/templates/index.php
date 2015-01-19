@@ -204,7 +204,7 @@ $username = $auth->getFullName();
                   </tbody>
               </table>
               </div>
-              <a id='tlaciaren' href="/print?a=a">tlaciaren</a>
+              <a id='tlaciaren' >tlaciaren</a>
           </div>
       </div>
 </div>

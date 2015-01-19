@@ -190,7 +190,7 @@ $(document).ready(function() {
 				//console.log(type);
 				var inputs = [];
 				inputs = $('.chi:checked');
-				var data = 'type='+type+'?';
+				var data = 'type='+type+'&';
 				// console.log(data);
 				
 				for(var i = 0;i<inputs.length;i++){
@@ -199,6 +199,7 @@ $(document).ready(function() {
 				if(data.length==22){alert('Vyber Ucitela');break;}
 				data = data.substring(0, data.length - 1);
 				console.log(data);
+				$('#tlaciaren').attr('href','/print?'+data);
 				$.ajax({
 							  type: "GET",
 							  url: "/service/schedule",
@@ -218,6 +219,7 @@ $(document).ready(function() {
 					var id = $('#select_detail').val();
 					var data = 'type='+type+'&id='+id;
 					console.log(data);
+					$('#tlaciaren').attr('href','/print?'+data);
 
 				$.ajax({
 							  type: "GET",
@@ -256,7 +258,6 @@ $(document).ready(function() {
 									resp[g].day=parseInt(resp[g].day);
 								}
 							  	zobraz(resp);
-							  	$('#tlaciaren').val($('#tabulka-wrapper').html());
 							  }  
 							})
 
