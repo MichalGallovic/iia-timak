@@ -21,7 +21,6 @@ class TimetableApi extends API{
 
     public function __construct($request, $dbCredentials) {
         parent::__construct($request);
-
         $this->consultationsRepository = new ConsultationsRepository($dbCredentials);
         $this->exercisesRepository = new ExercisesRepository($dbCredentials);
         $this->groupsRepository = new GroupsRepository($dbCredentials);
@@ -143,6 +142,8 @@ class TimetableApi extends API{
             'color' => '',
             'userName' => '',
             'userSurName' => '',
+            'userTitle1' => '',
+            'userTitle2' => '',
             'startTime' => '',
             'endTime' => '',
             'roomName' => '',
@@ -233,7 +234,9 @@ class TimetableApi extends API{
         //  natiahni si zakladne info o uzivatelovi
         $userName = $user['firstname'];
         $userSurName = $user['surname'];
-
+        $userTitle1 = $user['title1'];
+        $userTitle2 = $user['title2'];
+        
         //  natiahni si potrebne info o predmete
         foreach ($samples as $sample) {
             $startTime = $sample['start_time'];
@@ -267,6 +270,8 @@ class TimetableApi extends API{
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['userTitle1'] = $userTitle1;
+            $rowStructure['userTitle2'] = $userTitle2;
             $rowStructure['day'] = $day;
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
@@ -336,6 +341,8 @@ class TimetableApi extends API{
             $user = $this->usersRepository->getById($userId);
             $userName = $user['firstname'];
             $userSurName = $user['surname'];
+            $userTitle1 = $user['title1'];
+            $userTitle2 = $user['title2'];
 
             //   natiahni si potrebne info o miestnosti
             $roomId = $sample['room_id'];
@@ -354,6 +361,8 @@ class TimetableApi extends API{
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['userTitle1'] = $userTitle1;
+            $rowStructure['userTitle2'] = $userTitle2;
             $rowStructure['day'] = $day;
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
@@ -429,7 +438,9 @@ class TimetableApi extends API{
             $user = $this->usersRepository->getById($userId);
             $userName = $user['firstname'];
             $userSurName = $user['surname'];
-
+            $userTitle1 = $user['title1'];
+            $userTitle2 = $user['title2'];
+            
             //  natiahni si poznamku ku konzultaciam
             $note = '';
             if ($isConsultation == true) {
@@ -442,6 +453,8 @@ class TimetableApi extends API{
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['userTitle1'] = $userTitle1;
+            $rowStructure['userTitle2'] = $userTitle2;
             $rowStructure['day'] = $day;
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
@@ -514,7 +527,9 @@ class TimetableApi extends API{
             $user = $this->usersRepository->getById($userId);
             $userName = $user['firstname'];
             $userSurName = $user['surname'];
-
+            $userTitle1 = $user['title1'];
+            $userTitle2 = $user['title2'];
+            
             //  natiahni si potrebne info o predmete
             $room = $this->roomsRepository->getById($roomId);
             $roomName = $room['name'];
@@ -531,6 +546,8 @@ class TimetableApi extends API{
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['userTitle1'] = $userTitle1;
+            $rowStructure['userTitle2'] = $userTitle2;
             $rowStructure['day'] = $day;
             $rowStructure['startTime'] = $startTime;
             $rowStructure['endTime'] = $endTime;
