@@ -234,7 +234,10 @@ $username = $auth->getFullName();
                             </tbody>
                         </table>
                     </div>
-                    <a id='tlaciaren' >tlaciaren</a>
+                    <form id='tlaciaren' action="" method='post'>
+                                 <input id="kone"  type="text" name="print_url"  hidden>
+                                 <button class='btn btn-primary' type='submit'>tlaciaren</button>
+                               </form>
                 </div>
             </div>
         </div>

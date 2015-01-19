@@ -55,13 +55,13 @@
 						 // console.log($('#p-'+k).html());
 						if(k >= stI && k<etI){
 							if(k==stI)
-								$('#'+s+'-'+k).append('<div style="background:'+color+';height:55px;padding:5px;"><p>'+vec.subjectAcronym+'</p><p>'+vec.roomName+'</p></div>');
+								$('#'+s+'-'+k).append('<div style="background:'+color+';height:90px;padding:5px;"><p>'+vec.subjectAcronym+'</p><p>'+vec.roomName+'</p><p>'+vec.type+'</p></div>');
 							else
-								$('#'+s+'-'+k).append('<div style="background:'+color+';height:55px;padding:5px;"><p>&nbsp;</div>');
+								$('#'+s+'-'+k).append('<div style="background:'+color+';height:90px;padding:5px;"><p>&nbsp;</div>');
 
 						}else{
 						// if($('#p-'+k).html()=='')
-							 $('#'+s+'-'+k).append('<div style="background:white;height:55px;">'+'&nbsp;'+'</div>');
+							 $('#'+s+'-'+k).append('<div style="background:white;height:90px;">'+'&nbsp;'+'</div>');
 						}
 					}
 	}
@@ -115,14 +115,17 @@
 
 
 	var obj = <?php echo json_encode($_GET) ?>;
+	//console.log(obj);
+	
+	if(obj.id){
 	var data = 'type='+obj.type+'&id='+obj.id;
-	console.log(data);
+
 	$.ajax({
 				  type: "GET",
 				  url: "/service/schedule",
 				  data:data,
 				  success: function(resp){
-				  	console.log(resp);
+				  	// console.log(resp);
 				  	for(var g=0;g<resp.length;g++){
 						resp[g].day=parseInt(resp[g].day);
 					}
@@ -131,6 +134,33 @@
 
 				  }  
 				})
+}else{
+	console.log(Object.keys(obj).length);
+	var idecka=Object.keys(obj).length;
+	var data = 'type='+obj.type;
+	for(var f=0;f<idecka-1;f++){
+		data+='&id'+f+'='+obj['id'+f];
+	}
+	console.log(data);
+	$.ajax({
+				  type: "GET",
+				  url: "/service/schedule",
+				  data:data,
+				  success: function(resp){
+				  	// console.log(resp);
+				  	for(var g=0;g<resp.length;g++){
+						resp[g].day=parseInt(resp[g].day);
+					}
+				  	zobraz(resp);
+				  	$('#tlaciaren').val($('#tabulka-wrapper').html());
+
+				  }  
+				})
+
+
+
+
+}
 	</script>
 </body>
 </html>
