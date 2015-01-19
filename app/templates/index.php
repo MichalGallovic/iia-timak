@@ -79,7 +79,22 @@ $username = $auth->getFullName();
     <div class='row'>
           <div class="col-md-12">
             <div id='tabulka-wrapper'>
-              <table  class='table table-bordered'>
+              <table  class='table'>
+                <colgroup>
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+                       <col span="1" style="width: 6.66%;">
+
+                    </colgroup>
                   <thead>
                       <tr>
                           <th>Deň</th>
@@ -102,27 +117,27 @@ $username = $auth->getFullName();
                   <tbody>
                       <tr>
                           <td class='den' >Pondelok</td>
-                          <td id='p-06'></td>
-                          <td id='p-07'></td>
-                          <td id='p-08'></td>
-                          <td id='p-09'></td>
-                          <td id='p-10'></td>
-                          <td id='p-11'></td>
-                          <td id='p-12'></td>
-                          <td id='p-13'></td>
-                          <td id='p-14'></td>
-                          <td id='p-15'></td>
-                          <td id='p-16'></td>
-                          <td id='p-17'></td>
-                          <td id='p-18'></td>
-                          <td id='p-19'></td>
+                          <td id='p-6' class='np'></td>
+                          <td id='p-7' class='np'></td>
+                          <td id='p-8' class='np'></td>
+                          <td id='p-9' class='np'></td>
+                          <td id='p-10' class='np'></td>
+                          <td id='p-11' class='np'></td>
+                          <td id='p-12' class='np'></td>
+                          <td id='p-13' class='np'></td>
+                          <td id='p-14' class='np'></td>
+                          <td id='p-15' class='np'></td>
+                          <td id='p-16' class='np'></td>
+                          <td id='p-17' class='np'></td>
+                          <td id='p-18' class='np'></td>
+                          <td id='p-19' class='np'></td>
                       </tr>
                       <tr>
                           <td class='den' >Utorok</td>
-                          <td id='u-06'></td>
-                          <td id='u-07'></td>
-                          <td id='u-08'></td>
-                          <td id='u-09'></td>
+                          <td id='u-6'></td>
+                          <td id='u-7'></td>
+                          <td id='u-8'></td>
+                          <td id='u-9'></td>
                           <td id='u-10'></td>
                           <td id='u-11'></td>
                           <td id='u-12'></td>
@@ -136,10 +151,10 @@ $username = $auth->getFullName();
                       </tr>
                       <tr>
                           <td class='den' >Streda</td>
-                          <td id='s-06'></td>
-                          <td id='s-07'></td>
-                          <td id='s-08'></td>
-                          <td id='s-09'></td>
+                          <td id='s-6'></td>
+                          <td id='s-7'></td>
+                          <td id='s-8'></td>
+                          <td id='s-9'></td>
                           <td id='s-10'></td>
                           <td id='s-11'></td>
                           <td id='s-12'></td>
@@ -153,10 +168,10 @@ $username = $auth->getFullName();
                       </tr>
                       <tr>
                           <td class='den' >Štvrtok</td>
-                          <td id='st-06'></td>
-                          <td id='st-07'></td>
-                          <td id='st-08'></td>
-                          <td id='st-09'></td>
+                          <td id='st-6'></td>
+                          <td id='st-7'></td>
+                          <td id='st-8'></td>
+                          <td id='st-9'></td>
                           <td id='st-10'></td>
                           <td id='st-11'></td>
                           <td id='st-12'></td>
@@ -170,10 +185,10 @@ $username = $auth->getFullName();
                       </tr>
                       <tr>
                           <td class='den' >Piatok</td>
-                          <td id='pi-06'></td>
-                          <td id='pi-07'></td>
-                          <td id='pi-08'></td>
-                          <td id='pi-09'></td>
+                          <td id='pi-6'></td>
+                          <td id='pi-7'></td>
+                          <td id='pi-8'></td>
+                          <td id='pi-9'></td>
                           <td id='pi-10'></td>
                           <td id='pi-11'></td>
                           <td id='pi-12'></td>

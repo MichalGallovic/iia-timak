@@ -3,10 +3,14 @@
 }
 
 #tabulka-wrapper table thead {
-	background: blue;
+	background: lightblue;
 }
 
 .den{
-	background: red;
+	background: lightgreen;
 	height: 100px;
+}
+
+.np{
+	padding: 0px!important;
 }
