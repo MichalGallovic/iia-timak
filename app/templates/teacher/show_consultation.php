@@ -10,8 +10,16 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 
 
 $u_id = $_SESSION['user_id'];
+
 $db->where ('id', $id );
 $consultations = $db->get('consultations');
+
+$subjects = $db->get('subjects');
+
+$db->where ('id', $u_id);
+$users = $db->get('users');
+$rooms = $db->get('rooms');
+
 
 $dayNames = array(
     
@@ -114,12 +122,126 @@ $dni = array(
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+
+                  
+
+
+
+                     <form action="<?php echo $app->urlFor('teacher.consultations').'/'; echo $id  ?>" method="POST">
+                        
+                           <input type="hidden" value='<?php echo $id ?>' name="hidden_id" />
+
+
+                    <!-- <ul>  -->      
+
+
+
+                            <!-- <li> -->
+                            <div class="form-group">
+                               <label ><?php echo Lang::get('consultations_subject') ?></label>
+
+
+                                <select class='form-control' name="subject_id" />
+
+                                <?php foreach($subjects as $subject): ?>
+                                    <option value="<?php echo $subject['id'] ?>"><?php echo $subject['acronym']; echo ", "; echo $subject['name']; echo ", "; echo $subject['code'];  ?></option>
+                                <?php endforeach; ?>
+
+                                </select>
+                            </div>
+
+                             <!-- </li> -->
+
+                              <!-- <li> -->
+                              <div class="form-group">
+                                 <label ><?php echo Lang::get('consultations_teacher') ?></label>
+
+                                <select class='form-control' name="user_id" />
+
+                                <?php foreach($users as $user): ?>
+                                    <option value="<?php echo $user['id'] ?>"><?php echo $user['title1']; echo " "; echo $user['firstname']; echo ", "; echo $user['surname']; echo " "; echo $user['title2'];  ?></option>
+                                <?php endforeach; ?>
+
+                                </select>
+                            </div>
+                            <!-- </li> -->
+
+
+
+                            <!-- <li> -->
+                            <div class="form-group">
+                               <label ><?php echo Lang::get('consultations_room') ?></label>
+                             
+
+                                    <select class='form-control' name="room_id" />
+
+                                <?php foreach($rooms as $room): ?>
+                                    <option value="<?php echo $room['id'] ?>"><?php echo $room['name'];?></option>
+                                <?php endforeach; ?>
+
+                                </select>
+                            </div>
+                                
+                          
+                           <!--  </li> -->
+
+                            <!-- <li> -->
+                            <div class="form-group">
+                               <label ><?php echo Lang::get('consultations_day') ?></label>
+                            
+
+                                 <select class='form-control' name="day" />
+
+                                
+                                    <option value="0"><?php echo Lang::get('consultations_days')[0] ?></option>
+                                    <option value="1"><?php echo Lang::get('consultations_days')[1] ?></option>
+                                    <option value="2"><?php echo Lang::get('consultations_days')[2] ?></option>
+                                    <option value="3"><?php echo Lang::get('consultations_days')[3] ?></option>
+                                    <option value="4"><?php echo Lang::get('consultations_days')[4] ?></option>
+                                    <option value="5"><?php echo Lang::get('consultations_days')[5] ?></option>
+                                    <option value="6"><?php echo Lang::get('consultations_days')[6] ?></option>
+                               
+
+                                </select>
+
+                            </div>
+
+                             <!-- </li> -->
+                             
+<!--                              <li>Note <input type="text" name="note" />
+ -->                                <div class="form-group">
+                                   <label ><?php echo Lang::get('consultations_note') ?></label>
+                                   <input type="text" class="form-control" name="note"/>
+                                 </div>
+
+                            <!-- </li> -->
+                             <div class="form-group">
+                                   <label ><?php echo Lang::get('consultations_start') ?></label>
+                                   <input id="timepicker1" type="text" class="form-control" name="start_time"/>
+                                 </div>
+                             <div class="form-group">
+                                   <label ><?php echo Lang::get('consultations_end') ?></label>
+                                   <input id="timepicker2" type="text" class="form-control" name="end_time"/>
+                                 </div>
+
+                           <!--  <li>Start time <input type="text" name="start_time" /></li>
+                            <li>End time <input type="text" name="end_time" /></li> -->
+
+                    <!-- </ul> -->
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('consultations_edit') ?>" />
+                    </form>
+
+                    
                     
                     
                 </div>
             </div>
 
-            <?php echo $app->urlFor('teacher.consultations').'/edit/'.'1' ?>
+
+            <?php 
+                // var_dump($consultations[0]);
+
+            // echo $app->urlFor('teacher.consultations').'/edit/'.$id ?>
             <!-- <?php //echo $app->urlFor('teacher.consultations').'/1' ?> -->
         </div>
 

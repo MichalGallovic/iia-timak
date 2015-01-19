@@ -8,8 +8,13 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
             $credentials['password'], $credentials['dbName']);
 
 $subjects = $db->get('subjects');
-$users = $db->get('users');
 $rooms = $db->get('rooms');
+
+$id = $_SESSION['user_id'];
+// var_dump($id);
+$db->where ('id', $id );
+$users = $db->get('users');
+
 ?>
 
 <!DOCTYPE html>

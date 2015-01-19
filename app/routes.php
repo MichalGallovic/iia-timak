@@ -450,6 +450,13 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
             $app->render('teacher/show_consultation.php', ['app' => $app,'id' => $id]);
         })->name('teacher.consultations.show');
 
+        $app->post('/consultations/:konkretna', function() use ($app) {
+            $urlSegments = explode('/',$app->request()->getResourceUri());
+            $id = $urlSegments[count($urlSegments)-1];
+            $app->render('teacher/update_consultation.php', ['app' => $app,'id' => $id]);
+        })->name('teacher.consultations.update');
+
+
         $app->get('/consultations/edit/:konkretna', function() use ($app) {
             $urlSegments = explode('/',$app->request()->getResourceUri());
             $id = $urlSegments[count($urlSegments)-1];
