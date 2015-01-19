@@ -139,6 +139,7 @@ class TimetableApi extends API{
             'day' => '',
             'type' => '',
             'subjectName' => '',
+            'subjectAcronym' => '',
             'color' => '',
             'userName' => '',
             'userSurName' => '',
@@ -256,6 +257,7 @@ class TimetableApi extends API{
             //  natiahni si potrebne info o predmete
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
+            $subjectAcronym = $subject['acronym'];
             $color = $subject['color'];
 
             //  natiahni si poznamku ku konzultaciam
@@ -270,6 +272,7 @@ class TimetableApi extends API{
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
+            $rowStructure['subjectAcronym'] = $subjectAcronym;
             $rowStructure['userTitle1'] = $userTitle1;
             $rowStructure['userTitle2'] = $userTitle2;
             $rowStructure['day'] = $day;
@@ -328,6 +331,7 @@ class TimetableApi extends API{
         //  natiahni si potrebne info o predmete
         $subject = $this->subjectsRepository->getById($subjectId);
         $subjectName = $subject['name'];
+        $subjectAcronym = $subject['acronym'];
         $color = $subject['color'];
 
         //  prejdi vsetky vzorky (prednasky, cvicenie alebo konzultacie) podla dna v tyzdni
@@ -358,6 +362,7 @@ class TimetableApi extends API{
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['subjectAcronym'] = $subjectAcronym;
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
@@ -431,6 +436,7 @@ class TimetableApi extends API{
             //  natiahni si potrebne info o predmete
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
+            $subjectAcronym = $subject['acronym'];
             $color = $subject['color'];
 
             //  natiahni si potrebne info o uzivatelovi
@@ -450,6 +456,7 @@ class TimetableApi extends API{
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['subjectAcronym'] = $subjectAcronym;
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
@@ -520,6 +527,7 @@ class TimetableApi extends API{
             //  natiahni si potrebne info o predmete
             $subject = $this->subjectsRepository->getById($subjectId);
             $subjectName = $subject['name'];
+            $subjectAcronym = $subject['acronym'];
             $color = $subject['color'];
 
             //  natiahni si potrebne info o uzivatelovi
@@ -543,6 +551,7 @@ class TimetableApi extends API{
             //  napln pole ziskanymi udajmi
             $rowStructure['type'] = $type;
             $rowStructure['subjectName'] = $subjectName;
+            $rowStructure['subjectAcronym'] = $subjectAcronym;
             $rowStructure['color'] = $color;
             $rowStructure['userName'] = $userName;
             $rowStructure['userSurName'] = $userSurName;
