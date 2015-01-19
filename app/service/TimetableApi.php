@@ -154,12 +154,18 @@ class TimetableApi extends API {
                     $fullName = $user['firstname'] . ' ' . $user['surname'];
                     
                     $lectures = $this->lecturesRepository->getByUserId($userId);
-                    $lectureHours = 2;
-                    //foreach ($lectures as $lecture) {
-                    //    $lectureHours += $lecture[]
-                    //}
+                    $lectureHours = 0;
+                    foreach ($lectures as $lecture) {
+                        $lecTimeDiff = $lecture['end_time'] - $lecture['start_time'];
+                        $lectureHours += $lecTimeDiff;
+                    }
                     
+                    $exercises = $this->exercisesRepository->getByUserId($userId);
                     $exerciseHours = 1;
+                    foreach ($exercises as $exercise) {
+                        $exerTimeDiff = $exercise['end_time'] - $exercise['start_time'];
+                        $exerciseHours += $exerTimeDiff;
+                    }
                     
                     $totalHours = $lectureHours + $exerciseHours;
                     
@@ -170,8 +176,14 @@ class TimetableApi extends API {
                     array_push($retArray, $rowStructure);
                 }
                 break;
-            case 'hours':
-                $users = $this->usersRepository->getAll();
+            case 'lectureHours':
+                
+                break;
+            case 'exerciseHours':
+                
+                break;
+            case 'totalHours':
+                
                 break;
         }
         
