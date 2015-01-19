@@ -87,7 +87,7 @@ $username = $auth->getFullName();
                                 <a id="exercises" href="#">Cvičenia</a>
                             </th>
                             <th>
-                                <a id="total" href=#">Spolu</a>
+                                <a id="total" href="#">Spolu</a>
                             </th>
                         </tr>
                         </thead>
@@ -234,10 +234,7 @@ $username = $auth->getFullName();
                             </tbody>
                         </table>
                     </div>
-                    <form action="" method='get'>
-                        <input id='tlaciaren' name='tabulka' type="text" hidden>
-                        <button class='btn btn-primary' type="submit">tlaciaren</button>
-                    </form>
+                    <a id='tlaciaren' >tlaciaren</a>
                 </div>
             </div>
         </div>
