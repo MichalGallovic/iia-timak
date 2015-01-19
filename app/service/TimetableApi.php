@@ -201,8 +201,12 @@ class TimetableApi extends API {
         }
         
         //  prepis array do spravnej struktury
-        
-        return $retArray;
+        $prepisaneArray = [];
+        foreach($retArray as $part) {
+            array_push($prepisaneArray,$part);
+        }
+
+        return $prepisaneArray;
     }
 
     private function array_msort($array, $cols) {
