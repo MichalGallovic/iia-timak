@@ -148,6 +148,19 @@ $username = $auth->getFullName();
                     <a href="<?php echo $app->urlFor('unlink.google') ?>" class="btn btn-warning"><?php echo Lang::get('settings_gplusunlink') ?></a>
                 </p>
             <?php endif; ?>
+            <p>
+                <?php echo Lang::get('settings_dumpdownload') ?>
+                <a href="<?php echo $app->urlFor('admin.dump') ?>" class="btn btn-default" download><i class="glyphicon glyphicon-download"></i></a>
+            </p>
+
+            <p>
+                <?php echo Lang::get('settings_dumpimport') ?>
+
+                <form action="<?php echo $app->urlFor('admin.dump.import')?>" method="post" enctype="multipart/form-data">
+                    <input style="display:inline;" type="file" name="dumpimport">
+                    <button type="submit" name="submit" class="btn btn-default"><i class="glyphicon glyphicon-upload"></i></button>
+                </form>
+            </p>
         </div>
     </div>
 </div>

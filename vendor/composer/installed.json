@@ -155,5 +155,39 @@
             "pdf417",
             "qrcode"
         ]
+    },
+    {
+        "name": "radweb/pdfcrowd-php",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Radweb/pdfcrowd-php.git",
+            "reference": "36469bcc5934fd71fb0fccd79b6bde8d20bae04c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Radweb/pdfcrowd-php/zipball/36469bcc5934fd71fb0fccd79b6bde8d20bae04c",
+            "reference": "36469bcc5934fd71fb0fccd79b6bde8d20bae04c",
+            "shasum": ""
+        },
+        "time": "2014-03-14 15:37:11",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "pdfcrowd.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Robb Lewis",
+                "email": "me@therobb.com"
+            }
+        ]
     }
 ]

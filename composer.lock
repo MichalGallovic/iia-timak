@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9743fe5cc63848190c089172772ed004",
+    "hash": "808394ce3e10fd902725f91e5c742dc3",
     "packages": [
         {
             "name": "google/apiclient",
@@ -47,6 +47,38 @@
                 "google"
             ],
             "time": "2014-11-25 14:35:03"
+        },
+        {
+            "name": "radweb/pdfcrowd-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Radweb/pdfcrowd-php.git",
+                "reference": "36469bcc5934fd71fb0fccd79b6bde8d20bae04c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Radweb/pdfcrowd-php/zipball/36469bcc5934fd71fb0fccd79b6bde8d20bae04c",
+                "reference": "36469bcc5934fd71fb0fccd79b6bde8d20bae04c",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "pdfcrowd.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robb Lewis",
+                    "email": "me@therobb.com"
+                }
+            ],
+            "time": "2014-03-14 15:37:11"
         },
         {
             "name": "slim/slim",
@@ -161,7 +193,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "radweb/pdfcrowd-php": 20
+    },
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []
