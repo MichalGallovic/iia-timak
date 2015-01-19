@@ -9,7 +9,11 @@ $username = $auth->getFullName();
 <head>
     <title><?php echo Lang::get('navbar_brand') ?></title>
     <meta charset="utf-8">
+
+
+
     <link rel="stylesheet" type="text/css" href='/style/admin.css'>
+
 
     <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
