@@ -5,6 +5,7 @@ namespace IIA\Auth;
 use IIA\service\repositories\UsersRepository as UsersRepository;
 use \Google_Client as Google_Client;
 use \Google_Service_Oauth2 as Google_Service_Oauth2;
+use IIA\Lang\Lang as Lang;
 class Auth {
 
     protected $app;
@@ -119,7 +120,7 @@ class Auth {
         if ($client->getAccessToken()) {
             $userData = $objOAuthService->userinfo->get();
             if(!empty($userData)) {
-                $user = $this->users->getByGoogle($userData['email']);
+                $user = $this->users->getByGoogle($userData['email'])[0];
                 if($user) {
                     $_SESSION['user_id'] = $user['id'];
                     $role = $this->users->getUserRoleById($user['id']);
@@ -136,6 +137,109 @@ class Auth {
         }
 
     }
+
+    public function getGoogleLinkUrl() {
+        // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
+        $application_name = 'IIARozvrhy';
+        $client_id = '489912615381-00qk84fqk1gmdfclgtovama4t5jc38vm.apps.googleusercontent.com';
+        $client_secret = 'z1ZmJzyQ8kUo4yzoAqYcHXyw';
+        $redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].$this->app->urlFor($this->getUserRole().'.settings');
+
+
+        //Create Client Request to access Google API
+        $client = new Google_Client();
+        $client->setApplicationName($application_name);
+        $client->setClientId($client_id);
+        $client->setClientSecret($client_secret);
+        $client->setRedirectUri($redirect_uri);
+        $client->setScopes(array(
+            'https://www.googleapis.com/auth/userinfo.email',
+            'https://www.googleapis.com/auth/userinfo.profile',
+        ));
+
+        //generate auth url
+
+        return $client->createAuthUrl();
+    }
+
+    public function linkGoogle() {
+        // Fill CLIENT ID, CLIENT SECRET ID, REDIRECT URI from Google Developer Console
+        $application_name = 'IIARozvrhy';
+        $client_id = '489912615381-00qk84fqk1gmdfclgtovama4t5jc38vm.apps.googleusercontent.com';
+        $client_secret = 'z1ZmJzyQ8kUo4yzoAqYcHXyw';
+        $redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].$this->app->urlFor($this->getUserRole().'.settings');
+
+
+        //Create Client Request to access Google API
+        $client = new Google_Client();
+        $client->setApplicationName($application_name);
+        $client->setClientId($client_id);
+        $client->setClientSecret($client_secret);
+        $client->setRedirectUri($redirect_uri);
+        $client->setScopes(array(
+            'https://www.googleapis.com/auth/userinfo.email',
+            'https://www.googleapis.com/auth/userinfo.profile',
+        ));
+
+        //Send Client Request
+        $objOAuthService = new Google_Service_Oauth2($client);
+
+
+        //Add Access Token to Session
+        if (isset($_GET['code'])) {
+            $client->authenticate($_GET['code']);
+            $_SESSION['access_token'] = $client->getAccessToken();
+        }
+
+        //Set Access Token to make Request
+        if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+            $client->setAccessToken($_SESSION['access_token']);
+        }
+
+        //Get User Data from Google Plus
+        if ($client->getAccessToken()) {
+            $userData = $objOAuthService->userinfo->get();
+            if(!empty($userData)) {
+                if(isset($_SESSION['user_id'])) {
+                    $user = $this->users->getByGoogle($userData['email']);
+                    if(count($user) == 0) {
+                        if($this->users->insertGPlus($_SESSION['user_id'],$userData['email'])) {
+                            $this->app->flash('message',Lang::get('messages_gplussuccess'));
+                        } else {
+                            $this->app->flash('message',Lang::get('messages_gplusfail'));
+                        }
+                    } else {
+                        $this->app->flash('message',Lang::get('messages_gplusmultiplefail'));
+                    }
+
+                }
+            }
+        } else {
+            $this->app->flash('message',Lang::get('messages_gplusfail'));
+        }
+        return $this->app->redirect($this->app->urlFor($this->getUserRole().'.settings'));
+
+    }
+
+    public function unlinkGoogle() {
+        if(isset($_SESSION['user_id'])) {
+            if($this->users->insertGPlus($_SESSION['user_id'],NULL)) {
+                $this->app->flash('message',Lang::get('messages_gplusunlinkSuccess'));
+            } else {
+                $this->app->flash('message',Lang::get('messages_gplusfail'));
+            }
+        }
+        return $this->app->redirect($this->app->urlFor($this->getUserRole().'.settings'));
+    }
+
+    public function getUserEmail() {
+        $email = "";
+        if(isset($_SESSION['user_id'])) {
+            $email .= $this->users->getById($_SESSION['user_id'])['google'];
+        }
+        return $email;
+    }
+
     public function check() {
         if(!isset($_SESSION['user_id'])) {
             return false;
@@ -155,6 +259,22 @@ class Auth {
         } else {
             return [];
         }
+    }
+
+    public function getFullName() {
+        $user = $this->getUser();
+        $fullname = '';
+        if($user) {
+            if($user['firstname'] && $user['surname']) {
+                $fullname = $user['firstname'] . " " . $user['surname'];
+            } else {
+                $fullname = $user['ldap'];
+            }
+        }
+
+
+        return $fullname;
+
     }
     public function logout() {
         unset($_SESSION['user_id']);
