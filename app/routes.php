@@ -95,8 +95,8 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->get('/', function() use ($app) {
             $app->render('admin/index.php', ['app'=>$app]);
         })->name('admin.index');
-        $app->get('/dump', function(){
-            exec('mysqldump --user=root --password=root --host=localhost iiaTimak >'.dirname(__FILE__).'/../public/dumps/'.time().'file.sql');
+        $app->get('/dump', function() use ($app){
+            exec('mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.dirname(__FILE__).'/../public/dumps/'.time().'file.sql');
         });
         $app->get('/settings', function() use ($app) {
             $app->render('admin/settings.php',['app' => $app]);
