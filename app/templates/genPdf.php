@@ -7,7 +7,7 @@ try
     $client = new Pdfcrowd("iiaGenPdf", "d576214237c57128cbba8b8ef172050e");
 
     // convert a web page and store the generated PDF into a $pdf variable
-    $pdf = $client->convertURI('http://vmxfornadelj.fei.stuba.sk/zadania/individualne_zadanie/Invoice/Invoice.php');
+    $pdf = $client->convertURI('http://getbootstrap.com/getting-started/');
 
     // set HTTP response headers
     header("Content-Type: application/pdf");

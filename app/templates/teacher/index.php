@@ -74,8 +74,7 @@ $username = $auth->getFullName();
                     <caption><h3>Počet vyučovaných hodín</h3></caption>
                     <thead>
                         <tr>
-                            <th><a href='javascript::getUsersHours("users"," 
-                                <?php
+                            <th><a href='javascript::getUsersHours("users","<?php
                                 if (!isset($_SESSION['usersOrderedMode'])) {
                                     $_SESSION['usersOrderedMode'] = 'asc';
                                 }
@@ -89,7 +88,7 @@ $username = $auth->getFullName();
                                         echo 'desc';
                                         break;
                                 }
-                                ?>")' >Meno a priezvisko</a>
+                                ?>");' >Meno a priezvisko</a>
                             </th>
                             <th>
                                 Prednášky    

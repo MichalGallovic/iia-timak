@@ -239,7 +239,7 @@ $(document).ready(function() {
                 $.each(data, function(i, item) {
                     var tableRow;
                     tableRow += '<tr>';
-                    tableRow += '<td>' + item.gullName + '</td>';
+                    tableRow += '<td>' + item.fullName + '</td>';
                     tableRow += '<td>' + item.lectureHours + '</td>';
                     tableRow += '<td>' + item.exerciseHours + '</td>';
                     tableRow += '<td>' + item.totalHours + '</td>';
