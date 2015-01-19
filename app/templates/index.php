@@ -69,7 +69,7 @@ $username = $auth->getFullName();
                 <select id="select_detail" class="form-control"></select>
             </div>
             <div id="druhy_select_ucitelia" hidden>
-                <h3>Druhy Select: kone</h3>
+                <h3>Druhy Select:</h3>
             </div>
         </div>
     </div>
@@ -78,6 +78,120 @@ $username = $auth->getFullName();
             <button id="getSch" class='btn btn-primary'>Zobraz</button>
         </div>
     </div>
+    <div class='row'>
+        <div class="col-md-12">
+            <table class='table table-bordered'>
+                <thead>
+                    <tr>
+                        <th>Deň</th>
+                        <th>6:00</th>
+                        <th>7:00</th>
+                        <th>8:00</th>
+                        <th>9:00</th>
+                        <th>10:00</th>
+                        <th>11:00</th>
+                        <th>12:00</th>
+                        <th>13:00</th>
+                        <th>14:00</th>
+                        <th>15:00</th>
+                        <th>16:00</th>
+                        <th>17:00</th>
+                        <th>18:00</th>
+                        <th>19:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pondelok</td>
+                        <td id='p-6'></td>
+                        <td id='p-7'></td>
+                        <td id='p-8'></td>
+                        <td id='p-9'></td>
+                        <td id='p-10'></td>
+                        <td id='p-11'></td>
+                        <td id='p-12'></td>
+                        <td id='p-13'></td>
+                        <td id='p-14'></td>
+                        <td id='p-15'></td>
+                        <td id='p-16'></td>
+                        <td id='p-17'></td>
+                        <td id='p-18'></td>
+                        <td id='p-19'></td>
+                    </tr>
+                    <tr>
+                        <td>Utorok</td>
+                        <td id='u-6'></td>
+                        <td id='u-7'></td>
+                        <td id='u-8'></td>
+                        <td id='u-9'></td>
+                        <td id='u-10'></td>
+                        <td id='u-11'></td>
+                        <td id='u-12'></td>
+                        <td id='u-13'></td>
+                        <td id='u-14'></td>
+                        <td id='u-15'></td>
+                        <td id='u-16'></td>
+                        <td id='u-17'></td>
+                        <td id='u-18'></td>
+                        <td id='u-19'></td>
+                    </tr>
+                    <tr>
+                        <td>Streda</td>
+                        <td id='s-6'></td>
+                        <td id='s-7'></td>
+                        <td id='s-8'></td>
+                        <td id='s-9'></td>
+                        <td id='s-10'></td>
+                        <td id='s-11'></td>
+                        <td id='s-12'></td>
+                        <td id='s-13'></td>
+                        <td id='s-14'></td>
+                        <td id='s-15'></td>
+                        <td id='s-16'></td>
+                        <td id='s-17'></td>
+                        <td id='s-18'></td>
+                        <td id='s-19'></td>
+                    </tr>
+                    <tr>
+                        <td>Štvrtok</td>
+                        <td id='st-6'></td>
+                        <td id='st-7'></td>
+                        <td id='st-8'></td>
+                        <td id='st-9'></td>
+                        <td id='st-10'></td>
+                        <td id='st-11'></td>
+                        <td id='st-12'></td>
+                        <td id='st-13'></td>
+                        <td id='st-14'></td>
+                        <td id='st-15'></td>
+                        <td id='st-16'></td>
+                        <td id='st-17'></td>
+                        <td id='st-18'></td>
+                        <td id='st-19'></td>
+                    </tr>
+                    <tr>
+                        <td>Piatok</td>
+                        <td id='pi-6'></td>
+                        <td id='pi-7'></td>
+                        <td id='pi-8'></td>
+                        <td id='pi-9'></td>
+                        <td id='pi-10'></td>
+                        <td id='pi-11'></td>
+                        <td id='pi-12'></td>
+                        <td id='pi-13'></td>
+                        <td id='pi-14'></td>
+                        <td id='pi-15'></td>
+                        <td id='pi-16'></td>
+                        <td id='pi-17'></td>
+                        <td id='pi-18'></td>
+                        <td id='pi-19'></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 </div>
 <script src="/js/libs/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

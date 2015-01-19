@@ -213,7 +213,14 @@ $(document).ready(function() {
 							  url: "/service/schedule",
 							  data:'type='+type+'&id='+id,
 							  success: function(resp){
-							  	console.log(resp);
+							  	// // console.log(resp);
+							  	// console.log('tu');
+							  	var toto = [
+							  	{"day":3,"type":"exercise","subjectName":"Internetov\u00e9 a intranetov\u00e9 aplik\u00e1cie","color":"#B69BE0","userName":"Jakub","userSurName":"Forn\u00e1del","userTitle1":"Bc.","userTitle2":null,"startTime":"10:00:00","endTime":"12:00:00","roomName":"CD300","note":""},
+							  	{"day":0,"type":"consultation","subjectName":"Internetov\u00e9 a intranetov\u00e9 aplik\u00e1cie","color":"#B69BE0","userName":"Katar\u00edna","userSurName":"\u017d\u00e1kov\u00e1","userTitle1":"Doc. Ing.","userTitle2":"PhD.","startTime":"07:00:00","endTime":"08:00:00","roomName":"CD150","note":""}
+							  	]
+
+							  	zobraz(toto);
 							  }  
 							})
 
@@ -221,6 +228,10 @@ $(document).ready(function() {
 		}
 		
 	})
+
+function zobraz (napln) {
+	console.log(napln);
+}
 
 
 

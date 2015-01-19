@@ -74,6 +74,30 @@ $username = $auth->getFullName();
             <button id="getSch" class='btn btn-primary'>Zobraz</button>
         </div>
     </div>
+    <div class='row'>
+        <div class="col-md-12">
+            <table>
+                <thead>
+                    <tr>
+                        <th>6:00</th>
+                        <th>7:00</th>
+                        <th>8:00</th>
+                        <th>9:00</th>
+                        <th>10:00</th>
+                        <th>11:00</th>
+                        <th>12:00</th>
+                        <th>13:00</th>
+                        <th>14:00</th>
+                        <th>15:00</th>
+                        <th>16:00</th>
+                        <th>17:00</th>
+                        <th>18:00</th>
+                        <th>19:00</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
 </div>
 <script src="/js/libs/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
