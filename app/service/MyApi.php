@@ -2,7 +2,7 @@
 
 namespace IIA\service;
 
-use IIA\service\API;
+use IIA\service\API as API;
 use IIA\service\repositories\ConsultationsRepository;
 use IIA\service\repositories\ExercisesRepository;
 use IIA\service\repositories\GroupsRepository;
