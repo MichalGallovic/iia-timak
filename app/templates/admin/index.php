@@ -174,7 +174,7 @@ $username = $auth->getFullName();
                   </tbody>
               </table>
               </div>
-  <form id='tlaciaren' action="" method='post'>
+  <form id='tlaciaren' action="<?php echo $app->urlFor('genPdf') ?>" method='post'>
                <input id="kone"  type="text" name="print_url"  hidden>
                <button class='btn btn-primary' type='submit'>tlaciaren</button>
              </form>
