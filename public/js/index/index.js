@@ -230,7 +230,37 @@ $(document).ready(function() {
 	})
 
 function zobraz (napln) {
-	console.log(napln);
+	for(var i = 0;i<napln.length;i++){
+
+		switch(napln[i].day){
+			case 0:
+				var st = napln[i].startTime.substring(0,2)
+				var stI = parseInt(st);
+				var et = napln[i].endTime.substring(0,2)
+				var etI = parseInt(et);
+				var rozdiel = etI - stI;
+				
+
+				$('#p-'+st).html('jooj');
+				break;
+			case 1:
+				console.log('ut');
+				break;
+			case 2:
+				console.log('str');
+				break;
+			case 3:
+				break;
+			case 4:
+				console.log('pia');
+				break;
+			default:
+				console.log('zly den');
+				break;
+		}
+
+
+	}
 }
 
 
