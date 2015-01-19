@@ -1,7 +1,8 @@
 <?php
 use IIA\Auth\Auth as Auth;
 use IIA\Lang\Lang as Lang;
-use IIA\service\MyAPI as MyAPI;
+use IIA\service\TimetableApi as TimetableApi;
+
 // routes
 // check login and set url according to role
 
@@ -37,7 +38,7 @@ $isLoggedIn = function() use ($app) {
 };
 
 $app->get('/service/:segments+', function($segments) use ($app) {
-    $API = new MyAPI($segments, $app->config('db'));
+    $API = new TimetableApi($segments, $app->config('db'));
     $responseData = $API->processAPI();
     $response = $app->response();
     $response['Content-Type'] = 'application/json';
@@ -68,7 +69,7 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
     $app->get('/genSchedulePdf', function() use ($app) {
         $app->render('genPdf.php', ['app' => $app]);
     })->name('genPdf');
-    
+
     $app->get('/logout', function() use ($app) {
         $app->render('logout.php', ['app' => $app]);
     })->name('logout');
@@ -381,7 +382,7 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
 
 
     $app->group('/teacher', $authenticateForRole('teacher'), function() use ($app) {
-        
+
         $app->get('/', function() use ($app) {
             $app->render('teacher/index.php', ['app'=>$app]);
         })->name('teacher.index');
