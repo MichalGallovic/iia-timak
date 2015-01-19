@@ -1,4 +1,6 @@
-<?php namespace IIA\service;
+<?php
+
+namespace IIA\service;
 
 use IIA\service\API as API;
 use IIA\service\repositories\ConsultationsRepository;
@@ -9,7 +11,9 @@ use IIA\service\repositories\RolesRepository;
 use IIA\service\repositories\RoomsRepository;
 use IIA\service\repositories\SubjectsRepository;
 use IIA\service\repositories\UsersRepository;
-class TimetableApi extends API{
+
+class TimetableApi extends API {
+
     protected $consultationsRepository;
     protected $exercisesRepository;
     protected $groupsRepository;
@@ -121,6 +125,57 @@ class TimetableApi extends API{
             return $this->roomsRepository->getById($id);
         }
         return $this->roomsRepository->getAll();
+    }
+
+    protected function usersHours() {
+        if ($this->method != 'GET') {
+            return array();
+        }
+        if (!isset($this->request['orderedBy']) || !isset($this->request['orderedMode'])) {
+            return array();
+        }
+
+        $orderedBy = $this->request['orderedBy'];
+        $orderedMode = $this->request['orderedMode'];
+
+        $retArray = array();
+        $rowStructure = array(
+            'fullName' => '',
+            'lectureHours' => '',
+            'exerciseHours' => '',
+            'totalHours' => '',
+        );
+
+        switch ($orderedBy) {
+            case 'users':
+                $users = $this->usersRepository->getAllOrderedBy('surname', $orderedMode);
+                foreach ($users as $user) {
+                    $userId = $user['id'];
+                    $fullName = $user['firstname'] . ' ' . $user['surname'];
+                    
+                    $lectures = $this->lecturesRepository->getByUserId($userId);
+                    $lectureHours = 2;
+                    //foreach ($lectures as $lecture) {
+                    //    $lectureHours += $lecture[]
+                    //}
+                    
+                    $exerciseHours = 1;
+                    
+                    $totalHours = $lectureHours + $exerciseHours;
+                    
+                    $rowStructure['fullName'] = $fullName;
+                    $rowStructure['lectureHours'] = $lectureHours;
+                    $rowStructure['exerciseHours'] = $exerciseHours;
+                    $rowStructure['totalHours'] = $totalHours;
+                    array_push($retArray, $rowStructure);
+                }
+                break;
+            case 'hours':
+                $users = $this->usersRepository->getAll();
+                break;
+        }
+        
+        return $retArray;
     }
 
     protected function schedule() {
@@ -237,7 +292,7 @@ class TimetableApi extends API{
         $userSurName = $user['surname'];
         $userTitle1 = $user['title1'];
         $userTitle2 = $user['title2'];
-        
+
         //  natiahni si potrebne info o predmete
         foreach ($samples as $sample) {
             $startTime = $sample['start_time'];
@@ -446,7 +501,7 @@ class TimetableApi extends API{
             $userSurName = $user['surname'];
             $userTitle1 = $user['title1'];
             $userTitle2 = $user['title2'];
-            
+
             //  natiahni si poznamku ku konzultaciam
             $note = '';
             if ($isConsultation == true) {
@@ -537,7 +592,7 @@ class TimetableApi extends API{
             $userSurName = $user['surname'];
             $userTitle1 = $user['title1'];
             $userTitle2 = $user['title2'];
-            
+
             //  natiahni si potrebne info o predmete
             $room = $this->roomsRepository->getById($roomId);
             $roomName = $room['name'];
@@ -636,4 +691,5 @@ class TimetableApi extends API{
 
         return true;
     }
+
 }

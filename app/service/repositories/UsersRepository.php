@@ -13,6 +13,11 @@ class UsersRepository implements DbRepositoryInterface{
     public function getAll() {
         return $this->databaseConnector->get('users');
     }
+    
+    public function getAllOrderedBy($orderedBy, $orderedMode) {
+        $this->databaseConnector->orderBy($orderedBy,$orderedMode);  
+        return $this->databaseConnector->get('users');
+    }
 
     public function getById($id) {
         $this->databaseConnector->where('id', $id);
