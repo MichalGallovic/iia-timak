@@ -107,7 +107,7 @@ $dni = array(
                                     $t2 = $usrs[0][ 'title2'];
                             ?>
 
-                                <tr class='clickableRow' href='/teacher/NEVIEMAKYLINKSEMDATHADAMSITOTOPRECITASAFIXNES'><td><?php echo $dni[$consultation['day']];?></td><td><?php echo $consultation['note'];?></td>
+                                <tr class='clickableRow' ><td><?php echo $dni[$consultation['day']];?></td><td><?php echo $consultation['note'];?></td>
                                     <td><?php echo $t1; echo " "; echo $firstname; echo " "; echo $surname; echo " "; echo $t2; ?></td>
                                     <td><?php echo $consultation['start_time'];?></td><td><?php echo $consultation['end_time'];?></td></tr>
        
@@ -119,8 +119,10 @@ $dni = array(
                 </div>
             </div>
 
-
+            <?php echo $app->urlFor('teacher.consultations').'/edit/'.'1' ?>
+            <?php echo $app->urlFor('teacher.consultations').'/1' ?>
         </div>
+
 
 <script src="/js/libs/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

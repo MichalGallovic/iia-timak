@@ -414,7 +414,7 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
 
     $app->group('/teacher', $authenticateForRole('teacher'), function() use ($app) {
 
-        $app->get('/', function() use ($app) {
+        $app->get('', function() use ($app) {
             $app->render('teacher/index.php', ['app'=>$app]);
         })->name('teacher.index');
 
@@ -425,6 +425,19 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->get('/consultations', function() use ($app) {
             $app->render('teacher/consultations.php', ['app'=>$app]);
         })->name('teacher.consultations');
+
+        $app->get('/consultations/:konkretna', function() use ($app) {
+            $urlSegments = explode('/',$app->request()->getResourceUri());
+            $id = $urlSegments[count($urlSegments)-1];
+            $app->render('teacher/show_consultation.php', ['app' => $app,'id' => $id]);
+        })->name('teacher.consultations.show');
+
+        $app->get('/consultations/edit/:konkretna', function() use ($app) {
+            $urlSegments = explode('/',$app->request()->getResourceUri());
+            $id = $urlSegments[count($urlSegments)-1];
+            $app->render('teacher/edit_consultation.php', ['app' => $app,'id' => $id]);
+        })->name('teacher.consultations.edit');
+
 
     });
 
