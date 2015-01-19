@@ -10,7 +10,8 @@
     "require": {
         "slim/slim": "~2.5",
         "google/apiclient": "~1.1",
-        "tecnick.com/tcpdf": "~6.2"
+        "tecnick.com/tcpdf": "~6.2",
+        "radweb/pdfcrowd-php": "dev-master"
     },
     "autoload" : {
         "psr-4" : {

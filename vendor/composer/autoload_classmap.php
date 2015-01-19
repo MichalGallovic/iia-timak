@@ -2418,6 +2418,8 @@ return array(
     'Google_Verifier_Abstract' => $vendorDir . '/google/apiclient/src/Google/Verifier/Abstract.php',
     'Google_Verifier_Pem' => $vendorDir . '/google/apiclient/src/Google/Verifier/Pem.php',
     'PDF417' => $vendorDir . '/tecnick.com/tcpdf/include/barcodes/pdf417.php',
+    'PdfCrowd' => $vendorDir . '/radweb/pdfcrowd-php/pdfcrowd.php',
+    'PdfcrowdException' => $vendorDir . '/radweb/pdfcrowd-php/pdfcrowd.php',
     'QRcode' => $vendorDir . '/tecnick.com/tcpdf/include/barcodes/qrcode.php',
     'TCPDF' => $vendorDir . '/tecnick.com/tcpdf/tcpdf.php',
     'TCPDF2DBarcode' => $vendorDir . '/tecnick.com/tcpdf/tcpdf_barcodes_2d.php',
