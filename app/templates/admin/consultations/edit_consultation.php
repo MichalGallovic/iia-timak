@@ -1,4 +1,5 @@
 <?php
+use IIA\Lang\Lang as Lang;
 $credentials = $app->config('db');
 $db = new MysqliDb($credentials['host'], $credentials['username'],
             $credentials['password'], $credentials['dbName']);
@@ -36,12 +37,33 @@ $dni = array(
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+   <title><?php echo Lang::get('navbar_brand') ?></title>
     <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
     <link rel="stylesheet" href="/style/bootstrap-timepicker.min.css"/>
 </head>
 <body>
+      <div class="nav navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><?php echo Lang::get('navbar_brand') ?></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo $app->urlFor('login') ?>"><?php echo Lang::get('navbar_logout') ?></a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+</div>
     <div class="container">
             <div class="row">
                 <div class="col-md-5">
@@ -149,19 +171,20 @@ $dni = array(
                                <label >Day</label>
                             
 
-                                <select class='form-control' name="day" />
+                                 <select class='form-control' name="day" />
 
                                 
-                                    <option value="0">Mon</option>
-                                    <option value="1">Tue</option>
-                                    <option value="2">Wed</option>
-                                    <option value="3">Thu</option>
-                                    <option value="4">Fri</option>
-                                    <option value="5">Sat</option>
-                                    <option value="6">Sun</option>
+                                    <option value="0">Monday</option>
+                                    <option value="1">Tuesday</option>
+                                    <option value="2">Wednesday</option>
+                                    <option value="3">Thursday</option>
+                                    <option value="4">Friday</option>
+                                    <option value="5">Saturday</option>
+                                    <option value="6">Sunday</option>
                                
 
                                 </select>
+
                             </div>
 
                              <!-- </li> -->

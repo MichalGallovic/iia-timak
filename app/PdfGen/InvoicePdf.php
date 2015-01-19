@@ -4,7 +4,7 @@ namespace IIA\PdfGen;
 
 use \TCPDF as TCPDF;
 
-class InvoicePdf extends TCPDF {
+class SchedulePdf extends TCPDF {
 
     private $invoiceData;
 

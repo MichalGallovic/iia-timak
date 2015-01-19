@@ -28,18 +28,14 @@ $username = $auth->getFullName();
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <?php if($auth->check()): ?>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $username ?><span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="<?php echo $app->urlFor('admin.index') ?>"><i class="glyphicon glyphicon-user"></i> <?php echo Lang::get('navbar_profile') ?></a></li>
-                            <li><a href="<?php echo $app->urlFor('admin.settings')?>"><i class="glyphicon glyphicon-wrench"></i> <?php echo Lang::get('navbar_settings')?></a></li>
+                            <li><a href="<?php echo $app->urlFor('teacher.settings')?>"><i class="glyphicon glyphicon-wrench"></i> <?php echo Lang::get('navbar_settings')?></a></li>
                             <li><a href="<?php echo $app->urlFor('logout') ?>"><i class="glyphicon glyphicon-log-out"></i> <?php echo Lang::get('navbar_logout')?></a></li>
                         </ul>
                     </li>
-                <?php else: ?>
-                    <li><a href="<?php echo $app->urlFor('login') ?>"><i class="glyphicon glyphicon-log-in"></i> <?php echo Lang::get('navbar_login') ?></a></li>
-                <?php endif; ?>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->

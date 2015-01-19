@@ -1,6 +1,8 @@
 <?php
 use IIA\Auth\Auth as Auth;
 use IIA\Lang\Lang as Lang;
+use IIA\service\TimetableApi as TimetableApi;
+
 // routes
 // check login and set url according to role
 
@@ -36,7 +38,7 @@ $isLoggedIn = function() use ($app) {
 };
 
 $app->get('/service/:segments+', function($segments) use ($app) {
-    $API = new \IIA\service\MyAPI($segments, $app->config('db'));
+    $API = new TimetableApi($segments, $app->config('db'));
     $responseData = $API->processAPI();
     $response = $app->response();
     $response['Content-Type'] = 'application/json';
@@ -67,7 +69,7 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
     $app->get('/genSchedulePdf', function() use ($app) {
         $app->render('genPdf.php', ['app' => $app]);
     })->name('genPdf');
-    
+
     $app->get('/logout', function() use ($app) {
         $app->render('logout.php', ['app' => $app]);
     })->name('logout');
@@ -80,6 +82,11 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->render('googleAuth.php',['app'=>$app]);
     })->name('auth.google');
 
+    $app->get('/google-unlink', function() use ($app) {
+        $auth = new Auth($app);
+        $auth->unlinkGoogle();
+    })->name('unlink.google');
+
     $app->post('/login',$isLoggedIn, function() use ($app) {
         $app->render('authenticate.php', ['app' => $app]);
     })->name('auth');
@@ -90,6 +97,9 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->get('/', function() use ($app) {
             $app->render('admin/index.php', ['app'=>$app]);
         })->name('admin.index');
+        $app->get('/dump', function() use ($app){
+            exec('mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.dirname(__FILE__).'/../public/dumps/'.time().'file.sql');
+        });
         $app->get('/settings', function() use ($app) {
             $app->render('admin/settings.php',['app' => $app]);
         })->name('admin.settings');
@@ -372,9 +382,14 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
 
 
     $app->group('/teacher', $authenticateForRole('teacher'), function() use ($app) {
+
         $app->get('/', function() use ($app) {
-            echo 'teacher index';
+            $app->render('teacher/index.php', ['app'=>$app]);
         })->name('teacher.index');
+
+        $app->get('/settings', function() use ($app) {
+            $app->render('teacher/settings.php', ['app'=>$app]);
+        })->name('teacher.settings');
     });
 
 });

@@ -56,7 +56,7 @@ class UsersRepository implements DbRepositoryInterface{
     
     public function getByGoogle($google) {
         $this->databaseConnector->where('google', $google);
-        return $this->databaseConnector->getOne('users');
+        return $this->databaseConnector->get('users');
     }
 
     public function getUserRoleById($id) {
@@ -71,6 +71,15 @@ class UsersRepository implements DbRepositoryInterface{
         }
         return 'guest';
     }
+
+    public function insertGPlus($id,$email) {
+        $this->databaseConnector->where('id',$id);
+        if($this->databaseConnector->update('users',['google' => $email])) {
+            return $this->databaseConnector->count;
+        }
+        return 0;
+    }
+
 }
 
 ?>
