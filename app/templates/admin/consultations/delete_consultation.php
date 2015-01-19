@@ -37,6 +37,7 @@ $dni = array(
 	<title><?php echo Lang::get('navbar_brand') ?></title>
 			<link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/style/admin.css"/>
 </head>
 <body>
     <div class="nav navbar-default">
@@ -145,7 +146,7 @@ $dni = array(
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
-				<h1>Delete Consultation</h1>
+				<h1><?php echo Lang::get('consultations_deleteheader') ?></h1>
 					<form action="<?php echo $app->urlFor('admin.consultations.remove') ?>" method="POST">
 					
 
@@ -198,8 +199,8 @@ $dni = array(
 
  					</select>
 
-					<div>
-					<input class="btn btn-primary" type="submit" value="delete" />
+					<div class="margin-20">
+					<input class="btn btn-primary" type="submit" value="<?php echo Lang::get('consultations_delete') ?>" />
 					</div>
 					</form>
 			</div>

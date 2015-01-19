@@ -147,15 +147,15 @@ $dni = array(
 
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Consultations</h1>
+					<h1><?php echo Lang::get('consultations_header') ?></h1>
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>Day</th>
-								<th>Note</th>
-								<th>Teacher</th>
-								<th>Start</th>
-								<th>End</th>
+								<th><?php echo Lang::get('consultations_day') ?></th>
+								<th><?php echo Lang::get('consultations_note') ?></th>
+								<th><?php echo Lang::get('consultations_teacher') ?></th>
+								<th><?php echo Lang::get('consultations_start') ?></th>
+								<th><?php echo Lang::get('consultations_end') ?></th>
 							</tr>
 						</thead>
 						<tbody>
