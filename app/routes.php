@@ -426,6 +426,20 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
             $app->render('teacher/consultations.php', ['app'=>$app]);
         })->name('teacher.consultations');
 
+        $app->get('/consultations/create', function() use ($app) {
+            $app->render('teacher/create_consultation.php', ['app'=>$app]);
+        })->name('teacher.consultations.create');
+
+         $app->post('/consultations/create', function() use ($app) {
+            $app->render('teacher/store_consultation.php', ['app'=>$app]);
+        })->name('teacher.consultations.store');
+
+       $app->post('/consultations/delete/:konkretna', function() use ($app) {
+            $urlSegments = explode('/',$app->request()->getResourceUri());
+            $id = $urlSegments[count($urlSegments)-1];
+            $app->render('teacher/remove_consultation.php', ['app' => $app,'id' => $id]);
+        })->name('teacher.consultations.remove');
+
         $app->get('/consultations/:konkretna', function() use ($app) {
             $urlSegments = explode('/',$app->request()->getResourceUri());
             $id = $urlSegments[count($urlSegments)-1];

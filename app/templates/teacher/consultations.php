@@ -89,6 +89,7 @@ $dni = array(
                                 <th><?php echo Lang::get('consultations_teacher') ?></th>
                                 <th><?php echo Lang::get('consultations_start') ?></th>
                                 <th><?php echo Lang::get('consultations_end') ?></th>
+                                <th><?php echo Lang::get('consultations_delete') ?></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -107,9 +108,16 @@ $dni = array(
                                     $t2 = $usrs[0][ 'title2'];
                             ?>
 
-                                <tr class='clickableRow' ><td><?php echo $dni[$consultation['day']];?></td><td><?php echo $consultation['note'];?></td>
+                                <tr class='clickableRow' href="<?php echo $app->urlFor('teacher.consultations').'/'. $consultation['id']; ?>"><td><?php echo $dni[$consultation['day']];?></td><td><?php echo $consultation['note'];?></td>
                                     <td><?php echo $t1; echo " "; echo $firstname; echo " "; echo $surname; echo " "; echo $t2; ?></td>
-                                    <td><?php echo $consultation['start_time'];?></td><td><?php echo $consultation['end_time'];?></td></tr>
+                                    <td><?php echo $consultation['start_time'];?></td><td><?php echo $consultation['end_time'];?></td>
+                                    <td> 
+                                            <form action="<?php echo $app->urlFor('teacher.consultations').'/delete/'. $consultation['id']; ?>" method="post"?>
+                                            <button type="submit"> X </button> 
+                                            </form>
+
+
+                                    </td></tr>
        
                             <?php endforeach; ?>
                         </tbody>
@@ -120,7 +128,7 @@ $dni = array(
             </div>
 
             <?php echo $app->urlFor('teacher.consultations').'/edit/'.'1' ?>
-            <?php echo $app->urlFor('teacher.consultations').'/1' ?>
+            <!-- <?php //echo $app->urlFor('teacher.consultations').'/1' ?> -->
         </div>
 
 
