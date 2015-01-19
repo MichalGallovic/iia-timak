@@ -148,11 +148,11 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
             })->name('admin.schedules');
 
             $app->get('/create', function() use ($app) {
-
+                $app->render('admin/subjects/pridat_predmet.php', ['app' => $app]);
             })->name('admin.schedules.create');
 
             $app->get('/check', function() use ($app) {
-
+                $app->render('admin/subjects/kontrola.php',['app' => $app]);
             })->name('admin.schedules.check');
         });
 
@@ -195,12 +195,6 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
                 $app->render('admin/subjects/get_all_subjects.php', ['app' => $app]);
             })->name('admin.subjects');
 
-            $app->get('/add', function() use ($app) {
-                $app->render('admin/subjects/pridat_predmet.php');
-            });
-            $app->get('/kontrola', function() use ($app) {
-                $app->render('admin/subjects/kontrola.php');
-            });
 
             $app->get('/create', function() use ($app) {
                 $app->render('admin/subjects/create_subject.php', ['app' => $app]);

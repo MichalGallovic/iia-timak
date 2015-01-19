@@ -3,5 +3,6 @@ return [
     "create"    =>  "Vytvor",
     "read"      =>  "Ukáž všetky",
     "edit"      =>  "Uprav",
-    "delete"    =>  "Vymaž"
+    "delete"    =>  "Vymaž",
+    "check"     =>  'Skontroluj'
 ];

@@ -1,6 +1,5 @@
 <?php
 
-
 try
 {   
     // create an API client instance
