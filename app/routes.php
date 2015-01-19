@@ -399,6 +399,11 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->get('/settings', function() use ($app) {
             $app->render('teacher/settings.php', ['app'=>$app]);
         })->name('teacher.settings');
+
+        $app->get('/consultations', function() use ($app) {
+            $app->render('teacher/consultations.php', ['app'=>$app]);
+        })->name('teacher.consultations');
+
     });
 
 });
