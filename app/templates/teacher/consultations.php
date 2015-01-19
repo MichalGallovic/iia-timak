@@ -113,7 +113,7 @@ $dni = array(
                                     <td><?php echo $consultation['start_time'];?></td><td><?php echo $consultation['end_time'];?></td>
                                     <td> 
                                             <form action="<?php echo $app->urlFor('teacher.consultations').'/delete/'. $consultation['id']; ?>" method="post"?>
-                                            <button type="submit"> X </button> 
+                                            <button type="submit"> <?php echo Lang::get('consultations_add') ?> </button> 
                                             </form>
 
 
@@ -122,7 +122,10 @@ $dni = array(
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-                    
+
+                     <form action="<?php echo $app->urlFor('teacher.consultations.create'); ?>" method="post"?>
+                                            <input type="submit">  </button> 
+                                            </form>
                     
                 </div>
             </div>
