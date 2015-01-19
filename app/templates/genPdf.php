@@ -1,7 +1,7 @@
 <?php
 
 use \TCPDF as TCPDF;
-use IIA\service\MyApi as MyApi;
+use IIA\service\TimetableApi as TimetableApi;
 
 date_default_timezone_set('Europe/Bratislava');
 error_reporting(E_ALL);
@@ -82,7 +82,7 @@ function generateHTML($data) {
 }
 
 function getScheduleData() {
-    
+    $api = new TimetableApi("\pokus", $app->config('db'));
     $scheduleData = array(
         'user' => 'user@stuba.sk',
         'date' => date_format(new DateTime(), DateTime::W3C),
