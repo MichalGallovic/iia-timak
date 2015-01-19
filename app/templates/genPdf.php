@@ -45,19 +45,22 @@ function generateHTML($data) {
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($data['items'] as $item) {
-                            echo '<tr class="invoiceRow">' . "\n";
-                            echo '	<td class="itemCol">' . $item[0] . "</td>\n";
-                            echo '	<td class="quantityCol">' . $item[1] . "</td>\n";
-                            echo '	<td class="priceCol">' . $item[2] . "</td>\n";
-                            echo '	<td class="costCol">' . $item[3] . "</td>\n";
-                            echo "</tr>\n";
-                        }
+                        /*
+                          foreach ($data['items'] as $item) {
+                          echo '<tr class="invoiceRow">' . "\n";
+                          echo '	<td class="itemCol">' . $item[0] . "</td>\n";
+                          echo '	<td class="quantityCol">' . $item[1] . "</td>\n";
+                          echo '	<td class="priceCol">' . $item[2] . "</td>\n";
+                          echo '	<td class="costCol">' . $item[3] . "</td>\n";
+                          echo "</tr>\n";
+                          }
+
+                         */
                         ?>
                         <tr class="totalRow">
                             <th class="totalHead" colspan="3">Cena dokopy:</th>
                             <?php
-                            echo '<td class="totalCol">' . $data['total'] . "</td>\n";
+                            //echo '<td class="totalCol">' . $data['total'] . "</td>\n";
                             ?>
                         </tr>
                     </tbody>
@@ -65,14 +68,14 @@ function generateHTML($data) {
             </div>
             <div id="footer">
                 <p class="print">
-                    <a href="genSchedulePdf?PDF">
+                    <a href="genPdf?PDF">
                         <!-- Icon from Gentleface.com's "Wireframe mono icons" set, found via iconfinder.com (http://www.iconfinder.com/icondetails/42317/48/) -->
                         <img src="gentleface_print.png" width="48" height="48" alt="Click here to print." />
                     </a>
                 </p>
                 <p class="info">
                     <?php
-                    echo 'Faktúra pripravená pre ' . $data['user'] . ' ' . $data['date'] . "\n";
+                    //echo 'Faktúra pripravená pre ' . $data['user'] . ' ' . $data['date'] . "\n";
                     ?>
                 </p>
             </div>
@@ -82,19 +85,21 @@ function generateHTML($data) {
 }
 
 function getScheduleData($app) {
-    $api = new TimetableApi("\pokus", $app->config('db'));
+    $_GET['type'] = 'user';
+    $_GET['id'] = '40';
+    $API = new TimetableApi(array('schedule'), $app->config('db'));
+    $responseData = json_decode($API->processAPI());
+
     $scheduleData = array(
         'user' => 'user@stuba.sk',
         'date' => date_format(new DateTime(), DateTime::W3C),
         'items' => array()
     );
-    $scheduleData['items'][] = array('Procesor Intel Core i5', 2, 109.99, 2 * 109.99);
-    $scheduleData['items'][] = array('Licencia Visual Studio 2010 Professional', 2, 29.35, 2 * 29.35);
-    $scheduleData['items'][] = array('MSDNAA licencia na produkty Microsoft', 12, 0, 24 * 0);
-    $scheduleData['total'] = 0;
-    foreach ($scheduleData['items'] as $item) {
-        $scheduleData['total'] += $item[3];
-    }
+
+    foreach ($responseData as $item) {
+        array_push($scheduleData['items'], $item);
+    } 
+
     return $scheduleData;
 }
 
@@ -104,11 +109,12 @@ class SchedulePdf extends TCPDF {
 
     private $scheduleData;
     protected $app;
-    function __construct($data, $orientation, $unit, $format,$app) {
+
+    function __construct($data, $orientation, $unit, $format) {
         parent::__construct($orientation, $unit, $format, true, 'UTF-8', false);
 
         $this->scheduleData = $data;
-        $this->app = $app;
+        //$this->app = $app;
         # Set the page margins: 72pt on each side, 36pt on top/bottom.
         $this->SetMargins(72, 36, 72, true);
         $this->SetAutoPageBreak(true, 36);
@@ -207,9 +213,9 @@ class SchedulePdf extends TCPDF {
 
 }
 
-function generatePDF($data,$app) {
+function generatePDF($data) {
     # Create a new PDF document.
-    $pdf = new SchedulePdf($data, 'P', 'pt', 'LETTER',$app);
+    $pdf = new SchedulePdf($data, 'P', 'pt', 'LETTER');
 
     # Generate the schedule.
     $pdf->CreateSchedule();
@@ -221,7 +227,7 @@ function generatePDF($data,$app) {
 # If URL has ?PDF=1, we need to make a PDF instead of HTML.
 
 if (array_key_exists('PDF', $_REQUEST)) {
-    generatePDF(getScheduleData($app),$app);
+    generatePDF(getScheduleData($app));
 } else {
     generateHTML(getScheduleData($app));
 }
