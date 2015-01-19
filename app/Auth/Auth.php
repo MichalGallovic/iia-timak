@@ -44,7 +44,7 @@ class Auth {
             $password = $_POST["password"];
             $ldapconn = ldap_connect("ldap.stuba.sk");
 
-            try {
+//            try {
                 // ldap does not work in localhost - so we emulate this behavior
                 $localhostNames = ['iia.dev','localhost:8888','192.168.88.88'];
                 $allowedPasswords = ['xgallovicm','xhoblikj','xpacko','xfornadelj','zakova'];
@@ -69,9 +69,9 @@ class Auth {
                         }
                 }
 
-            } catch(\ErrorException $e) {
-                $message = 'Server LDAP je momentalne mimo prevadzky.';
-            }
+//            } catch(\ErrorException $e) {
+//                $message = 'Server LDAP je momentalne mimo prevadzky.';
+//            }
         } else {
             $message = 'Zadali ste nespravne meno alebo heslo.';
         }
