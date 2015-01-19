@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6b7858b-eddc-4f83-b95a-37e138440d99" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/service/MyApi.php" afterPath="$PROJECT_DIR$/app/service/MyApi.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/PdfGen/SchedulePdf.php" afterPath="$PROJECT_DIR$/app/PdfGen/SchedulePdf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Auth/Auth.php" afterPath="$PROJECT_DIR$/app/Auth/Auth.php" />
     </list>
     <ignored path="iia-timak.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,21 +59,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyApi.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyApi.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/service/MyApi.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13384813" vertical-offset="0" max-vertical-offset="16770">
+            <state vertical-scroll-proportion="-3.7142856" vertical-offset="0" max-vertical-offset="16770">
               <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Auth.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Auth.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Auth/Auth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-121.64286" vertical-offset="0" max-vertical-offset="8008">
-              <caret line="131" column="40" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.66924065" vertical-offset="2756" max-vertical-offset="8034">
+              <caret line="126" column="31" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
               <folding>
                 <element signature="e#28#92#0#PHP" expanded="true" />
               </folding>
@@ -192,11 +190,11 @@
         <option value="$PROJECT_DIR$/app/templates/teacher/settings.php" />
         <option value="$PROJECT_DIR$/app/service/repositories/UsersRepository.php" />
         <option value="$PROJECT_DIR$/app/Lang/sk/messages.php" />
-        <option value="$PROJECT_DIR$/app/Auth/Auth.php" />
         <option value="$PROJECT_DIR$/app/PdfGen/SchedulePdf.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/templates/genPdf.php" />
         <option value="$PROJECT_DIR$/app/service/MyApi.php" />
+        <option value="$PROJECT_DIR$/app/Auth/Auth.php" />
       </list>
     </option>
   </component>
@@ -462,7 +460,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;ro&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;route&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;A&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;setti&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;logi&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;usersre&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;users&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;log&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;sett&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;se&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/teacher/settings.php&#10;nde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;rou&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;index&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/teacher/index.php&#10;inde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;navb&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/en/navbar.php&#10;nav&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;Auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;navbar&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;site&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/site.index.php&#10;star&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;Lan&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/Lang.php&#10;sta&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;start&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;adm&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/public/style/admin.css&#10;set&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;ndex&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/index.php&#10;r&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;logout&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/logout.php&#10;google&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/googleAuth.php&#10;Au&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;authen&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/authenticate.php&#10;auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;Api&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/API.php&#10;myap&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/MyApi.php&#10;logo&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/logout.php&#10;start.php&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;api&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/API.php&#10;Myapi&#9;null&#9;null&#10;com&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/composer.json&#10;get&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/rooms/get_all_rooms.php" />
+    <property name="SearchEverywhereHistoryKey" value="Auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;ro&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;route&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;A&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;setti&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;logi&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;usersre&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;users&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;log&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;sett&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;se&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/teacher/settings.php&#10;nde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;rou&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;index&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/teacher/index.php&#10;inde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;navb&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/en/navbar.php&#10;nav&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;navbar&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;site&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/site.index.php&#10;star&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;Lan&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/Lang.php&#10;sta&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;start&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;adm&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/public/style/admin.css&#10;set&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;ndex&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/index.php&#10;r&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;logout&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/logout.php&#10;google&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/googleAuth.php&#10;Au&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;authen&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/authenticate.php&#10;auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;Api&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/API.php&#10;myap&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/MyApi.php&#10;logo&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/logout.php&#10;start.php&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;api&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/API.php&#10;Myapi&#9;null&#9;null&#10;com&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/composer.json&#10;get&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/rooms/get_all_rooms.php" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
@@ -985,21 +983,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Auth/Auth.php">
+    <entry file="file://$PROJECT_DIR$/app/service/MyApi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-121.64286" vertical-offset="0" max-vertical-offset="8008">
-          <caret line="131" column="40" selection-start-line="131" selection-start-column="40" selection-end-line="131" selection-end-column="40" />
-          <folding>
-            <element signature="e#28#92#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-3.7142856" vertical-offset="0" max-vertical-offset="16770">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/service/MyApi.php">
+    <entry file="file://$PROJECT_DIR$/app/Auth/Auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13384813" vertical-offset="0" max-vertical-offset="16770">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
+        <state vertical-scroll-proportion="0.66924065" vertical-offset="2756" max-vertical-offset="8034">
+          <caret line="126" column="31" selection-start-line="126" selection-start-column="31" selection-end-line="126" selection-end-column="31" />
+          <folding>
+            <element signature="e#28#92#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

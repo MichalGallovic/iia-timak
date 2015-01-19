@@ -120,8 +120,9 @@ class Auth {
         if ($client->getAccessToken()) {
             $userData = $objOAuthService->userinfo->get();
             if(!empty($userData)) {
-                $user = $this->users->getByGoogle($userData['email'])[0];
+                $user = $this->users->getByGoogle($userData['email']);
                 if($user) {
+                    $user = $user[0];
                     $_SESSION['user_id'] = $user['id'];
                     $role = $this->users->getUserRoleById($user['id']);
                     return $this->app->redirect($this->app->urlFor($role.'.index'));
