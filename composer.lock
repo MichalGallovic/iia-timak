@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "808394ce3e10fd902725f91e5c742dc3",
+    "hash": "9a19f60d630bc03c27527b316d0cbbdb",
     "packages": [
         {
             "name": "google/apiclient",
@@ -47,38 +47,6 @@
                 "google"
             ],
             "time": "2014-11-25 14:35:03"
-        },
-        {
-            "name": "radweb/pdfcrowd-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Radweb/pdfcrowd-php.git",
-                "reference": "36469bcc5934fd71fb0fccd79b6bde8d20bae04c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Radweb/pdfcrowd-php/zipball/36469bcc5934fd71fb0fccd79b6bde8d20bae04c",
-                "reference": "36469bcc5934fd71fb0fccd79b6bde8d20bae04c",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "pdfcrowd.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Robb Lewis",
-                    "email": "me@therobb.com"
-                }
-            ],
-            "time": "2014-03-14 15:37:11"
         },
         {
             "name": "slim/slim",
@@ -125,77 +93,12 @@
                 "router"
             ],
             "time": "2014-12-09 19:59:29"
-        },
-        {
-            "name": "tecnick.com/tcpdf",
-            "version": "6.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "ba2afad72c6191bfed735dfa357bcaf3f225f52b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/ba2afad72c6191bfed735dfa357bcaf3f225f52b",
-                "reference": "ba2afad72c6191bfed735dfa357bcaf3f225f52b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "fonts",
-                    "config",
-                    "include",
-                    "tcpdf.php",
-                    "tcpdf_parser.php",
-                    "tcpdf_import.php",
-                    "tcpdf_barcodes_1d.php",
-                    "tcpdf_barcodes_2d.php",
-                    "include/tcpdf_colors.php",
-                    "include/tcpdf_filters.php",
-                    "include/tcpdf_font_data.php",
-                    "include/tcpdf_fonts.php",
-                    "include/tcpdf_images.php",
-                    "include/tcpdf_static.php",
-                    "include/barcodes/datamatrix.php",
-                    "include/barcodes/pdf417.php",
-                    "include/barcodes/qrcode.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPLv3"
-            ],
-            "authors": [
-                {
-                    "name": "Nicola Asuni",
-                    "email": "info@tecnick.com",
-                    "homepage": "http://nicolaasuni.tecnick.com"
-                }
-            ],
-            "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
-            "homepage": "http://www.tcpdf.org/",
-            "keywords": [
-                "PDFD32000-2008",
-                "TCPDF",
-                "barcodes",
-                "datamatrix",
-                "pdf",
-                "pdf417",
-                "qrcode"
-            ],
-            "time": "2015-01-08 18:35:22"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "radweb/pdfcrowd-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "platform": [],
     "platform-dev": []

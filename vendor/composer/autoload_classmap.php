@@ -6,7 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Datamatrix' => $vendorDir . '/tecnick.com/tcpdf/include/barcodes/datamatrix.php',
     'Google_Auth_Abstract' => $vendorDir . '/google/apiclient/src/Google/Auth/Abstract.php',
     'Google_Auth_AppIdentity' => $vendorDir . '/google/apiclient/src/Google/Auth/AppIdentity.php',
     'Google_Auth_AssertionCredentials' => $vendorDir . '/google/apiclient/src/Google/Auth/AssertionCredentials.php',
@@ -2417,19 +2416,4 @@ return array(
     'Google_Utils_URITemplate' => $vendorDir . '/google/apiclient/src/Google/Utils/URITemplate.php',
     'Google_Verifier_Abstract' => $vendorDir . '/google/apiclient/src/Google/Verifier/Abstract.php',
     'Google_Verifier_Pem' => $vendorDir . '/google/apiclient/src/Google/Verifier/Pem.php',
-    'PDF417' => $vendorDir . '/tecnick.com/tcpdf/include/barcodes/pdf417.php',
-    'PdfCrowd' => $vendorDir . '/radweb/pdfcrowd-php/pdfcrowd.php',
-    'PdfcrowdException' => $vendorDir . '/radweb/pdfcrowd-php/pdfcrowd.php',
-    'QRcode' => $vendorDir . '/tecnick.com/tcpdf/include/barcodes/qrcode.php',
-    'TCPDF' => $vendorDir . '/tecnick.com/tcpdf/tcpdf.php',
-    'TCPDF2DBarcode' => $vendorDir . '/tecnick.com/tcpdf/tcpdf_barcodes_2d.php',
-    'TCPDFBarcode' => $vendorDir . '/tecnick.com/tcpdf/tcpdf_barcodes_1d.php',
-    'TCPDF_COLORS' => $vendorDir . '/tecnick.com/tcpdf/include/tcpdf_colors.php',
-    'TCPDF_FILTERS' => $vendorDir . '/tecnick.com/tcpdf/include/tcpdf_filters.php',
-    'TCPDF_FONTS' => $vendorDir . '/tecnick.com/tcpdf/include/tcpdf_fonts.php',
-    'TCPDF_FONT_DATA' => $vendorDir . '/tecnick.com/tcpdf/include/tcpdf_font_data.php',
-    'TCPDF_IMAGES' => $vendorDir . '/tecnick.com/tcpdf/include/tcpdf_images.php',
-    'TCPDF_IMPORT' => $vendorDir . '/tecnick.com/tcpdf/tcpdf_import.php',
-    'TCPDF_PARSER' => $vendorDir . '/tecnick.com/tcpdf/tcpdf_parser.php',
-    'TCPDF_STATIC' => $vendorDir . '/tecnick.com/tcpdf/include/tcpdf_static.php',
 );

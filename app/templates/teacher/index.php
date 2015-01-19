@@ -68,9 +68,17 @@ $username = $auth->getFullName();
                 <h3>Druhy Select: kone</h3>
             </div>
         </div>
+        <div class="col-md-4">
+            <div id="table_users_header">
+                <h3>Počet vyučovacích hodín:</h3>
+            </div>
+            <div id="druhy_select_ucitelia" hidden>
+                <h3>Druhy Select: kone</h3>
+            </div>
+        </div>
     </div>
     <div class='row'>
-        <div class="col-md-12" id='bc' hidden>
+        <div class="col-md-8" id='bc' hidden>
             <button id="getSch" class='btn btn-primary'>Zobraz</button>
         </div>
     </div>

@@ -15,14 +15,14 @@ if($imageFileType == "sql") {
         exec('mysql -u '.$username.' -p'.$password.' '.$database.' < '.$target_file,$output, $return);
         if(!$return) {
             unlink($target_file);
-            $app->flash('message', Lang::get('dumpimport_success'));
+            $app->flash('message', Lang::get('messages_dumpimportsuccess'));
         } else {
-            $app->flash('message', Lang::get('dumpimport_fail'));
+            $app->flash('message', Lang::get('messages_dumpimportfail'));
         }
 
     }
 } else {
-    $app->flash('message', Lang::get('dumpimport_notsql'));
+    $app->flash('message', Lang::get('messages_dumpimportnotsql'));
 }
 
 $app->redirect($app->urlFor('admin.settings'));
