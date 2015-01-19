@@ -229,7 +229,7 @@ $(document).ready(function() {
 
 
     function getUsersHours(orderedBy, orderedMode) {
-        var params = "/orderedBy/" + orderedBy + 'orderedMode' + orderedMode;
+        var params = "?orderedBy=" + orderedBy + '&orderedMode=' + orderedMode;
         $.ajax({
             type: "GET",
             url: '/service/usersHours' + params,
