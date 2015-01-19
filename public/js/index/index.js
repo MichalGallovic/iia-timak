@@ -309,6 +309,7 @@ function zobraz (napln) {
 
 
 	}
+	$('[data-toggle="tooltip"]').tooltip({html: true});
 }
 //http://www.sitepoint.com/javascript-generate-lighter-darker-color/
 function ColorLuminance(hex, lum) {
@@ -596,13 +597,13 @@ function olee(vec,s){
 					 // console.log($('#p-'+k).html());
 					if(k >= stI && k<etI){
 						if(k==stI)
-							$('#'+s+'-'+k).append('<div style="background:'+color+';height:55px;padding:5px;"><p>'+vec.subjectAcronym+'</p><p>'+vec.roomName+'</p></div>');
+							$('#'+s+'-'+k).append('<div data-toggle="tooltip" data-placement="top" title="'+vec.subjectName+'<br>'+vec.userTitle1+' '+vec.userSurName+'" style="background:'+color+';height:90px;padding:5px;"><p>'+vec.subjectAcronym+'</p><p>'+vec.roomName+'</p><p>'+vec.type+'</p></div>');
 						else
-							$('#'+s+'-'+k).append('<div style="background:'+color+';height:55px;padding:5px;"><p>&nbsp;</div>');
+							$('#'+s+'-'+k).append('<div data-toggle="tooltip" data-placement="top" title="'+vec.subjectName+'<br>'+vec.userTitle1+' '+vec.userSurName+'" style="background:'+color+';height:90px;padding:5px;"><p>&nbsp;</div>');
 
 					}else{
 					// if($('#p-'+k).html()=='')
-						 $('#'+s+'-'+k).append('<div style="background:white;height:55px;">'+'&nbsp;'+'</div>');
+						 $('#'+s+'-'+k).append('<div style="background:white;height:90px;">'+'&nbsp;'+'</div>');
 					}
 				}
 }
