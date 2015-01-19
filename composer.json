@@ -9,9 +9,7 @@
     ],
     "require": {
         "slim/slim": "~2.5",
-        "google/apiclient": "~1.1",
-        "tecnick.com/tcpdf": "~6.2",
-        "radweb/pdfcrowd-php": "dev-master"
+        "google/apiclient": "~1.1"
     },
     "autoload" : {
         "psr-4" : {
@@ -19,7 +17,8 @@
         },
         "files" : [
             "vendor/Mysql/MysqliDb.php",
-            "vendor/helpers.php"
+            "vendor/helpers.php",
+            "vendor/pdfcrowd.php"
         ]
     }
 }
