@@ -56,8 +56,8 @@ $username = $auth->getFullName();
             <select id="select_type" class="form-control">
                 <option value="skovaj">typ</option>
                 <option value="predmet">predmet</option>
-                <option value="ucitel">učiteľ</option>
-                <option value="skupina_ucitelov">skupina učiteľov</option>
+                <option value="uzivatel">učiteľ</option>
+                <option value="skupina_uzivatelov">skupina učiteľov</option>
                 <option value="miestnost">miestnosť</option>
                 <option value="den">deň</option>
                 <option value="oddelenie">oddelenie</option>
