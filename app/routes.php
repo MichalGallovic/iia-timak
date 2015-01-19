@@ -99,10 +99,32 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         })->name('admin.index');
 
         $app->get('/dump', function() use ($app){
-            $fileName = time().'file.sql';
-            $filePath = dirname(__FILE__).'/../public/dumps/'.$fileName;
-            exec('mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.$filePath);
-            $app->redirect('/dumps/'.$fileName);
+            if(isset($_GET['token'])) {
+                if($_GET['token'] == $_SESSION['form_token']) {
+                    $fileName = time().'file.sql';
+                    $filePath = dirname(__FILE__).'/../public/dumps/'.$fileName;
+                    $output = '';
+                    $result = '';
+                    exec('mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.$filePath,$output,$result);
+                    header('Content-type: application/octetstream'); //this could be a different header
+                    header('Content-Disposition: attachment; filename="'.$fileName.'"');
+
+                    ignore_user_abort(true);
+
+                    $context = stream_context_create();
+                    $file = fopen($filePath, 'rb', FALSE, $context);
+                    while(!feof($file))
+                    {
+                        echo stream_get_contents($file, 2014);
+                    }
+                    fclose($file);
+                    flush();
+                    if (file_exists($filePath)) {
+                        unlink( $filePath );
+                    }
+                }
+            }
+            $app->redirect($app->urlFor('login'));
         })->name('admin.dump');
 
         $app->post('/dump', function() use ($app) {

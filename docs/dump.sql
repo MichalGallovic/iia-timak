@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.40-0ubuntu0.12.04.1)
 # Database: iiaTimak
-# Generation Time: 2015-01-18 13:53:55 +0000
+# Generation Time: 2015-01-19 17:42:28 +0000
 # ************************************************************
 
 
@@ -273,11 +273,11 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `role_id`, `google`, `firstname`, `surname`, `title1`, `title2`, `group_id`, `ldap`)
 VALUES
-	(37,NULL,NULL,'Katarína','Žáková','Doc. Ing.','PhD.',2,'zakova'),
+	(37,2,NULL,'Katarína','Žáková','Doc. Ing.','PhD.',2,'zakova'),
 	(38,NULL,NULL,'Mikuláš','Huba','Prof. Ing.','PhD.',4,'huba'),
 	(39,NULL,NULL,'Danica','Rosinová','Doc. Ing.','PhD.',2,'rosinova'),
 	(40,NULL,NULL,'Pavol','Bisták','Ing.','PhD.',4,'bistak'),
-	(41,NULL,NULL,'Alena','Kozáková','Doc. Ing.','PhD.',2,'kozakova'),
+	(41,2,NULL,'Alena','Kozáková','Doc. Ing.','PhD.',2,'kozakova'),
 	(42,NULL,NULL,'Peter','Ťapák','Ing.','PhD.',4,'tapak'),
 	(49,1,NULL,'Michal','Gallovič','Bc.',NULL,NULL,'xgallovicm'),
 	(50,1,NULL,'Jakub','Fornádel','Bc.',NULL,NULL,'xfornadelj'),
