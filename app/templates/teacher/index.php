@@ -79,13 +79,13 @@ $username = $auth->getFullName();
                                 <a id="users" href="#">Meno a priezvisko</a>
                             </th>
                             <th>
-                                <a id="" href="#">Prednášky</a>
+                                <a id="lectures" href="#">Prednášky</a>
                             </th>
                             <th>
-                                <a href="#">Cvičenia</a>
+                                <a id="exercises" href="#">Cvičenia</a>
                             </th>
                             <th>
-                                <a href=#">Spolu</a>
+                                <a id="total" href=#">Spolu</a>
                             </th>
                         </tr>
                         </thead>
@@ -112,10 +112,27 @@ $username = $auth->getFullName();
                     exercisesHours : "asc",
                     totalHours : "asc"
                 };
+                renderTableOnLoad('users','asc');
 
                 $('#users').click(function() {
                     var newOrder = toggleOrder("users");
                     var response = getUsersHours('users',newOrder);
+                });
+
+                $('#lectures').click(function() {
+                    var newOrder = toggleOrder("lectureHours");
+                    var response = getUsersHours('lectureHours',newOrder);
+                });
+
+                $('#exercises').click(function() {
+                    var newOrder = toggleOrder("exercisesHours");
+                    var response = getUsersHours('exercisesHours',newOrder);
+                });
+
+
+                $('#total').click(function() {
+                    var newOrder = toggleOrder("totalHours");
+                    var response = getUsersHours('totalHours',newOrder);
                 });
 
                 function toggleOrder(orderBy) {
@@ -143,6 +160,10 @@ $username = $auth->getFullName();
                                 $('#usersHoursTable').append(tableRow);
                             });
                         }});
+                }
+
+                function renderTableOnLoad(orderBy, orderedMode) {
+                    getUsersHours(orderBy,orderedMode);
                 }
             });
         </script>
