@@ -134,76 +134,80 @@ $username = $auth->getFullName();
                       </tr>
                       <tr>
                           <td class='den' >Utorok</td>
-                          <td id='u-6'></td>
-                          <td id='u-7'></td>
-                          <td id='u-8'></td>
-                          <td id='u-9'></td>
-                          <td id='u-10'></td>
-                          <td id='u-11'></td>
-                          <td id='u-12'></td>
-                          <td id='u-13'></td>
-                          <td id='u-14'></td>
-                          <td id='u-15'></td>
-                          <td id='u-16'></td>
-                          <td id='u-17'></td>
-                          <td id='u-18'></td>
-                          <td id='u-19'></td>
+                          <td class='np' id='u-6'></td>
+                          <td class='np' id='u-7'></td>
+                          <td class='np' id='u-8'></td>
+                          <td class='np' id='u-9'></td>
+                          <td class='np' id='u-10'></td>
+                          <td class='np' id='u-11'></td>
+                          <td class='np' id='u-12'></td>
+                          <td class='np' id='u-13'></td>
+                          <td class='np' id='u-14'></td>
+                          <td class='np' id='u-15'></td>
+                          <td class='np' id='u-16'></td>
+                          <td class='np' id='u-17'></td>
+                          <td class='np' id='u-18'></td>
+                          <td class='np' id='u-19'></td>
                       </tr>
                       <tr>
                           <td class='den' >Streda</td>
-                          <td id='s-6'></td>
-                          <td id='s-7'></td>
-                          <td id='s-8'></td>
-                          <td id='s-9'></td>
-                          <td id='s-10'></td>
-                          <td id='s-11'></td>
-                          <td id='s-12'></td>
-                          <td id='s-13'></td>
-                          <td id='s-14'></td>
-                          <td id='s-15'></td>
-                          <td id='s-16'></td>
-                          <td id='s-17'></td>
-                          <td id='s-18'></td>
-                          <td id='s-19'></td>
+                          <td class='np' id='s-6'></td>
+                          <td class='np' id='s-7'></td>
+                          <td class='np' id='s-8'></td>
+                          <td class='np' id='s-9'></td>
+                          <td class='np' id='s-10'></td>
+                          <td class='np' id='s-11'></td>
+                          <td class='np' id='s-12'></td>
+                          <td class='np' id='s-13'></td>
+                          <td class='np' id='s-14'></td>
+                          <td class='np' id='s-15'></td>
+                          <td class='np' id='s-16'></td>
+                          <td class='np' id='s-17'></td>
+                          <td class='np' id='s-18'></td>
+                          <td class='np' id='s-19'></td>
                       </tr>
                       <tr>
                           <td class='den' >Štvrtok</td>
-                          <td id='st-6'></td>
-                          <td id='st-7'></td>
-                          <td id='st-8'></td>
-                          <td id='st-9'></td>
-                          <td id='st-10'></td>
-                          <td id='st-11'></td>
-                          <td id='st-12'></td>
-                          <td id='st-13'></td>
-                          <td id='st-14'></td>
-                          <td id='st-15'></td>
-                          <td id='st-16'></td>
-                          <td id='st-17'></td>
-                          <td id='st-18'></td>
-                          <td id='st-19'></td>
+                          <td class='np' id='st-6'></td>
+                          <td class='np' id='st-7'></td>
+                          <td class='np' id='st-8'></td>
+                          <td class='np' id='st-9'></td>
+                          <td class='np' id='st-10'></td>
+                          <td class='np' id='st-11'></td>
+                          <td class='np' id='st-12'></td>
+                          <td class='np' id='st-13'></td>
+                          <td class='np' id='st-14'></td>
+                          <td class='np' id='st-15'></td>
+                          <td class='np' id='st-16'></td>
+                          <td class='np' id='st-17'></td>
+                          <td class='np' id='st-18'></td>
+                          <td class='np' id='st-19'></td>
                       </tr>
                       <tr>
                           <td class='den' >Piatok</td>
-                          <td id='pi-6'></td>
-                          <td id='pi-7'></td>
-                          <td id='pi-8'></td>
-                          <td id='pi-9'></td>
-                          <td id='pi-10'></td>
-                          <td id='pi-11'></td>
-                          <td id='pi-12'></td>
-                          <td id='pi-13'></td>
-                          <td id='pi-14'></td>
-                          <td id='pi-15'></td>
-                          <td id='pi-16'></td>
-                          <td id='pi-17'></td>
-                          <td id='pi-18'></td>
-                          <td id='pi-19'></td>
+                          <td class='np' id='pi-6'></td>
+                          <td class='np' id='pi-7'></td>
+                          <td class='np' id='pi-8'></td>
+                          <td class='np' id='pi-9'></td>
+                          <td class='np' id='pi-10'></td>
+                          <td class='np' id='pi-11'></td>
+                          <td class='np' id='pi-12'></td>
+                          <td class='np' id='pi-13'></td>
+                          <td class='np' id='pi-14'></td>
+                          <td class='np' id='pi-15'></td>
+                          <td class='np' id='pi-16'></td>
+                          <td class='np' id='pi-17'></td>
+                          <td class='np' id='pi-18'></td>
+                          <td class='np' id='pi-19'></td>
                       </tr>
 
                   </tbody>
               </table>
               </div>
+              <form action="" method='get'>
+                <input id='tlaciaren' name='tabulka' type="text" hidden>
+                <button class='btn btn-primary' type="submit">tlaciaren</button>
+              </form>
           </div>
       </div>
 </div>
