@@ -146,48 +146,93 @@ class TimetableApi extends API {
             'totalHours' => '',
         );
 
-        switch ($orderedBy) {
-            case 'users':
-                $users = $this->usersRepository->getAllOrderedBy('surname', $orderedMode);
-                foreach ($users as $user) {
-                    $userId = $user['id'];
-                    $fullName = $user['firstname'] . ' ' . $user['surname'];
-                    
-                    $lectures = $this->lecturesRepository->getByUserId($userId);
-                    $lectureHours = 0;
-                    foreach ($lectures as $lecture) {
-                        $lecTimeDiff = $lecture['end_time'] - $lecture['start_time'];
-                        $lectureHours += $lecTimeDiff;
-                    }
-                    
-                    $exercises = $this->exercisesRepository->getByUserId($userId);
-                    $exerciseHours = 1;
-                    foreach ($exercises as $exercise) {
-                        $exerTimeDiff = $exercise['end_time'] - $exercise['start_time'];
-                        $exerciseHours += $exerTimeDiff;
-                    }
-                    
-                    $totalHours = $lectureHours + $exerciseHours;
-                    
-                    $rowStructure['fullName'] = $fullName;
-                    $rowStructure['lectureHours'] = $lectureHours;
-                    $rowStructure['exerciseHours'] = $exerciseHours;
-                    $rowStructure['totalHours'] = $totalHours;
-                    array_push($retArray, $rowStructure);
-                }
+        $users = $this->usersRepository->getAll();
+        foreach ($users as $user) {
+            $userId = $user['id'];
+            $fullName = $user['firstname'] . ' ' . $user['surname'];
+
+            $lectures = $this->lecturesRepository->getByUserId($userId);
+            $lectureHours = 0;
+            foreach ($lectures as $lecture) {
+                $lecTimeDiff = $lecture['end_time'] - $lecture['start_time'];
+                $lectureHours += $lecTimeDiff;
+            }
+
+            $exercises = $this->exercisesRepository->getByUserId($userId);
+            $exerciseHours = 1;
+            foreach ($exercises as $exercise) {
+                $exerTimeDiff = $exercise['end_time'] - $exercise['start_time'];
+                $exerciseHours += $exerTimeDiff;
+            }
+
+            $totalHours = $lectureHours + $exerciseHours;
+
+            $rowStructure['fullName'] = $fullName;
+            $rowStructure['lectureHours'] = $lectureHours;
+            $rowStructure['exerciseHours'] = $exerciseHours;
+            $rowStructure['totalHours'] = $totalHours;
+            array_push($retArray, $rowStructure);
+        }
+
+        switch ($orderedMode) {
+            case 'asc':
+                $orderedMode = SORT_ASC;
                 break;
-            case 'lectureHours':
-                
-                break;
-            case 'exerciseHours':
-                
-                break;
-            case 'totalHours':
-                
+            case 'desc':
+                $orderedMode = SORT_DESC;
                 break;
         }
+
+        switch ($orderedBy) {
+            case 'users':
+                $retArray = $this->array_msort($retArray, array('fullName' => $orderedMode));
+                break;
+            case 'lectureHours':
+                $retArray = $this->array_msort($retArray, array('lectureHours' => $orderedMode));
+                break;
+            case 'exerciseHours':
+                $retArray = $this->array_msort($retArray, array('exerciseHours' => $orderedMode));
+                break;
+            case 'totalHours':
+                $retArray = $this->array_msort($retArray, array('totalHours' => $orderedMode));
+                break;
+            default:
+                return array();
+        }
         
-        return $retArray;
+        //  prepis array do spravnej struktury
+        $prepisaneArray = [];
+        foreach($retArray as $part) {
+            array_push($prepisaneArray,$part);
+        }
+
+        return $prepisaneArray;
+    }
+
+    private function array_msort($array, $cols) {
+        $colarr = array();
+        foreach ($cols as $col => $order) {
+            $colarr[$col] = array();
+            foreach ($array as $k => $row) {
+                $colarr[$col]['_' . $k] = strtolower($row[$col]);
+            }
+        }
+        $eval = 'array_multisort(';
+        foreach ($cols as $col => $order) {
+            $eval .= '$colarr[\'' . $col . '\'],' . $order . ',';
+        }
+        $eval = substr($eval, 0, -1) . ');';
+        eval($eval);
+        $ret = array();
+        foreach ($colarr as $col => $arr) {
+            foreach ($arr as $k => $v) {
+                $k = substr($k, 1);
+                if (!isset($ret[$k]))
+                    $ret[$k] = $array[$k];
+                $ret[$k][$col] = $array[$k][$col];
+            }
+        }
+        return $ret;
     }
 
     protected function schedule() {

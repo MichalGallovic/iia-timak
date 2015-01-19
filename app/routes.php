@@ -141,11 +141,20 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
             $app->render('admin/settings.php',['app' => $app]);
         })->name('admin.settings');
 
-// //$app->group('/admin', function() use ($app) {
-//     $app->get('/', function() use ($app) {
-//         $app->render('admin/kontrola.php', ['app'=>$app]);
-//     })->name('admin.kontrola');
 
+        $app->group('/schedules', function() use ($app) {
+            $app->get('', function() use ($app) {
+
+            })->name('admin.schedules');
+
+            $app->get('/create', function() use ($app) {
+
+            })->name('admin.schedules.create');
+
+            $app->get('/check', function() use ($app) {
+
+            })->name('admin.schedules.check');
+        });
 
         $app->group('/rooms', function() use ($app) {
 

@@ -13,16 +13,9 @@
 
 </head>
 <body>
-<div class="nav navbar navbar-default">
-    <div class="navbar-header"><span class="navbar-brand">FEI Timetable Master Overlord 10 001</span></div>
-    <ul class="nav navbar-nav">
-        <li><a href="add"><span id='nav-0'>Pridať Predmet</span></a></li>
-        <li class="active"><a href="kontrola"><span id='nav-1'>Kontrola</span></a></li>
-    </ul>
-    <form id="logout" class="navbar-form navbar-right">
-        <button id='logButt' type="submit" class="btn btn-primary">Odhlás</button>
-    </form>
-</div>
+<!--HEADER-->
+<?php $app->render('admin/_partials/header.php',['app' => $app]) ?>
+<!--HEADER-->
 <div class="container">
     <div class="row">
         <div class="col-md-12">

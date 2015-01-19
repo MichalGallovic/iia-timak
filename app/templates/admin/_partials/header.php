@@ -14,12 +14,20 @@ $username = $auth->getFullName();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo $app->urlFor('admin.index')?>">FEI Timetable</a>
+            <a class="navbar-brand" href="<?php echo $app->urlFor('admin.index')?>"><?php echo Lang::get('navbar_brand') ?></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Lang::get('navbar_schedules') ?><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<?php echo $app->urlFor('admin.schedules') ?>"><?php echo Lang::get('crud_read') ?></a></li>
+                        <li><a href="<?php echo $app->urlFor('admin.schedules.check') ?>"><?php echo Lang::get('crud_create') ?></a></li>
+                        <li><a href="<?php echo $app->urlFor('admin.schedules.create') ?>"><?php echo Lang::get('crud_edit') ?></a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Lang::get('navbar_exercises') ?><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">

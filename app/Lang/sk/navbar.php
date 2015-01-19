@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "brand"         =>  'FEI Rozvrhy',
+    "brand"         =>  'FEI',
     "login"         =>  'Prihlásiť sa',
     "logout"	    => 	'Odhlásiť sa',
     "settings"      =>  'Nastavenia',
@@ -13,6 +13,7 @@ return [
     "rooms"         =>  'Miestnosti',
     "users"         =>  'Používatelia',
     "consultations" =>  'Konzultácie',
-    "lectures"      =>  'Prednášky'
+    "lectures"      =>  'Prednášky',
+    "schedules"     =>  'Rozvrhy'
 
 ];
