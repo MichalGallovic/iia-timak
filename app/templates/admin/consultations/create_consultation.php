@@ -16,7 +16,6 @@ $rooms = $db->get('rooms');
     <title><?php echo Lang::get('navbar_brand') ?></title>
         <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/style/bootstrap-select.min.css">
-        <link rel="stylesheet" href="/style/bootstrap-timepicker.min.css"/>
 </head>
 <body>
 <!--HEADER-->
@@ -54,7 +53,7 @@ $rooms = $db->get('rooms');
 
                    </select>
                  </div>
-                              <!-- <li>Teacher 
+                              <!-- <li>Teacher
                                 <select name="user_id" />
 
                                 <?php foreach($users as $user): ?>
@@ -66,7 +65,7 @@ $rooms = $db->get('rooms');
 
 
 
-<!--                             <li>Room 
+<!--                             <li>Room
  -->
                         <div class="form-group">
                            <label ><?php echo Lang::get('consultations_room') ?></label>
@@ -78,10 +77,10 @@ $rooms = $db->get('rooms');
 
                                 </select>
                              </div>
-                                    
 
-                                
-                          
+
+
+
 <!--                             </li>
  -->
                             <!-- <li>Day -->
@@ -109,7 +108,7 @@ $rooms = $db->get('rooms');
                                 </div>
 
 <!--                              </li>
- -->                             
+ -->
                                 <div class="form-group">
                                    <label ><?php echo Lang::get('consultations_note') ?></label>
                                    <input type="text" class="form-control" name="note"/>
@@ -122,15 +121,47 @@ $rooms = $db->get('rooms');
 
                             <div class="form-group">
                                <label ><?php echo Lang::get('consultations_start') ?></label>
-                               <input id="timepicker1" type="text" class="form-control" name="start_time"/>
+                                <select name="start_time" class="form-control">
+                                    <option value="0600">06:00</option>
+                                    <option value="0700">07:00</option>
+                                    <option value="0800">08:00</option>
+                                    <option value="0900">09:00</option>
+                                    <option value="1000">10:00</option>
+                                    <option value="1100">11:00</option>
+                                    <option value="1200">12:00</option>
+                                    <option value="1300">13:00</option>
+                                    <option value="1400">14:00</option>
+                                    <option value="1500">15:00</option>
+                                    <option value="1600">16:00</option>
+                                    <option value="1700">17:00</option>
+                                    <option value="1800">18:00</option>
+                                    <option value="1900">19:00</option>
+                                    <option value="2000">20:00</option>
+                                </select>
                              </div>
                              <div class="form-group">
                                 <label ><?php echo Lang::get('consultations_end') ?></label>
-                                <input id="timepicker2" type="text" class="form-control" name="end_time"/>
+                                 <select name="end_time" class="form-control">
+                                     <option value="0600">06:00</option>
+                                     <option value="0700">07:00</option>
+                                     <option value="0800">08:00</option>
+                                     <option value="0900">09:00</option>
+                                     <option value="1000">10:00</option>
+                                     <option value="1100">11:00</option>
+                                     <option value="1200">12:00</option>
+                                     <option value="1300">13:00</option>
+                                     <option value="1400">14:00</option>
+                                     <option value="1500">15:00</option>
+                                     <option value="1600">16:00</option>
+                                     <option value="1700">17:00</option>
+                                     <option value="1800">18:00</option>
+                                     <option value="1900">19:00</option>
+                                     <option value="2000">20:00</option>
+                                 </select>
                               </div>
 <!--                             <li>Start time <input type="text" name="start_time" /></li>
                           <li>End time <input type="text" name="end_time" /></li>
- -->  
+ -->
 <!--                     </ul>
  -->                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('consultations_add') ?>" />
                     </form>
@@ -140,16 +171,6 @@ $rooms = $db->get('rooms');
         </div>
     <script src="/js/libs/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script src="/js/libs/bootstrap-timepicker.min.js"></script>
-    <script>
-        $('#timepicker1').timepicker({
-            minuteStep: 1,
-            showMeridian: false
-        });
-        $('#timepicker2').timepicker({
-            minuteStep: 1,
-            showMeridian: false
-        });
-    </script>
+
 </body>
 </html>

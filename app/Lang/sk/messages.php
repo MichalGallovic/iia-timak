@@ -8,5 +8,10 @@ return [
     'dumpimportsuccess'    =>  'Záloha rozvrhov úspešne importovaná',
     'dumpimportfail'       =>  'Pri importovaní sql súboru sa vyskytla neznáma chyba. Kontaktujte webadmina',
     'dumpimportnotsql'     =>  'Import zálohy je možný iba vo formáte .sql',
-    'deleteok'				=> 'Konzultácia bola úspešne vymazaná'
+    'deleteok'				=> 'Konzultácia bola úspešne vymazaná',
+    'crud-c-success'        =>  'Údaje úspešne pridané',
+    'crud-c-fail'             =>  'Pri pridávaní nastala chyba.',
+    'crud-e-success'        =>  'Údaje úspešne upravené.',
+    'crud-e-fail'           =>  'Pri úprave nastala chyba',
+    'crud-d-success'        =>  'Údaje úspešne odstránené'
 ];

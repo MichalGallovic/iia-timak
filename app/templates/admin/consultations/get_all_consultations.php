@@ -47,6 +47,17 @@ $dni = array(
 
 			<div class="row">
 				<div class="col-md-12">
+
+<!--                    IGOOOOOOOR TOTO TIEZ POPRIDAVAJ-->
+                    <?php if($flash['message']): ?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            <?php echo $flash['message'] ?>
+                        </div>
+                    <?php endif; ?>
+
+
 					<h1><?php echo Lang::get('consultations_header') ?></h1>
 					<table class="table table-striped">
 						<thead>

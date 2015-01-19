@@ -123,6 +123,8 @@
             <button type="submit" class="btn btn-primary">Pridaj Predmet</button>
         </div>
     </div>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </form>
 </body>
 </html>
