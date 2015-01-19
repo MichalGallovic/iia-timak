@@ -204,10 +204,7 @@ $username = $auth->getFullName();
                   </tbody>
               </table>
               </div>
-              <form action="" method='get'>
-                <input id='tlaciaren' name='tabulka' type="text" hidden>
-                <button class='btn btn-primary' type="submit">tlaciaren</button>
-              </form>
+              <a id='tlaciaren' href="/print?a=a">tlaciaren</a>
           </div>
       </div>
 </div>
