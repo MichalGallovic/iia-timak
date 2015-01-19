@@ -81,7 +81,7 @@ function generateHTML($data) {
     <?php
 }
 
-function getScheduleData() {
+function getScheduleData($app) {
     $api = new TimetableApi("\pokus", $app->config('db'));
     $scheduleData = array(
         'user' => 'user@stuba.sk',
@@ -103,12 +103,12 @@ function getScheduleData() {
 class SchedulePdf extends TCPDF {
 
     private $scheduleData;
-
-    function __construct($data, $orientation, $unit, $format) {
+    protected $app;
+    function __construct($data, $orientation, $unit, $format,$app) {
         parent::__construct($orientation, $unit, $format, true, 'UTF-8', false);
 
         $this->scheduleData = $data;
-
+        $this->app = $app;
         # Set the page margins: 72pt on each side, 36pt on top/bottom.
         $this->SetMargins(72, 36, 72, true);
         $this->SetAutoPageBreak(true, 36);
@@ -207,9 +207,9 @@ class SchedulePdf extends TCPDF {
 
 }
 
-function generatePDF($data) {
+function generatePDF($data,$app) {
     # Create a new PDF document.
-    $pdf = new SchedulePdf($data, 'P', 'pt', 'LETTER');
+    $pdf = new SchedulePdf($data, 'P', 'pt', 'LETTER',$app);
 
     # Generate the schedule.
     $pdf->CreateSchedule();
@@ -221,8 +221,8 @@ function generatePDF($data) {
 # If URL has ?PDF=1, we need to make a PDF instead of HTML.
 
 if (array_key_exists('PDF', $_REQUEST)) {
-    generatePDF(getScheduleData());
+    generatePDF(getScheduleData($app),$app);
 } else {
-    generateHTML(getScheduleData());
+    generateHTML(getScheduleData($app));
 }
 ?>
