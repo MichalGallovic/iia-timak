@@ -14,9 +14,8 @@ $username = $auth->getFullName();
 </head>
 <body>
 <!--HEADER-->
-<?php include dirname(__FILE__).'/_partials/header.php' ?>
+<?php $app->render('admin/_partials/header.php',['app' => $app]) ?>
 <!--HEADER-->
-
 <div class="container">
 
     <div class="row margin-20">

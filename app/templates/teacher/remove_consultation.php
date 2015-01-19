@@ -6,10 +6,10 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 //$id = $_POST['id']	; 
 
  //var_dump($id);
- var_dump($_POST);
+ var_dump($id);
 	
 	  // $db->where('id', $id);
    //    $db->delete('consultations');
     
-   
+
 ?>

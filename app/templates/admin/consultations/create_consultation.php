@@ -20,7 +20,7 @@ $rooms = $db->get('rooms');
 </head>
 <body>
 <!--HEADER-->
-
+<?php $app->render('admin/_partials/header.php',['app' => $app]) ?>
 <!--HEADER-->
     <div class="container">
             <div class="row">
