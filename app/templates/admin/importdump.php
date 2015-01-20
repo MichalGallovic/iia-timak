@@ -12,13 +12,21 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Allow certain file formats
 if($imageFileType == "sql") {
     if (move_uploaded_file($_FILES["dumpimport"]["tmp_name"], $target_file)) {
-        exec('mysql -u '.$username.' -p'.$password.' '.$database.' < '.$target_file,$output, $return);
+
+        $localhostNames = ['iia.dev','localhost:8888','192.168.88.88'];
+        if(!in_array($_SERVER['HTTP_HOST'],$localhostNames)) {
+            exec('/usr/local/bin/mysql -u'.$username.' -p'.$password.' '.$database.' < '.$target_file,$output, $return);
+        } else {
+            exec('mysql -u'.$username.' -p'.$password.' '.$database.' < '.$target_file,$output, $return);
+        }
+
         if(!$return) {
-            unlink($target_file);
+
             $app->flash('message', Lang::get('messages_dumpimportsuccess'));
         } else {
             $app->flash('message', Lang::get('messages_dumpimportfail'));
         }
+        unlink($target_file);
 
     }
 } else {
