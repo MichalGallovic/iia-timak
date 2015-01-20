@@ -148,12 +148,15 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
             })->name('admin.schedules');
 
             $app->get('/create', function() use ($app) {
-                $app->render('admin/subjects/pridat_predmet.php', ['app' => $app]);
+                $app->render('admin/schedules/pridat_predmet.php', ['app' => $app]);
             })->name('admin.schedules.create');
-
+            $app->post('/store', function() use ($app) {
+               $app->render('admin/schedules/store_schedule.php', ['app' => $app]);
+            })->name('admin.schedules.store');
             $app->get('/check', function() use ($app) {
-                $app->render('admin/subjects/kontrola.php',['app' => $app]);
+                $app->render('admin/schedules/kontrola.php',['app' => $app]);
             })->name('admin.schedules.check');
+
         });
 
         $app->group('/rooms', function() use ($app) {

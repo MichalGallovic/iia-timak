@@ -19,7 +19,7 @@ use IIA\Lang\Lang as Lang;
 <!--HEADER-->
 <?php $app->render('admin/_partials/header.php',['app' => $app]) ?>
 <!--HEADER-->
-<form action="admin/subjects/add" method="post">
+<form action="<?php echo $app->urlFor('admin.schedules.store') ?>" method="post">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -86,11 +86,11 @@ use IIA\Lang\Lang as Lang;
                 </select>
                 <h3><?php echo Lang::get('common_day') ?></h3>
                 <select name="select_day" id="select_denP_admin" class="form-control">
-                    <option value="pondelok">pondelok</option>
-                    <option value="utorok">utorok</option>
-                    <option value="streda">streda</option>
-                    <option value="stvrtok">stvrtok</option>
-                    <option value="piatok">piatok</option>
+                    <option value="0"><?php echo Lang::get('common_days')[0] ?></option>
+                    <option value="1"><?php echo Lang::get('common_days')[1] ?></option>
+                    <option value="2"><?php echo Lang::get('common_days')[2] ?></option>
+                    <option value="3"><?php echo Lang::get('common_days')[3] ?></option>
+                    <option value="4"><?php echo Lang::get('common_days')[4] ?></option>
                 </select>
                 <h3><?php echo Lang::get('common_start') ?></h3>
                 <select name="select_time" id="select_casP_admin" class="form-control">
