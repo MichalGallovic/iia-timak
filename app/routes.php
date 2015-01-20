@@ -134,7 +134,6 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
                     }
                 }
             }
-            $app->redirect($app->urlFor('login'));
         })->name('admin.dump');
 
         $app->post('/dump', function() use ($app) {
