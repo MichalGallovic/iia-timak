@@ -23,7 +23,6 @@ $username = $auth->getFullName();
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Lang::get('navbar_schedules') ?><span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="<?php echo $app->urlFor('admin.schedules') ?>"><?php echo Lang::get('crud_read') ?></a></li>
                         <li><a href="<?php echo $app->urlFor('admin.schedules.check') ?>"><?php echo Lang::get('crud_check') ?></a></li>
                         <li><a href="<?php echo $app->urlFor('admin.schedules.create') ?>"><?php echo Lang::get('crud_create') ?></a></li>
                     </ul>

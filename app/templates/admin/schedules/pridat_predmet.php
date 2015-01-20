@@ -31,6 +31,13 @@ use IIA\Lang\Lang as Lang;
         </div>
         <div class="row">
             <div class="col-md-12">
+                <?php if($flash['message']): ?>
+                    <div class="alert alert-info" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Info:</span>
+                        <?php echo $flash['message'] ?>
+                    </div>
+                <?php endif; ?>
                 <h1 id="hn" ><?php echo Lang::get('subjects_createheader') ?></h1>
             </div>
         </div>

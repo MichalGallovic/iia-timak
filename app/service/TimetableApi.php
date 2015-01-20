@@ -267,6 +267,7 @@ class TimetableApi extends API {
         $id = $this->request['id'];
         switch ($type) {
             case 'user':
+            case 'ucitel':
             case 'uzivatel':
                 return $this->getUserSchedule($retArray, $rowStructure, $id);
 
