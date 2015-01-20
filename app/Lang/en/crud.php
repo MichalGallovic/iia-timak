@@ -3,5 +3,6 @@ return [
     "create"    =>  "Create",
     "read"      =>  "Show all",
     "edit"      =>  "Edit",
-    "delete"    =>  "Delete"
+    "delete"    =>  "Delete",
+    "check"     =>  'Check'
 ];
