@@ -26,10 +26,10 @@ $groups = $db->get('groups');
 	<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-						<h1>Edit Group</h1>
+						<h1><?php echo Lang::get('groups_editheader') ?></h1>
 						
 						<div class="form-group">
-						   <label >Group to edit</label>
+						   <label ><?php echo Lang::get('common_group') ?></label>
 						<form action="<?php echo $app->urlFor('admin.groups.update'); ?>" method="POST">
 						<select class='form-control' value="id" name="id">
 							<?php foreach($groups as $group): ?>
@@ -45,15 +45,15 @@ $groups = $db->get('groups');
 					             <li>Group code: <input type="text" name="code" /></li>
 					        </ul> -->
 							<div class="form-group">
-							   <label >Group name</label>
+							   <label ><?php echo Lang::get('common_name') ?></label>
 							   <input type="text" class="form-control" name="name"/>
 							 </div>
 							 <div class="form-group">
-							    <label >Group code</label>
+							    <label ><?php echo Lang::get('common_code') ?></label>
 							    <input type="text" class="form-control" name="code"/>
 							  </div>
 
-						<input class='btn btn-primary' type="submit" value="edit" />
+						<input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_edit') ?>" />
 						</form>
 					
 					

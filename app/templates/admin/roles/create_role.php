@@ -35,23 +35,23 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
                                 <input type="hidden" value="off" name="update" /> 
                                 <input type="hidden" value="off" name="delete" />
                                 <div class="form-group">
-                                   <label >Name</label>
+                                   <label ><?php echo Lang::get('common_name') ?></label>
                                    <input type="text" class="form-control" name="name"/>
                                  </div>
                                 <div class="form-group">
-                                   <label >Can create:</label>
+                                   <label ><?php echo Lang::get('roles_cancreate') ?></label>
                                    <input type="checkbox"  name="create"/>
                                  </div>
                                  <div class="form-group">
-                                   <label >Can read:</label>
+                                   <label ><?php echo Lang::get('roles_canread') ?></label>
                                    <input type="checkbox"  name="read"/>
                                  </div>
                                  <div class="form-group">
-                                   <label >Can update:</label>
+                                   <label ><?php echo Lang::get('roles_canupdate') ?></label>
                                    <input type="checkbox"  name="update"/>
                                  </div>
                                  <div class="form-group">
-                                   <label >Can delete:</label>
+                                   <label ><?php echo Lang::get('roles_candelete') ?></label>
                                    <input type="checkbox"  name="delete"/>
                                  </div>
 

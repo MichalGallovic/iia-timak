@@ -46,17 +46,26 @@ $dni = array(
 	<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Lectures</h1>
+
+  <?php if($flash['message']): ?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            <?php echo $flash['message'] ?>
+                        </div>
+                    <?php endif; ?>
+
+					<h1><?php echo Lang::get('lectures_header') ?></h1>
 					<!-- <ul> -->
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>subject</th>
-								<th>start time</th>
-								<th>end time</th>
-								<th>user</th>
-								<th>room</th>
-								<th>day</th>
+								<th><?php echo Lang::get('common_subject') ?></th>
+								<th><?php echo Lang::get('common_start') ?></th>
+								<th><?php echo Lang::get('common_end') ?></th>
+								<th><?php echo Lang::get('common_teacher') ?></th>
+								<th><?php echo Lang::get('common_room') ?></th>
+								<th><?php echo Lang::get('common_day') ?></th>
 							</tr>
 						</thead>
 						<tbody>

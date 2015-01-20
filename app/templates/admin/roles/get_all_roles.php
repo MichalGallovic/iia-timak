@@ -26,15 +26,22 @@ $roles = $db->get('roles');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1>Roles</h1>
+				    <?php if($flash['message']): ?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            <?php echo $flash['message'] ?>
+                        </div>
+                    <?php endif; ?>
+				<h1><?php echo Lang::get('roles_header') ?></h1>
 				<table class='table table-striped'>
 					<thead>
 						<tr>
-							<th>Meno</th>
-							<th>Create</th>
-							<th>Read</th>
-							<th>Update</th>
-							<th>Delete</th>
+							<th><?php echo Lang::get('common_name') ?></th>
+							<th><?php echo Lang::get('crud_create') ?></th>
+							<th><?php echo Lang::get('crud_read') ?></th>
+							<th><?php echo Lang::get('crud_edit') ?></th>
+							<th><?php echo Lang::get('crud_delete') ?></th>
 						</tr>
 					</thead>
 					<tbody>

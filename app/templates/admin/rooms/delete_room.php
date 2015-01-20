@@ -25,7 +25,7 @@ $rooms = $db->get('rooms');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-				<h1>Delete Room</h1>
+				<h1><?php echo Lang::get('rooms_deleteheader') ?></h1>
 				<form action="<?php echo $app->urlFor('admin.rooms.remove') ?>" method="POST">
 				<select class="form-control" value="id" name="id">
 					<?php foreach($rooms as $room): ?>
@@ -33,7 +33,7 @@ $rooms = $db->get('rooms');
 					<?php endforeach; ?>
 				</select>
 				<div>
-					<input class="btn btn-primary" type="submit" value="remove" />
+					<input class="btn btn-primary" type="submit" value="<?php echo Lang::get('crud_delete') ?>" />
 				</div>
 				</form>
 				

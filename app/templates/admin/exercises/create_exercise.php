@@ -80,7 +80,7 @@ $rooms = $db->get('rooms');
                           </div>
 
                              <div class="form-group">
-                                <label ><?php echo Lang::get('exercises_day') ?></label>
+                                <label ><?php echo Lang::get('common_day') ?></label>
 
                                 <select class='form-control' name="day" />
 

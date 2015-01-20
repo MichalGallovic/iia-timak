@@ -11,5 +11,12 @@ return [
     'add'   =>  'Pridaj',
     'edit'  =>  'Uprav',
     'delete'    =>  'Vymaž',
-    'subject' => 'Predmet'
+    'subject' => 'Predmet',
+    'code'  => 'Kód',
+    'name' => 'Meno',
+    'group' => 'Skupina',
+    'role' => 'Rola',
+    'acronym' => 'Akronym',
+    'lecture' => 'Prednáška',
+    'isdefined' => 'Je v rozvrhu?'
 ];

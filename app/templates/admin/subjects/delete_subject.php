@@ -26,7 +26,7 @@ $subjects = $db->get('subjects');
 			<div class="row">
 				<div class="col-md-4">
 					
-					<h1>Delete Subject</h1>
+					<h1><?php echo Lang::get('subjects_deleteheader') ?></h1>
 					
 					<form action="<?php echo $app->urlFor('admin.subjects.remove') ?>" method="POST">
 					<select class='form-control' value="id" name="id">
@@ -36,7 +36,7 @@ $subjects = $db->get('subjects');
 
 					</select>
 
-					<input class='btn btn-primary' type="submit" value="delete" />
+					<input class='btn btn-primary' type="submit" value="<?php echo Lang::get('crud_delete') ?>" />
 					</form>
 					
 				</div>

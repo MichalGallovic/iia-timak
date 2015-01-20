@@ -31,7 +31,7 @@ $rooms = $db->get('rooms');
     <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h1>Create Lecture</h1> 
+                    <h1><?php echo Lang::get('lectures_createheader') ?></h1> 
 
                     <form action="<?php echo $app->urlFor('admin.lectures.store'); ?>" method="POST">
                         
@@ -39,7 +39,7 @@ $rooms = $db->get('rooms');
                             <!-- <li> -->
                             
                             <div class="form-group">
-                               <label >Subjects</label>
+                               <label ><?php echo Lang::get('common_subject') ?></label>
                                 <select class='form-control' name="subject_id" />
 
                                 <?php foreach($subjects as $subject): ?>
@@ -54,18 +54,18 @@ $rooms = $db->get('rooms');
                            <!--  <li>Start time <input type="text" name="start_time" /></li>
                             <li>End time <input type="text" name="end_time" /></li> -->
                             <div class="form-group">
-                               <label >Start time</label>
+                               <label ><?php echo Lang::get('common_start') ?></label>
                                <input id="timepicker1" type="text" class="form-control" name="start_time"/>
                              </div>
                             <div class="form-group">
-                               <label >End time</label>
+                               <label ><?php echo Lang::get('common_end') ?></label>
                                <input id="timepicker2" type="text" class="form-control" name="end_time"/>
                              </div>
                             
                             <!-- <li> -->
                             
                             <div class="form-group">
-                               <label >Teacher</label>
+                               <label ><?php echo Lang::get('common_teacher') ?></label>
                                 <select class='form-control' name="user_id" />
 
                                 <?php foreach($users as $user): ?>
@@ -80,7 +80,7 @@ $rooms = $db->get('rooms');
 
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Room</label>
+                               <label ><?php echo Lang::get('common_room') ?></label>
                                     <select class='form-control' name="room_id" />
 
                                 <?php foreach($rooms as $room): ?>
@@ -95,7 +95,7 @@ $rooms = $db->get('rooms');
 
                              <!-- <li> -->
                                 <div class="form-group">
-                                   <label >Day</label>
+                                   <label ><?php echo Lang::get('common_day') ?></label>
                                 <select class='form-control' name="day" />
 
                                 
@@ -114,7 +114,7 @@ $rooms = $db->get('rooms');
                              <!-- </li> -->
 
                    <!--  </ul> -->
-                        <input class='btn btn-primary' type="submit" value="Add" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_add') ?>" />
                     </form>
 
 

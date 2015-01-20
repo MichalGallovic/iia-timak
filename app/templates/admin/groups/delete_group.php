@@ -26,7 +26,7 @@ $groups = $db->get('groups');
 	<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<h1>Delete Group</h1>
+					<h1><?php echo Lang::get('groups_deleteheader') ?></h1>
 
 					<form action="<?php echo $app->urlFor('admin.groups.remove') ?>" method="POST">
 					<select class='form-control' value="id" name="id">
@@ -36,7 +36,7 @@ $groups = $db->get('groups');
 
 					</select>
 
-					<input class='btn btn-primary' type="submit" value="delete" />
+					<input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_delete') ?>" />
 					</form>
 					
 					
