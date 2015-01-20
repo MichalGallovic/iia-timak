@@ -70,7 +70,7 @@ class Auth {
                 }
 
             } catch(\ErrorException $e) {
-                $message = 'Server LDAP je momentalne mimo prevadzky.';
+                $message = 'Zadali ste nespravne meno alebo heslo.';
             }
         } else {
             $message = 'Zadali ste nespravne meno alebo heslo.';

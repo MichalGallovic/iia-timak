@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6b7858b-eddc-4f83-b95a-37e138440d99" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/consultations/create_consultation.php" afterPath="$PROJECT_DIR$/app/templates/admin/consultations/create_consultation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Lang/sk/crud.php" afterPath="$PROJECT_DIR$/app/Lang/sk/crud.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/consultations/get_all_consultations.php" afterPath="$PROJECT_DIR$/app/templates/admin/consultations/get_all_consultations.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/_partials/header.php" afterPath="$PROJECT_DIR$/app/templates/admin/_partials/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/subjects/kontrola.php" afterPath="$PROJECT_DIR$/app/templates/admin/subjects/kontrola.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Lang/sk/messages.php" afterPath="$PROJECT_DIR$/app/Lang/sk/messages.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/subjects/pridat_predmet.php" afterPath="$PROJECT_DIR$/app/templates/admin/subjects/pridat_predmet.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/consultations/remove_consultation.php" afterPath="$PROJECT_DIR$/app/templates/admin/consultations/remove_consultation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/consultations/store_consultation.php" afterPath="$PROJECT_DIR$/app/templates/admin/consultations/store_consultation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/admin/consultations/update_consultation.php" afterPath="$PROJECT_DIR$/app/templates/admin/consultations/update_consultation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Auth/Auth.php" afterPath="$PROJECT_DIR$/app/Auth/Auth.php" />
     </list>
     <ignored path="iia-timak.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,51 +27,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="store_consultation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/admin/consultations/store_consultation.php">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.428571" vertical-offset="0" max-vertical-offset="624">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="15" selection-end-column="52" />
+            <state vertical-scroll-proportion="-3.357143" vertical-offset="2896" max-vertical-offset="12428">
+              <caret line="115" column="55" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="55" />
+              <folding>
+                <element signature="e#6#32#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="importdump.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/admin/importdump.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.642857" vertical-offset="52" max-vertical-offset="910">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="remove_consultation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/admin/consultations/remove_consultation.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.0" vertical-offset="0" max-vertical-offset="676">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="18" selection-end-column="52" />
+            <state vertical-scroll-proportion="-11.035714" vertical-offset="5125" max-vertical-offset="5928">
+              <caret line="210" column="51" selection-start-line="210" selection-start-column="51" selection-end-line="210" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit_consultation.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/admin/consultations/edit_consultation.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/teacher/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.428571" vertical-offset="1066" max-vertical-offset="5850">
-              <caret line="50" column="13" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+            <state vertical-scroll-proportion="-4.535714" vertical-offset="5983" max-vertical-offset="8294">
+              <caret line="236" column="86" selection-start-line="236" selection-start-column="86" selection-end-line="236" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="update_consultation.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/admin/consultations/update_consultation.php">
+      <file leaf-file-name="Auth.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Auth/Auth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.033462033" vertical-offset="0" max-vertical-offset="1118">
-              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.8700129" vertical-offset="1118" max-vertical-offset="7956">
+              <caret line="72" column="68" selection-start-line="72" selection-start-column="68" selection-end-line="72" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Lang/sk/messages.php">
+      <file leaf-file-name="genPdf.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/templates/genPdf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.928572" vertical-offset="0" max-vertical-offset="572">
-              <caret line="15" column="57" selection-start-line="15" selection-start-column="57" selection-end-line="15" selection-end-column="57" />
+            <state vertical-scroll-proportion="-9.285714" vertical-offset="130" max-vertical-offset="910">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="site.index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Lang/sk/site.index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="234">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Lang/sk/common.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.142858" vertical-offset="0" max-vertical-offset="520">
+              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -98,41 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_all_consultations.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/admin/consultations/get_all_consultations.php">
+      <file leaf-file-name="crud.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Lang/sk/crud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.642857" vertical-offset="936" max-vertical-offset="2808">
-              <caret line="56" column="30" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.285715" vertical-offset="2028" max-vertical-offset="3354">
-              <caret line="102" column="34" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/admin/settings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.714286" vertical-offset="394" max-vertical-offset="2002">
-              <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="38" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="exercises.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Lang/sk/exercises.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7142856" vertical-offset="0" max-vertical-offset="286">
-              <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+            <state vertical-scroll-proportion="-5.571429" vertical-offset="0" max-vertical-offset="338">
+              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -151,11 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/templates/admin/consultations/delete_consultation.php" />
-        <option value="$PROJECT_DIR$/public/js/index/index.js" />
-        <option value="$PROJECT_DIR$/app/templates/print.php" />
-        <option value="$PROJECT_DIR$/app/templates/teacher/index.php" />
-        <option value="$PROJECT_DIR$/app/templates/teacher/remove_consultation.php" />
         <option value="$PROJECT_DIR$/app/templates/teacher/store_consultation.php" />
         <option value="$PROJECT_DIR$/app/Lang/sk/exercises.php" />
         <option value="$PROJECT_DIR$/app/Lang/sk/common.php" />
@@ -190,8 +176,6 @@
         <option value="$PROJECT_DIR$/app/templates/admin/users/get_all_users.php" />
         <option value="$PROJECT_DIR$/app/templates/admin/settings.php" />
         <option value="$PROJECT_DIR$/app/Lang/sk/navbar.php" />
-        <option value="$PROJECT_DIR$/app/service/TimetableApi.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/templates/admin/subjects/pridat_predmet.php" />
         <option value="$PROJECT_DIR$/app/templates/admin/subjects/kontrola.php" />
         <option value="$PROJECT_DIR$/app/Lang/sk/crud.php" />
@@ -202,6 +186,13 @@
         <option value="$PROJECT_DIR$/app/Lang/sk/messages.php" />
         <option value="$PROJECT_DIR$/app/templates/admin/consultations/remove_consultation.php" />
         <option value="$PROJECT_DIR$/app/templates/admin/consultations/update_consultation.php" />
+        <option value="$PROJECT_DIR$/app/service/TimetableApi.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/templates/admin/index.php" />
+        <option value="$PROJECT_DIR$/app/templates/index.php" />
+        <option value="$PROJECT_DIR$/app/templates/teacher/index.php" />
+        <option value="$PROJECT_DIR$/app/templates/genPdf.php" />
+        <option value="$PROJECT_DIR$/app/Auth/Auth.php" />
       </list>
     </option>
   </component>
@@ -833,6 +824,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iia-timak" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iia-timak" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lang" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="en" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -843,7 +856,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/remove_consultation.php&#10;settin&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;login&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;consul&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/get_all_consultations.php&#10;pri&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/subjects/pridat_predmet.php&#10;heade&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/_partials/header.php&#10;kon&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/subjects/kontrola.php&#10;route&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;Time&#9;null&#9;null&#10;inde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;remove&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/remove_consultation.php&#10;index&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;create_co&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/create_consultation.php&#10;delete_con&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/delete_consultation.php&#10;consu&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/remove_consultation.php&#10;edit&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/edit_consultation.php&#10;create&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/create_consultation.php&#10;Auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;getall&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/get_all_consultations.php&#10;setti&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;start&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;compo&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/composer.json&#10;sett&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;settings&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;API&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/API.php&#10;Lang&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/Lang.php&#10;ro&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;A&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;logi&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;usersre&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;users&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;log&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;se&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/teacher/settings.php&#10;nde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;rou&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;navb&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/en/navbar.php&#10;nav&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;navbar&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;site&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/site.index.php&#10;star&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;Lan&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/Lang.php&#10;sta&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;adm&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/public/style/admin.css&#10;set&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;ndex&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/index.php&#10;r&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;logout&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/logout.php&#10;google&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/googleAuth.php&#10;Au&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;authen&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/authenticate.php" />
+    <property name="SearchEverywhereHistoryKey" value="auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;impo&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/importdump.php&#10;route&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;gen&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/genPdf.php&#10;index&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/public/index.php&#10;inde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/public/index.php&#10;timeta&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/TimetableApi.php&#10;settin&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;login&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;consul&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/get_all_consultations.php&#10;pri&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/subjects/pridat_predmet.php&#10;heade&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/_partials/header.php&#10;kon&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/subjects/kontrola.php&#10;Time&#9;null&#9;null&#10;remove&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/remove_consultation.php&#10;create_co&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/create_consultation.php&#10;delete_con&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/delete_consultation.php&#10;consu&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/remove_consultation.php&#10;edit&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/edit_consultation.php&#10;create&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/create_consultation.php&#10;Auth&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;getall&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/consultations/get_all_consultations.php&#10;setti&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;start&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;compo&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/composer.json&#10;sett&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;settings&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;API&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/API.php&#10;Lang&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/Lang.php&#10;ro&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;A&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Auth/Auth.php&#10;logi&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;usersre&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;users&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/service/repositories/UsersRepository.php&#10;log&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/login.php&#10;se&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/teacher/settings.php&#10;nde&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/index.php&#10;rou&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;navb&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/en/navbar.php&#10;nav&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;navbar&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/navbar.php&#10;site&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/sk/site.index.php&#10;star&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;Lan&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/Lang/Lang.php&#10;sta&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/bootstrap/start.php&#10;adm&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/public/style/admin.css&#10;set&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/admin/settings.php&#10;ndex&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/index.php&#10;r&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/routes.php&#10;logout&#9;FILE&#9;file:///Users/michalgallovic/Documents/FEI/7semester/IIA/iia-timak/iia-timak/app/templates/logout.php" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
@@ -959,62 +972,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/templates/teacher/remove_consultation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.785714" vertical-offset="0" max-vertical-offset="598">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/exercises/delete_exercise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.785714" vertical-offset="806" max-vertical-offset="3250">
-          <caret line="49" column="33" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/exercises/edit_exercise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.142858" vertical-offset="988" max-vertical-offset="5850">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="53" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/exercises/get_all_exercises.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="14.857142" vertical-offset="1534" max-vertical-offset="3510">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/exercises/create_exercise.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="20.535715" vertical-offset="1303" max-vertical-offset="3302">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/groups/create_group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9285714" vertical-offset="546" max-vertical-offset="1560">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/groups/delete_group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.357143" vertical-offset="0" max-vertical-offset="1430">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/admin/groups/edit_group.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.9285714" vertical-offset="572" max-vertical-offset="1872">
@@ -1207,39 +1164,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.142858" vertical-offset="0" max-vertical-offset="4940">
-          <caret line="12" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="e#6#32#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Lang/sk/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.714285" vertical-offset="0" max-vertical-offset="624">
           <caret line="18" column="2" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="2" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/service/TimetableApi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.071428" vertical-offset="4508" max-vertical-offset="19500">
-          <caret line="203" column="18" selection-start-line="203" selection-start-column="18" selection-end-line="203" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-150.42857" vertical-offset="0" max-vertical-offset="12428">
-          <caret line="162" column="36" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
-          <folding>
-            <element signature="e#6#32#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1275,34 +1204,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Lang/sk/common.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.142858" vertical-offset="0" max-vertical-offset="520">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Lang/sk/crud.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.571429" vertical-offset="0" max-vertical-offset="338">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Lang/sk/exercises.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7142856" vertical-offset="0" max-vertical-offset="286">
           <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Lang/sk/consultations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.571429" vertical-offset="0" max-vertical-offset="598">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="15" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -1365,8 +1270,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/admin/consultations/update_consultation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.033462033" vertical-offset="0" max-vertical-offset="1118">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        <state vertical-scroll-proportion="-18.571428" vertical-offset="0" max-vertical-offset="1118">
+          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/service/TimetableApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.0" vertical-offset="17924" max-vertical-offset="19500">
+          <caret line="714" column="20" selection-start-line="714" selection-start-column="20" selection-end-line="714" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.964286" vertical-offset="4215" max-vertical-offset="4992">
+          <caret line="176" column="23" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.357142" vertical-offset="0" max-vertical-offset="390">
+          <caret line="9" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.035714" vertical-offset="5125" max-vertical-offset="5928">
+          <caret line="210" column="51" selection-start-line="210" selection-start-column="51" selection-end-line="210" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/teacher/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.535714" vertical-offset="5983" max-vertical-offset="8294">
+          <caret line="236" column="86" selection-start-line="236" selection-start-column="86" selection-end-line="236" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/genPdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.285714" vertical-offset="130" max-vertical-offset="910">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lang/sk/site.index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="805">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lang/sk/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.142858" vertical-offset="0" max-vertical-offset="520">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lang/sk/consultations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.571429" vertical-offset="0" max-vertical-offset="598">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="15" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Lang/sk/crud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.571429" vertical-offset="0" max-vertical-offset="338">
+          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.357143" vertical-offset="2896" max-vertical-offset="12428">
+          <caret line="115" column="55" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="55" />
+          <folding>
+            <element signature="e#6#32#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/admin/importdump.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.642857" vertical-offset="52" max-vertical-offset="910">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Auth/Auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8700129" vertical-offset="1118" max-vertical-offset="7956">
+          <caret line="72" column="68" selection-start-line="72" selection-start-column="68" selection-end-line="72" selection-end-column="68" />
           <folding />
         </state>
       </provider>

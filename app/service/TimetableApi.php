@@ -704,7 +704,7 @@ class TimetableApi extends API {
         return $retArray;
     }
 
-    private function subjectValid() {
+    protected function subjectValid() {
         if ($this->method != 'GET') {
             return array();
         }

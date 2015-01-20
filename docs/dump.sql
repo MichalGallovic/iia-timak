@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.40-0ubuntu0.12.04.1)
 # Database: iiaTimak
-# Generation Time: 2015-01-19 17:42:28 +0000
+# Generation Time: 2015-01-19 23:27:27 +0000
 # ************************************************************
 
 
@@ -48,10 +48,13 @@ LOCK TABLES `consultations` WRITE;
 
 INSERT INTO `consultations` (`id`, `start_time`, `end_time`, `note`, `day`, `user_id`, `room_id`, `subject_id`)
 VALUES
-	(1,'11:11:00','12:00:00','trololo\n',2,40,2,4),
+	(1,'11:11:00','12:00:00','trololo\n',2,37,2,4),
 	(2,'08:00:00','12:00:00','som jak pan , v kabinete sam',1,42,1,8),
-	(7,'16:00:00','17:00:00','pijeme fernet cez internet',4,42,5,9),
-	(8,'16:56:00','17:46:00','satan je nas pan',3,54,5,6);
+	(7,'00:00:00','00:00:00','ja ti dam note! sam si note',0,49,6,9),
+	(8,'16:56:00','17:46:00','satan je nas pan',3,54,5,6),
+	(9,'00:00:00','18:00:00','asd',6,37,1,4),
+	(10,'19:42:00','19:42:00','',0,37,1,4),
+	(11,'19:43:00','19:43:00','brutal fistfuck hail satan',4,37,7,10);
 
 /*!40000 ALTER TABLE `consultations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -86,7 +89,8 @@ INSERT INTO `exercises` (`id`, `start_time`, `end_time`, `subject_id`, `user_id`
 VALUES
 	(1,'00:00:10','00:00:11',6,51,2,2),
 	(3,'10:00:00','12:00:00',4,50,3,3),
-	(7,'08:00:00','09:00:00',6,41,1,1);
+	(7,'08:00:00','09:00:00',6,41,1,1),
+	(8,'11:00:00','12:00:00',10,49,7,4);
 
 /*!40000 ALTER TABLE `exercises` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -148,8 +152,7 @@ INSERT INTO `lectures` (`id`, `subject_id`, `start_time`, `end_time`, `user_id`,
 VALUES
 	(1,5,'11:00:00','12:00:00',40,4,1),
 	(2,8,'10:00:00','11:00:00',42,1,2),
-	(3,10,'16:06:00','16:56:00',51,7,5),
-	(4,5,'00:00:00','00:00:00',38,1,6);
+	(3,10,'16:06:00','16:56:00',51,7,5);
 
 /*!40000 ALTER TABLE `lectures` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -277,12 +280,12 @@ VALUES
 	(38,NULL,NULL,'Mikuláš','Huba','Prof. Ing.','PhD.',4,'huba'),
 	(39,NULL,NULL,'Danica','Rosinová','Doc. Ing.','PhD.',2,'rosinova'),
 	(40,NULL,NULL,'Pavol','Bisták','Ing.','PhD.',4,'bistak'),
-	(41,2,NULL,'Alena','Kozáková','Doc. Ing.','PhD.',2,'kozakova'),
+	(41,NULL,NULL,'Alena','Kozáková','Doc. Ing.','PhD.',2,'kozakova'),
 	(42,NULL,NULL,'Peter','Ťapák','Ing.','PhD.',4,'tapak'),
 	(49,1,NULL,'Michal','Gallovič','Bc.',NULL,NULL,'xgallovicm'),
 	(50,1,NULL,'Jakub','Fornádel','Bc.',NULL,NULL,'xfornadelj'),
-	(51,1,NULL,'Igor','Packo','Bc',NULL,NULL,'xpacko'),
-	(52,1,NULL,'Jakub','Hoblík','Bc',NULL,NULL,'xhoblikj'),
+	(51,1,'foxyzv@gmail.com','Igor','Packo','Bc',NULL,NULL,'xpacko'),
+	(52,2,NULL,'Jakub','Hoblík','Bc',NULL,NULL,'xhoblikj'),
 	(54,3,'foxyzv','Igorko','Packo','krasavec','najsamvacsi',5,'xpacko'),
 	(55,3,'palo','Pavol','Habera','naj spevacik','zapredany',5,'ldap'),
 	(56,4,'a','s','d','dw','r',1,'e');
