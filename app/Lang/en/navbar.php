@@ -13,5 +13,6 @@ return [
     "rooms"         =>  'Rooms',
     "users"         =>  'Users',
     "consultations" =>  'Consultations',
-    "lectures"      =>  'Lectures'
+    "lectures"      =>  'Lectures',
+    'schedules'     => 'Schedules'
 ];
