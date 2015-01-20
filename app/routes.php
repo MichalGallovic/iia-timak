@@ -115,7 +115,13 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
                     $filePath = dirname(__FILE__).'/../public/dumps/'.$fileName;
                     $output = '';
                     $result = '';
-                    exec('mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.$filePath,$output,$result);
+
+                    $localhostNames = ['iia.dev','localhost:8888','192.168.88.88'];
+                    if(!in_array($_SERVER['HTTP_HOST'],$localhostNames)) {
+                        exec('/usr/local/bin/mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.$filePath,$output,$result);
+                    } else {
+                        exec('mysqldump --user=root --password='.$app->config('db')['password'].' --host=localhost iiaTimak >'.$filePath,$output,$result);
+                    }
                     header('Content-type: application/octetstream'); //this could be a different header
                     header('Content-Disposition: attachment; filename="'.$fileName.'"');
 
