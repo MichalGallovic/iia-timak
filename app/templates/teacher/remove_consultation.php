@@ -13,6 +13,10 @@ $id = $_POST['id'];
 $db->where('id', $id);
 $db->delete('consultations');
 
-// $app->flash("echo messages_deleteok",Lang::get);
-// $app->redirect($app->urlFor('teacher.consultations'));   
+
+$message = Lang::get('messages_crud-d-success');
+
+$app->flash('message',$message);
+$app->redirect($app->urlFor('teacher.consultations'));
+
 ?>
