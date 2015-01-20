@@ -272,6 +272,7 @@ class TimetableApi extends API {
                 return $this->getUserSchedule($retArray, $rowStructure, $id);
 
             case 'users_group':
+            case 'skupina_ucitelov':
             case 'skupina_uzivatelov':
                 $retArray = $this->getUserSchedule($retArray, $rowStructure, $id);
                 $maxId = 10;
