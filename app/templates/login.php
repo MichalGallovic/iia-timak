@@ -74,8 +74,16 @@ if ($client->getAccessToken()) {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo $app->urlFor('site.index')?>">FEI Timetable</a>
+            <a class="navbar-brand" href="<?php echo $app->urlFor('site.index')?>"><?php echo Lang::get('navbar_brand') ?></a>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Lang::getLang() ?><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?php echo $app->urlFor('lang.change') ?>"><?php echo Lang::getOther() ?></a></li>
+                </ul>
+            </li>
+        </ul>
     </div><!-- /.container -->
 </div>
 <div class="container margin-20">

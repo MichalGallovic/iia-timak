@@ -1,7 +1,7 @@
 <?php
 
 return [
-    "brand"         =>  'FEI TimeTables',
+    "brand"         =>  'FEI',
     "login"         =>  'Login',
     "logout"	    => 	'Logout',
     "settings"      =>  'Settings',

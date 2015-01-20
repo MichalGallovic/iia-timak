@@ -46,6 +46,12 @@ $username = $auth->getFullName();
                 <?php else: ?>
                     <li><a href="<?php echo $app->urlFor('login') ?>"><i class="glyphicon glyphicon-log-in"></i> <?php echo Lang::get('navbar_login') ?></a></li>
                 <?php endif; ?>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo Lang::getLang() ?><span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="<?php echo $app->urlFor('lang.change') ?>"><?php echo Lang::getOther() ?></a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->

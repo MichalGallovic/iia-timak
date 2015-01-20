@@ -72,6 +72,10 @@ $app->group('(/:lang)',$setLang,function() use ($app,$isLoggedIn,$authenticateFo
         $app->render('index.php', ['app' => $app]);
     })->name('site.index');
 
+    $app->get('/change-language', function() use ($app) {
+       $app->render('changeLang.php', ['app' => $app]);
+    })->name('lang.change');
+
     $app->post('/genPdf', function() use ($app) {
         $app->render('genPdf.php', ['app' => $app]);
     })->name('genPdf');

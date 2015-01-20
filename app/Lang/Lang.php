@@ -18,6 +18,14 @@ class Lang {
         return Lang::$current;
     }
 
+    public static function getOther() {
+        if(Lang::$current == 'sk') {
+            return 'en';
+        } else {
+            return 'sk';
+        }
+    }
+
     public static function get($string) {
         // get contents of app/Lang/{$current}/$s
         $fileName = explode('_',$string);
