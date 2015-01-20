@@ -24,14 +24,14 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 	<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<h1>Create Room</h1>
+					<h1><?php echo Lang::get('rooms_createheader') ?></h1>
 					<form  method="POST">
 						<div class="form-group">
-						   <label >Room name:</label>
+						   <label ><?php echo Lang::get('common_name') ?></label>
 						   <input type="text" class="form-control" name="room_name"/>
 						 </div>
 						<div>
-						<input class="btn btn-primary" type="submit" name="add" />
+						<input class="btn btn-primary" type="submit" name="add" value="<?php echo Lang::get('common_add') ?>"/>
 						</div>
 
 					</form>

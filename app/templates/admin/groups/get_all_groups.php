@@ -25,12 +25,21 @@ $groups = $db->get('groups');
 	<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1>Groups</h1>
+
+					 <?php if($flash['message']): ?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            <?php echo $flash['message'] ?>
+                        </div>
+                    <?php endif; ?>
+
+					<h1><?php echo Lang::get('groups_header') ?></h1>
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>Code</th>
-								<th>Name</th>
+								<th><?php echo Lang::get('common_code') ?></th>
+								<th><?php echo Lang::get('common_name') ?></th>
 							</tr>
 						</thead>
 						<tbody>

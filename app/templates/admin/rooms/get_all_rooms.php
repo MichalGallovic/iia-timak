@@ -24,12 +24,19 @@ $rooms = $db->get('rooms');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				
-				<h1>Rooms</h1>
+				 <?php if($flash['message']): ?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            <?php echo $flash['message'] ?>
+                        </div>
+                    <?php endif; ?>
+
+				<h1><?php echo Lang::get('rooms_header') ?></h1>
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Miestnosť</th>
+							<th><?php echo Lang::get('common_room') ?></th>
 						</tr>
 					</thead>
 					<tbody>

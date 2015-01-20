@@ -1,3 +1,6 @@
+<?php
+use IIA\Lang\Lang as Lang;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +31,12 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <h1 id="hn" >Pridať Predmet</h1>
+                <h1 id="hn" ><?php echo Lang::get('subjects_createheader') ?></h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
-                <h3 id="pt">Výber semestra:</h3>
+                <h3 id="pt"><?php echo Lang::get('lectures_term') ?></h3>
                 <select name="select_term" id="select_term" class="form-control">
                     <option value="skovaj">typ</option>
                     <option value="W">Zimný</option>
@@ -42,13 +45,13 @@
             </div>
             <div class="col-md-4">
                 <div id="druhy_select_admin" hidden>
-                    <h3 id="prd">Predmet:</h3>
+                    <h3 id="prd"><?php echo Lang::get('common_subject') ?></h3>
                     <select name="select_subject" id="select_subject" class="form-control"></select>
                 </div>
             </div>
             <div class="col-md-4">
                 <div id="treti_select_admin" hidden>
-                    <h3>Počet cvičení:</h3>
+                    <h3><?php echo Lang::get('subjects_excount') ?></h3>
                     <select name="select_exc_count" id="select_exc_count" class="form-control">
                         <option value="0">0</option>
                         <option value="1">1</option>
@@ -77,11 +80,11 @@
         </div>
         <div class="row">
             <div id="prednaska_admin" hidden class="col-md-4">
-                <h2>Prednáška</h2>
-                <h3>Pradnášajúci:</h3>
+                <h2><?php echo Lang::get('common_lecture') ?></h2>
+                <h3><?php echo Lang::get('common_teacher') ?></h3>
                 <select name="select_lecturer" id="select_prednasajuciP_admin" class="form-control">
                 </select>
-                <h3>Deň:</h3>
+                <h3><?php echo Lang::get('common_day') ?></h3>
                 <select name="select_day" id="select_denP_admin" class="form-control">
                     <option value="pondelok">pondelok</option>
                     <option value="utorok">utorok</option>
@@ -89,7 +92,7 @@
                     <option value="stvrtok">stvrtok</option>
                     <option value="piatok">piatok</option>
                 </select>
-                <h3>Čas:</h3>
+                <h3><?php echo Lang::get('common_start') ?></h3>
                 <select name="select_time" id="select_casP_admin" class="form-control">
                     <option value="0600">06:00</option>
                     <option value="0700">07:00</option>
@@ -107,7 +110,7 @@
                     <option value="1900">19:00</option>
                     <option value="2000">20:00</option>
                 </select>
-                <h3>Miestnosť:</h3>
+                <h3><?php echo Lang::get('common_room') ?></h3>
                 <select name="select_place" id="select_miestnostP_admin" class="form-control">
                 </select>
             </div>
@@ -120,7 +123,7 @@
             </div>
         </div>
         <div id="add_predmet_wrap" hidden class="row">
-            <button type="submit" class="btn btn-primary">Pridaj Predmet</button>
+            <button type="submit" class="btn btn-primary"><?php echo Lang::get('subjects_createheader') ?></button>
         </div>
     </div>
 

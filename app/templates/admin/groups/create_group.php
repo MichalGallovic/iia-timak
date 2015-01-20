@@ -25,23 +25,23 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
     <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h1>Create Group</h1>
+                    <h1><?php echo Lang::get('groups_createheader') ?></h1>
 
                     <form  action="<?php echo $app->urlFor('admin.groups.store') ?>" method="POST">
                        <!--  <ul> -->
                        <div class="form-group">
-                          <label >Group name</label>
+                          <label ><?php echo Lang::get('common_name') ?></label>
                           <input type="text" class="form-control" name="name"/>
                         </div>
                         <div class="form-group">
-                           <label >Group code</label>
+                           <label ><?php echo Lang::get('common_code') ?></label>
                            <input type="text" class="form-control" name="code"/>
                          </div>
 <!--                             <li>Group name: <input type="text" name="name" /></li>
                              <li>Group code: <input type="text" name="code" /></li>
  -->                        <!-- </ul> -->
                         
-                        <input class='btn btn-primary' type="submit" value="add" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_add') ?>" />
                     </form>
                     
                     

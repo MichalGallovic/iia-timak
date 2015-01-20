@@ -1,3 +1,6 @@
+<?php
+use IIA\Lang\Lang as Lang;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,8 +25,8 @@
             <table class='table table-bordered table-striped'>
                 <thead>
                     <tr>
-                        <td>Predmet</td>
-                        <td>V rozvrhu?</td>
+                        <td><?php echo Lang::get('common_subject') ?></td>
+                        <td><?php echo Lang::get('common_isdefined') ?></td>
                     </tr>
                 </thead>
                 <tbody id="tabulka">

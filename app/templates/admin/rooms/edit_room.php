@@ -24,8 +24,8 @@ $rooms = $db->get('rooms');
 	<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<h1>Edit Room</h1>
-					<p>Select room to edit</p>
+					<h1><?php echo Lang::get('rooms_editheader') ?></h1>
+					<label><?php echo Lang::get('common_room') ?></label>
 					<form action="<?php echo $app->urlFor('admin.rooms.update'); ?>" method="POST">
 					<select class='form-control' value="id" name="id">
 						<?php foreach($rooms as $room): ?>
@@ -37,11 +37,11 @@ $rooms = $db->get('rooms');
 <!-- 					<input class='form-control' type="text" name="newname" />
  -->
 					<div class="form-group">
-					   <label >New Name:</label>
+					   <label ><?php echo Lang::get('common_name') ?></label>
 					   <input type="text" class="form-control" name="newname"/>
 					 </div>
 					<div>
-					<input class="btn btn-primary" type="submit" value="edit" />
+					<input class="btn btn-primary" type="submit" value="<?php echo Lang::get('crud_edit') ?>" />
 					</div>
 					</form>
 					

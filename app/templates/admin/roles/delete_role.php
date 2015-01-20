@@ -25,8 +25,8 @@ $roles = $db->get('roles');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-				<h1>Delete Role</h1>
-				<p>Select Role to delete</p>
+				<h1><?php echo Lang::get('roles_deleteheader') ?></h1>
+				<label><?php echo Lang::get('common_role') ?></label>
 				<form action="<?php echo $app->urlFor('admin.roles.remove') ?>" method="POST">
 				<select class="form-control" value="id" name="id">
 
@@ -35,8 +35,9 @@ $roles = $db->get('roles');
 					<?php endforeach; ?>
 
 				</select>
+				<br>
 				<div>
-					<input class="btn btn-primary" type="submit" value="Delete" />
+					<input class="btn btn-primary" type="submit" value="<?php echo Lang::get('common_delete') ?>" />
 				</div>
 				
 			</div>

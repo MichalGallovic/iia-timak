@@ -24,13 +24,20 @@ $subjects = $db->get('subjects');
 	<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					
-					<h1>Subjects</h1>
+					 <?php if($flash['message']): ?>
+                        <div class="alert alert-info" role="alert">
+                            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span class="sr-only">Info:</span>
+                            <?php echo $flash['message'] ?>
+                        </div>
+                    <?php endif; ?>
+
+					<h1><?php echo Lang::get('subjects_header') ?></h1>
 					<table class="table table-striped">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Code</th>
+								<th><?php echo Lang::get('common_name') ?></th>
+								<th><?php echo Lang::get('common_code') ?></th>
 							</tr>
 						</thead>
 						<tbody>

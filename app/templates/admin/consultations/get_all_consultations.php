@@ -48,7 +48,7 @@ $dni = array(
 			<div class="row">
 				<div class="col-md-12">
 
-<!--                    IGOOOOOOOR TOTO TIEZ POPRIDAVAJ-->
+<!--                    IGOOOOOOOR TOTO TIEZ POPRIDAVAL :D -->
                     <?php if($flash['message']): ?>
                         <div class="alert alert-info" role="alert">
                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

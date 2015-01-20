@@ -24,8 +24,8 @@ $subjects = $db->get('subjects');
     <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                        <h1>Edit Subject</h1>
-                        <p>Select room to edit</p>
+                        <h1><?php echo Lang::get('subjects_editheader') ?></h1>
+                        <label><?php echo Lang::get('common_room') ?></label>
                         <form action="<?php echo $app->urlFor('admin.subjects.update') ?>" method="POST">
                         <select class='form-control' value="id" name="id">
                             <?php foreach($subjects as $subject): ?>
@@ -39,21 +39,21 @@ $subjects = $db->get('subjects');
                                 <li>Name <input type="text"  name="newname" /></li>
                                 <li>Acronym <input type="text" name="acronym" /></li> -->
                                 <div class="form-group">
-                                   <label >Code</label>
+                                   <label ><?php echo Lang::get('common_code') ?></label>
                                    <input type="text" class="form-control" name="code"/>
                                  </div>
                                  <div class="form-group">
-                                    <label >Name</label>
+                                    <label ><?php echo Lang::get('common_name') ?></label>
                                     <input type="text" class="form-control" name="name"/>
                                   </div>
                                   <div class="form-group">
-                                     <label >Acronym</label>
+                                     <label ><?php echo Lang::get('common_acronym') ?></label>
                                      <input type="text" class="form-control" name="acronym"/>
                                    </div>
                                 <!-- <li> -->
                                     
                                     <div class="form-group">
-                                       <label >Lecture duration</label>
+                                       <label ><?php echo Lang::get('lectures_lectureduration') ?></label>
                                 
 
                                         <select class='form-control' name="lecture_duration">
@@ -68,7 +68,7 @@ $subjects = $db->get('subjects');
                                 <!-- <li> -->
 
                                 <div class="form-group">
-                                   <label >Exercise duration</label>
+                                   <label ><?php echo Lang::get('lectures_exerciseduration') ?></label>
 
 
                                         <select class='form-control' name="exercise_duration">
@@ -86,7 +86,7 @@ $subjects = $db->get('subjects');
 <!--                                 <li>Color TUTO KUBO POROB KOLOR PIKER (PIKENKO) <input type="text" name="color" /></li>
  -->                                
                                         <div class="form-group">
-                                           <label >Color</label>
+                                           <label ><?php echo Lang::get('lectures_color') ?></label>
                                            <input type="color" class="form-control" name="color"/>
                                          </div>
 
@@ -111,7 +111,7 @@ $subjects = $db->get('subjects');
                         <!-- </ul> -->
 
 
-                        <input class='btn btn-primary' type="submit" value="edit" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('crud_edit') ?>" />
                         </form>
 
                     

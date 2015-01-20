@@ -47,7 +47,7 @@ $dni = array(
 	<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<h1>Exercises</h1>
+					<h1><?php echo Lang::get('exercises_deleteheader') ?></h1>
 					<form action="<?php echo $app->urlFor('admin.exercises.remove') ?>" method="POST">
 
 						<select class='form-control' value="id" name="id">
@@ -100,7 +100,7 @@ $dni = array(
 						</select>
 
 						<div>
-						<input class='btn btn-primary' type="submit" value="delete" />
+						<input class='btn btn-primary' type="submit" value="<?php echo Lang::get('crud_delete') ?>" />
 						</div>
 
 						</form>

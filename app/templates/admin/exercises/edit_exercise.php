@@ -55,7 +55,7 @@ $dni = array(
     <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <h1>Edit  Exercise</h1>
+                    <h1><?php echo Lang::get('exercises_editheader') ?></h1>
                     <form action="<?php echo $app->urlFor('admin.exercises.update'); ?>" method="POST">
                         
                         <select class='form-control' value="id" name="id">
@@ -111,7 +111,7 @@ $dni = array(
                     <!-- <ul> -->         
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Subjects</label>
+                               <label ><?php echo Lang::get('common_subject') ?></label>
 
                                 <select class='form-control' name="subject_id" />
 
@@ -128,20 +128,20 @@ $dni = array(
 
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Start time</label> 
+                               <label ><?php echo Lang::get('common_start') ?></label> 
                                <input id="timepicker1" class='form-control' type="text" name="start_time" />
     
                                 </div>
                                <!-- </li> -->
                            <!--  <li> -->
                            <div class="form-group">
-                               <label >End time</label> 
+                               <label ><?php echo Lang::get('common_end') ?></label> 
                                 <input id="timepicker2" class='form-control' type="text" name="end_time" />
                             </div><!-- </li> -->
                             
                            <!--  <li> -->
                            <div class="form-group">
-                              <label >Teacher</label> 
+                              <label ><?php echo Lang::get('common_teacher') ?></label> 
                                 <select class='form-control' name="user_id" />
 
                                 <?php foreach($users as $user): ?>
@@ -156,7 +156,7 @@ $dni = array(
 
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Room</label>
+                               <label ><?php echo Lang::get('common_room') ?></label>
                              
 
                                     <select class='form-control' name="room_id" />
@@ -174,18 +174,18 @@ $dni = array(
 
                             <!--  <li> -->
                             <div class="form-group">
-                               <label >Day</label>
+                               <label ><?php echo Lang::get('common_day') ?></label>
 
                                 <select class='form-control' name="day" />
 
                                 
-                                    <option value="0">Mon</option>
-                                    <option value="1">Tue</option>
-                                    <option value="2">Wed</option>
-                                    <option value="3">Thu</option>
-                                    <option value="4">Fri</option>
-                                    <option value="5">Sat</option>
-                                    <option value="6">Sun</option>
+                                    <option value="0">Pondelok</option>
+                                    <option value="1">Utorok</option>
+                                    <option value="2">Streda</option>
+                                    <option value="3">Štvrtok</option>
+                                    <option value="4">Piatok</option>
+                                    <option value="5">Sobota</option>
+                                    <option value="6">Nedeľa</option>
                                
 
                                 </select>
@@ -195,7 +195,7 @@ $dni = array(
                              
 
                     <!-- </ul> -->
-                        <input class='btn btn-primary' type="submit" value="Add" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_edit') ?>" />
                     </form> 
                     
                     

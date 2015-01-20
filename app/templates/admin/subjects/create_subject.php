@@ -24,7 +24,7 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
     <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h1>Create Subject</h1> 
+                    <h1><?php echo Lang::get('subjects_createheader') ?></h1> 
 
                     <form action="<?php echo $app->urlFor('admin.subjects.store'); ?>" method="POST">
                         
@@ -34,20 +34,20 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
                             <li>Name <input type="text" name="name" /></li>
                             <li>Acronym <input type="text" name="acronym" /></li> -->
                             <div class="form-group">
-                               <label >Code</label>
+                               <label ><?php echo Lang::get('common_code') ?></label>
                                <input type="text" class="form-control" name="code"/>
                              </div>
                              <div class="form-group">
-                                <label >Name</label>
+                                <label ><?php echo Lang::get('common_name') ?></label>
                                 <input type="text" class="form-control" name="name"/>
                               </div>
                               <div class="form-group">
-                                 <label >Acronym</label>
+                                 <label ><?php echo Lang::get('common_acronym') ?></label>
                                  <input type="text" class="form-control" name="acronym"/>
                                </div>
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Lecture duration</label>
+                               <label ><?php echo Lang::get('lectures_lectureduration') ?></label>
 
                                     <select class='form-control' name="lecture_duration">
                                         <option value="1">1</option>
@@ -60,7 +60,7 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
                                 <!-- </li> -->
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Exercise duration</label>
+                               <label ><?php echo Lang::get('lectures_exerciseduration') ?></label>
                             
 
 
@@ -78,12 +78,12 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
                             <!-- </li> -->
                             <!-- <li> --> <!-- <input type="text" name="color" /> --><!-- </li> -->
                                 <div class="form-group">
-                                   <label >Color</label>
+                                   <label ><?php echo Lang::get('lectures_color') ?></label>
                                    <input type="color" class="form-control" name="color"/>
                                  </div>
                             <!-- <li> -->
                             <div class="form-group">
-                               <label >Term</label>
+                               <label ><?php echo Lang::get('lectures_term') ?></label>
 
                                     <select class='form-control' name="term">
                                         
@@ -97,7 +97,7 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
                             <!-- </li> -->
 
                     <!-- </ul> -->
-                        <input class='btn btn-primary' type="submit" value="Add" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_add') ?>" />
                     </form>
                     
                     

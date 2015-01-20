@@ -29,7 +29,7 @@ $lectures = $db->get('lectures');
     <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1>Delete Lecture</h1> 
+                    <h1><?php echo Lang::get('lectures_deleteheader') ?></h1> 
 
                     <form action="<?php echo $app->urlFor('admin.lectures.remove'); ?>" method="POST">
                         
@@ -80,7 +80,7 @@ $lectures = $db->get('lectures');
 
                                 </select>
 
-                        <input class='btn btn-primary' type="submit" value="delete" />
+                        <input class='btn btn-primary' type="submit" value="<?php echo Lang::get('common_delete') ?>" />
                     </form>
                     
                     

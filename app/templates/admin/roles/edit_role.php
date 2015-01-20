@@ -25,8 +25,8 @@ $roles = $db->get('roles');
 	<div class="container">
 			<div class="row">
 				<div class="col-md-3">
-					<h1>Edit Role</h1>
-					<p>Select Role to edit</p>
+					<h1><?php echo Lang::get('roles_editheader') ?></h1>
+					<label><?php echo Lang::get('common_role') ?></label>
 					<form action="<?php echo $app->urlFor('admin.roles.update') ?>" method="POST">
 					<select class="form-control" value="id" name="id">
 					<?php foreach($roles as $role): ?>
@@ -50,30 +50,30 @@ $roles = $db->get('roles');
 				            <li>Can delete: <input type="checkbox" name="delete"> </li> -->
                                 <div class="form-group">
 
-				               <label >Name</label>
+				               <label ><?php echo Lang::get('common_name') ?></label>
 				               <input type="text" class="form-control" name="name"/>
 				             </div>
 				            <div class="form-group">
-				               <label >Can create:</label>
+				               <label ><?php echo Lang::get('roles_cancreate') ?></label>
 				               <input type="checkbox"  name="create"/>
 				             </div>
 				             <div class="form-group">
-				               <label >Can read:</label>
+				               <label ><?php echo Lang::get('roles_canread') ?></label>
 				               <input type="checkbox"  name="read"/>
 				             </div>
 				             <div class="form-group">
-				               <label >Can update:</label>
+				               <label ><?php echo Lang::get('roles_canupdate') ?></label>
 				               <input type="checkbox"  name="update"/>
 				             </div>
 				             <div class="form-group">
-				               <label >Can delete:</label>
+				               <label ><?php echo Lang::get('roles_candelete') ?></label>
 				               <input type="checkbox"  name="delete"/>
 				             </div>
 
 				    <!-- </ul> -->
 
 
-					<input class="btn btn-primary" type="submit" value="Edit" />
+					<input class="btn btn-primary" type="submit" value="<?php echo Lang::get('common_edit') ?>" />
 					</form>
 					
 					

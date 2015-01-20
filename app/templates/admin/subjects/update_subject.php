@@ -1,4 +1,5 @@
 <?php
+use IIA\Lang\Lang as Lang;
 $credentials = $app->config('db');
 $db = new MysqliDb($credentials['host'], $credentials['username'],
             $credentials['password'], $credentials['dbName']);
@@ -9,7 +10,7 @@ $db = new MysqliDb($credentials['host'], $credentials['username'],
 	$id = $_POST['id'];
 
 
-$data = ["code" => $_POST['code'], "name" => $_POST['newname'],"acronym" => $_POST['acronym'],
+$data = ["code" => $_POST['code'], "name" => $_POST['name'],"acronym" => $_POST['acronym'],
 	"lecture_duration" => (int)$_POST['lecture_duration'],"exercise_duration" => (int)$_POST['exercise_duration'],
 	"color" => $_POST['color'],"term" => $_POST['term']];
 
@@ -19,6 +20,16 @@ $data = ["code" => $_POST['code'], "name" => $_POST['newname'],"acronym" => $_PO
 
 $db->where ('id', $id);
 
-$db->update ('subjects', $data);
+
+if($db->update ('subjects', $data)) {
+    $message = Lang::get('messages_crud-e-success');
+} else {
+    $message = Lang::get('messages_crud-e-fail');
+}
+
+
+$app->flash('message',$message);
+$app->redirect($app->urlFor('admin.subjects'));
+
 
 ?>
